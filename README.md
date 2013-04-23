@@ -1,6 +1,6 @@
 # ProferoTech.com
 
-This is the public repo for ProferoTech.com, a website dedicated to promoting Profero's technical capabilities. Despite being open sourced, all content remains copyright of Profero.
+This is the public repo for ProferoTech.com, a website dedicated to promoting Profero's technical capabilities. It's hosted right here on github. Despite being open sourced, all content remains copyright of Profero.
 
 &copy; 2013 Profero
 
