@@ -7,14 +7,21 @@ This is the public repo for ProferoTech.com, a website dedicated to promoting Pr
 [www.profero.com](http://www.profero.com)
 
 ---
+
 [http://proferotech.com](http://proferotech.com)
+
 Blog: [http://proferotech.com/blog](http://proferotech.com/blog/)
+
 Blog Archive: [http://proferotech.com/blog/archive/](http://proferotech.com/blog/archive/)
 
-(if you want to take part in comments on the blog you'll need to send me your Twitter account details as I'm using (branch)[http://www.branch.com] for comments)
+if you want to take part in comments on the blog you'll need to send me your Twitter account details as I'm using (branch)[http://www.branch.com] for comments
+
 ---
+
 Jobs Feed: [http://proferotech.com/feed/](http://proferotech.com/feed/)
+
 Blog Feed: [http://proferotech.com/blog/feed/](http://proferotech.com/blog/feed/)
+
 ---
 
 ## Tech Specs
