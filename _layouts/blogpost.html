@@ -1,0 +1,21 @@
+---
+layout: blog_index
+page-class: blog-post
+---
+
+<article class="post">
+	
+	<h1>{{ page.title }}</h1>
+	
+	{{ content }}
+	
+	{% if page.branch-url %}
+	<script async src="http://embed-script.branch.com/assets/embed/embed.m.js?body=0" data-branch-embedid="{{ page.branch-id }}" ></script>
+	<noscript>
+		<p>
+			<a href="{{ page.branch-url }}" class="branch-link" title="Opens in a new window" target="_blank">Discuss this article on Branch…</a>
+		</p>
+	</noscript>
+	{% endif %}
+	
+</article>

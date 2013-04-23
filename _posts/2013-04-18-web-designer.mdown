@@ -1,0 +1,71 @@
+---
+date: 2013-04-18 14:22:02
+layout: job
+slug: web-designer
+language: english
+title: Web Designer
+short-description: Someone who longs to produce the smartest and most visually stunning web pages and applications in the world, and who can build basic prototypes in HTML and CSS
+categories:
+- job
+---
+
+## Job Title:
+Web Designer
+
+## Location:
+Beijing
+
+## Position:
+Full-time
+
+##Job Description: 
+Working as part of a team, the Web Designer will create wireframes, design comps, and interactive prototypes based on the specific requirements of each project. Our web designers are passionate about user experience and user interface design and will be involved in controlling this aspect of the project throughout its lifecycle. In addition, this is someone who longs to produce the smartest and most visually stunning web pages and applications in the world.
+
+## Areas of Responsibility:
+* Report to Creative Manager
+* Think carefully about user experience and user interface design
+* Create wireframes
+* Design and develop interactive prototypes as well as static mockups
+* Provide general support for multimedia content (including images and video)
+* Coordinate with project team members and the rest of the creative team to understand the client’s requirements and brainstorm ideas
+* Be responsible for testing and optimising own projects
+* Continue to learn about new tools, technologies and techniques used for web design
+* Deliver projects on time
+* Deliver projects to a high level of quality
+* Document the design process
+* Communicate design decisions effectively
+
+## Required Education:
+* Graphic Design, Multimedia, Interactive Design, or Computing background, or any degree in a related area (Degree not essential if skills/experience can be proven)
+
+## Required Experience:
+* Minimum 2 years of web design and development experience
+
+## Required Skills:
+* Adobe Creative Suite, especially Fireworks/Reflow
+* Wireframing
+* Good understanding of colour theory
+* Great typography knowledge and skills
+* UI design ability and an understanding of human-computer interaction
+* Problem solving
+* Ability to learn quickly and adapt to new technologies and skill requirements
+* Image cropping and manipulation, optimisation for the web
+* Strong understanding of front-end web technologies and their capabilities and limitations
+* Strong understanding of best practice web design – accessibility and usability
+* Strong awareness of mobile and responsive design
+
+## Desired Skills and Experience:
+* Experience developing web-based products using HTML, CSS, and JavaScript
+* Experience using front-end frameworks such as Twitter bootstrap for prototyping
+* Experience using version control (especially GitHub) and issue-tracking
+* Experience working with multimedia
+* Animation skills (After Effects, 3D Max, Flash etc.) are a bonus!
+
+## Application Instructions:
+* Please bring/submit portfolio/personal website
+
+## Company Profile:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+
+---
+APPLY HERE: [tech@profero.com]("mailto:tech@profero.com?subject=Applying%20for%20position%3A%20Web%20Designer")

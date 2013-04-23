@@ -1,0 +1,729 @@
+@import "import/bootstrap"
+@import "import/responsive"
+@import "import/_variables"
+@import "import/_mixins"
+@import "import/_misc"
+@import "import/sidr"
+
+body
+	-webkit-font-smoothing 		antialiased
+
+.logo
+
+	a
+		display 				block
+		float 					left
+		max-width 				100%
+
+		@media print
+			&:after,
+			&:before
+				display 		none
+
+		.home &
+			cursor 				default
+
+	img
+		max-height 				$gridGutterWidth * 2
+		padding 				$gridGutterWidth 0
+		width 					auto
+
+		@media $mobile
+			height 				auto
+			max-height 			none
+			max-width 			60%
+
+.menu
+	@extend ul.unstyled
+	@extend ul.inline
+	@extend .pull-right
+	margin 						0
+
+	a,
+	.button
+		font-family 			"Helvetica Neue", Helvetica, Arial, sans-serif
+		&:active,
+		&:focus,
+		&:hover
+			color 				$black
+
+	a
+		color 					$gray
+		display 				block
+		line-height 			$gridGutterWidth * 2
+		padding 				$gridGutterWidth divideByTwo($gridGutterWidth)
+
+.button
+	background 					none
+	border 						1px solid $grayLighter
+	-webkit-border-radius $baseBorderRadius
+	-moz-border-radius $baseBorderRadius
+	border-radius $baseBorderRadius
+	color 						$grayLight
+	margin-top 					-2px
+	padding 					divideByTwo($gridGutterWidth)
+
+	@media print
+		display 				none
+
+	&:active,
+	&:focus,
+	&:hover
+		background 				transparent
+		border 					1px solid #aaa
+		color 					$black
+		text-decoration 		none
+		-webkit-transition all 0.3s ease-in-out
+		-moz-transition all 0.3s ease-in-out
+		-ms-transition all 0.3s ease-in-out
+		-o-transition all 0.3s ease-in-out
+		transition all 0.3s ease-in-out
+
+.toggle-menu
+	color 						$grayLight
+	position 					absolute
+	right 						$gridGutterWidth
+	top 						$gridGutterWidth
+	width 						19px
+
+	@media print
+		display 				none !important
+
+	.icon::before
+		margin-bottom 			-2px
+
+.headers
+	padding 					$gridGutterWidth*2 0
+	@media $mobile
+		text-align 				center
+
+header
+	h1
+		color 					#444
+		font-size 				3.5em
+		margin 					0
+
+		@media $mobile
+			font-size 			2.5em
+	
+	h2
+		color 					#888
+		font-size 				2em
+		line-height 			2
+		margin 					0
+
+		@media $mobile
+			font-size 			$baseFontSize * 1.75
+			line-height 		1.1
+			margin 				divideByTwo($gridGutterWidth) 0
+
+header,
+section,
+.page-footer
+	@extend .container-fluid
+
+.btn-large
+	-webkit-border-radius $baseBorderRadius
+	-moz-border-radius $baseBorderRadius
+	border-radius $baseBorderRadius
+
+.btn-primary, .btn-secondary
+	border 						none
+	-webkit-box-shadow none
+	-moz-box-shadow none
+	box-shadow none
+	color 						$black
+	display 					block
+	margin 						0 auto
+	text-shadow 				none
+	text-transform 				uppercase
+	width 						200px
+
+	&:active,
+	&:focus,
+	&:hover
+		-webkit-transition all 0.3s ease-in-out
+		-moz-transition all 0.3s ease-in-out
+		-ms-transition all 0.3s ease-in-out
+		-o-transition all 0.3s ease-in-out
+		transition all 0.3s ease-in-out
+
+	@media $mobile
+		margin-top 				$gridGutterWidth
+
+.btn-primary
+	background 					lighten($proferoYellow,30%)
+
+.btn-secondary
+	background 					$white
+	display 					inline-block
+	margin-left 				$gridGutterWidth
+
+	&:active,
+	&:focus,
+	&:hover
+		background 				$black
+		color 					$white
+
+section, .page-footer
+	text-align 					center
+
+#portfolio
+	background 					#eee url(../images/bg.jpg) no-repeat 0 0
+	-webkit-background-size cover
+	background-size cover
+	min-height 					500px
+	opacity 					100
+	padding 					0
+	-webkit-transition 1.5s all ease-out
+	-moz-transition 1.5s all ease-out
+	-ms-transition 1.5s all ease-out
+	-o-transition 1.5s all ease-out
+	transition 1.5s all ease-out
+
+	@media print
+		display 				none
+
+	.banner
+		background 				rgba(255,255,255,0.3)
+		margin 					-0.5*$gridGutterWidth 0 $gridGutterWidth 0
+		padding 				$gridGutterWidth
+
+	&.fadeOut
+		opacity 				0
+		-webkit-transition 1.5s all ease-out
+		-moz-transition 1.5s all ease-out
+		-ms-transition 1.5s all ease-out
+		-o-transition 1.5s all ease-out
+		transition 1.5s all ease-out
+
+.portfolio-items
+	padding-bottom 				$gridGutterWidth
+
+.portfolio-items ul,
+.portfolio-items li
+	margin 						0
+	padding 					0
+
+
+.portfolio-item
+	background 					transparent url(../images/work-sprite.jpg) no-repeat 0 0
+	background-size 			cover
+	-webkit-border-radius 50%
+	-moz-border-radius 50%
+	border-radius 50%
+	-webkit-box-shadow inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1)
+	-moz-box-shadow inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1)
+	box-shadow inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1)
+	height 						100%
+	margin-bottom 				$gridGutterWidth
+	overflow 					hidden
+	position 					relative
+	-webkit-transition box-shadow 0.2s ease-in-out
+	-moz-transition box-shadow 0.2s ease-in-out
+	-ms-transition box-shadow 0.2s ease-in-out
+	-o-transition box-shadow 0.2s ease-in-out
+	transition box-shadow 0.2s ease-in-out
+	width 						100%
+
+	a
+		-webkit-border-radius 50%
+		-moz-border-radius 50%
+		border-radius 50%
+		display 				block
+		height 					100%
+		left 					0
+		position 				absolute
+		top 					0
+		width 					100%
+
+	.info
+		background 				rgba(0,0,0,0.8)
+		-webkit-border-radius 50%
+		-moz-border-radius 50%
+		border-radius 50%
+		color 					white
+		height 					inherit
+		overflow 				hidden
+		opacity 				0
+		position 				absolute
+		text-align 				center
+		-webkit-transform scale(0,0)
+		-moz-transform scale(0,0)
+		-ms-transform scale(0,0)
+		-o-transform scale(0,0)
+		transform scale(0,0)
+		-webkit-transition all 0.4s ease-in-out
+		-moz-transition all 0.4s ease-in-out
+		-ms-transition all 0.4s ease-in-out
+		-o-transition all 0.4s ease-in-out
+		transition all 0.4s ease-in-out
+		width 					inherit
+
+	h3
+		color 					$white
+		font-size 				1.6em
+		margin-top 				$gridGutterWidth*2.5
+		@media $mobile
+			font-size 			2em
+			margin-top 			$gridGutterWidth*5
+
+	p
+		color 					$grayLighter
+		font-size 				1.2em
+		@media $mobile
+			font-size 			1.6em
+
+.portfolio-item:hover
+	-webkit-box-shadow inset 0 0 0 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1)
+	-moz-box-shadow inset 0 0 0 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1)
+	box-shadow inset 0 0 0 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1)
+
+.portfolio-item:hover .info
+	opacity 					100
+	-webkit-transform scale(1,1)
+	-moz-transform scale(1,1)
+	-ms-transform scale(1,1)
+	-o-transform scale(1,1)
+	transform scale(1,1)
+
+#portfolio-item
+
+	background 					#f9f9f9
+	padding 					$gridGutterWidth 0
+	position 					relative
+
+	h2 {
+		color 					darken($proferoYellow, 30%)
+		font-size 				2.5em
+		line-height 			1
+		margin 					$gridGutterWidth 0 0 0
+	}
+
+	h3 {
+		font-size: 				1.6em
+		margin: 				0 auto $gridGutterWidth*2 0
+	}
+
+	.span5
+		text-align 				left
+
+	h4
+		font-size 				1.4em
+
+	p
+		font-size 				1.1em
+		line-height 			1.6
+		margin-bottom 			$gridGutterWidth*2
+
+	ul
+		margin-bottom 			$gridGutterWidth
+
+	.back
+		display 				block
+		left 					$gridGutterWidth
+		position 				absolute
+		text-align 				left
+		text-align 				center
+		top 					$gridGutterWidth
+		width 					60px
+
+		@media $mobile
+			left 				0
+			margin 				0 auto $gridGutterWidth auto
+			position 			relative
+			top 				0
+
+	.carousel-inner
+
+		& > .item
+			-webkit-transition 	.6s ease-in-out left
+			-moz-transition 	.6s ease-in-out left
+			-ms-transition 		.6s ease-in-out left
+			-o-transition 		.6s ease-in-out left
+			transition 			.6s ease-in-out left
+
+			&.active
+				-webkit-transition 	.6s ease-in-out left
+				-moz-transition 	.6s ease-in-out left
+				-ms-transition 		.6s ease-in-out left
+				-o-transition 		.6s ease-in-out left
+				transition 			.6s ease-in-out left
+
+	.carousel-control
+		background 				$white
+		border 					none
+		-webkit-border-radius  	$gridGutterWidth*1.25
+		-moz-border-radius 		$gridGutterWidth*1.25
+		border-radius 			$gridGutterWidth*1.25
+		color 					$black
+		font-size 				40px
+		height 					$gridGutterWidth*2.5
+		line-height 			53px
+		margin-top 				0
+		width 					$gridGutterWidth*2.5
+
+		@media $mobile
+			display 			none
+
+		&.left > span
+			margin-right 		7px
+
+		&.right > span
+			margin-left 		7px
+
+#testimonials
+	
+	h2
+		line-height 			1
+		margin 					$gridGutterWidth*2 0 0 0
+		color 					darken($proferoYellow, 30%)
+
+	h3
+		line-height 			1.3
+		margin 					$gridGutterWidth/2 0 $gridGutterWidth 0
+
+.testimonials
+	margin 						$gridGutterWidth*2 auto
+	max-width 					900px
+	//min-height 					200px
+	overflow 					hidden
+	width 						100%
+	position 					relative
+
+	@media print
+		overflow 				visible !important
+
+	.testimonial
+		border-top 				1px solid #f4f4f4
+		opacity 				0
+		padding 				$gridGutterWidth 0
+		position 				absolute
+		text-align 				left
+		top 					0
+		width 					100%
+		z-index 				0
+
+		@media print
+			border 				none !important
+			clear 				both !important
+			display 			block !important
+			opacity 			1 !important
+			position 			relative !important
+			top 				auto !important
+	
+		.client-logo
+			background 			url(../images/client-logo-sprite.gif) no-repeat
+			background-position 0 0
+			background-size 	400%
+			float 				right
+			height 				180px
+			margin 				0 $gridGutterWidth
+			overflow 			hidden
+			width 				180px
+			@media $mobile
+				height 			90px
+				width 			90px
+
+			&.diageo
+				background-position 0 0
+
+			&.catalent
+				background-position -180px 0
+				@media $mobile
+					background-position -90px 0
+
+			&.lufthansa
+				background-position -360px 0
+				@media $mobile
+					background-position -180px 0
+
+			&.smirnoff
+				background-position -540px 0
+				@media $mobile
+					background-position -270px 0
+
+			&.unilever
+				background-position 0 -180px
+				@media $mobile
+					background-position 0 -90px
+
+			&.westernunion
+				background-position -180px -180px
+				@media $mobile
+					background-position -90px -90px
+
+			&.baileys
+				background-position -360px -180px
+				@media $mobile
+					background-position -180px -90px
+
+			&.pizzahut
+				background-position -540px -180px
+				@media $mobile
+					background-position -270px -90px
+	
+		&.current
+			opacity 			100
+			pointer-events 		auto
+			position 			relative
+			z-index 			100
+	
+		&:before,
+		&:after
+			content 			""
+			display 			table
+	
+		&:after
+			clear 				both
+
+.progress
+	background 					$proferoYellow
+	height 						1px
+	left 						0
+	position 					absolute
+	top 						0
+	width 						0%
+	z-index 					1000
+
+	@media print
+		display 				none
+
+blockquote
+	border-left 				0
+	margin 						0
+	padding 					0
+
+	p
+		color 					#888
+		font-size 				2em
+		margin 					0.4em 0 1em
+
+		@media $mobile
+			font-size 			1.5em
+
+	footer
+		font-size 				75%
+		font-weight 			bold
+		text-transform 			uppercase
+
+	span
+		color 					darken($proferoYellow, 30%)
+
+#contact
+	background 					$proferoYellow
+	padding 					divideByTwo($gridGutterWidth) 0
+	
+	@media $mobile
+		padding 				$gridGutterWidth 0
+
+	@media print
+		display 				none
+
+.map
+	position 					relative
+
+.map-container
+	height 						100%
+	left 						0
+	position 					absolute
+	top 						0
+	width 						100%
+	z-index 					1
+
+	@media print
+		page-break-before 		always
+		position 				relative
+
+.contact-details
+	background 					rgba(0,0,0,0.5)
+	height 						100%
+	overflow 					hidden
+	padding						$gridGutterWidth*3 0
+	position 					relative
+	text-align 					center
+	width 						100%
+	z-index 					2
+
+	@media print
+		background 				none
+		position 				relative !important
+		top 					auto
+
+	h1
+		color 					$white
+
+	h2
+		color 					$grayLighter
+		@media $mobile
+			line-height 		1
+
+.row-fluid .offset2
+	@media $mobile
+		margin-left 			0 !important
+
+.contact-method
+	background 					$grayDarker
+	-webkit-border-radius 40px
+	-moz-border-radius 40px
+	border-radius 40px
+	color 						$gray
+	display 					inline-block
+	height 						80px
+	line-height 				80px
+	margin 						$gridGutterWidth divideByTwo($gridGutterWidth)
+	-webkit-transition 0.3s all ease-in-out
+	-moz-transition 0.3s all ease-in-out
+	-ms-transition 0.3s all ease-in-out
+	-o-transition 0.3s all ease-in-out
+	transition 0.3s all ease-in-out
+	width 						80px
+
+	@media print
+		display 				none
+
+	.icon
+		font-size 				2em
+
+	&:active,
+	&:focus,
+	&:hover
+		color 					$white
+		text-decoration 		none
+		-webkit-transition 0.3s all ease-in-out
+		-moz-transition 0.3s all ease-in-out
+		-ms-transition 0.3s all ease-in-out
+		-o-transition 0.3s all ease-in-out
+		transition 0.3s all ease-in-out
+
+
+.address
+	background 					rgba(255,255,255,0.75)
+	-webkit-border-radius $baseBorderRadius
+	-moz-border-radius $baseBorderRadius
+	border-radius $baseBorderRadius
+	padding 					$gridGutterWidth
+
+.page-footer
+	background 					$grayDarker
+	color 						$grayLight
+	font-family 				"Helvetica Neue", Helvetica, Arial, sans-serif
+	font-size 					85%
+	height 						$gridGutterWidth*2
+	line-height 				$gridGutterWidth*2
+	text-shadow 				0 1px 1px rgba(0,0,0,0.75)
+
+	a
+		color 					$grayLight
+		text-decoration 		underline
+
+		&:active,
+		&:focus,
+		&:hover
+			color 				$white
+			text-decoration 	none
+
+.language-toggle
+	display 					inline-block
+	line-height 				1.6
+	margin-left 				$gridGutterWidth
+	opacity 					50
+	padding-left 				$gridGutterWidth*2
+
+	&.hide
+		display 				none
+
+	&:active,
+	&:focus,
+	&:hover {
+		opacity 				100
+	}
+
+	&.chinese
+		background 				url(unquote('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAAACXBIWXMAAC4jAAAuIwF4pT92AAABOWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZGxSsNQFIa/G0XFoVYI4uBwJ1FQbNXBjElbiiBYq0OSrUlDldIk3NyqfQhHtw4u7j6Bk6PgoPgEvoHi1MEhSHASwW/6zs/hcOAHo2LXnYZRhkGsVbvpSNfz5ewTM0wBQCfMUrvVOgCIkzjiJwI+XxEAz5t23WnwN+bDVGlgAmx3oywEUQH6FzrVIMaAGfRTDeIOMNVJuwbiASj1cn8BSkHub0BJuZ4P4gMwe67ngzEHmEHuK4Cpo0sNUEvSkTrrnWpZtSxL2t0kiOTxKNPRIJP7cZioNFEdHXWB/D8AFvPFdtORa1XL2lvnn3E9X+b2foQAxNJjkRWEQ3X+3YWx8/tc3Bgvw+EtTE+KbPcKbjZg4brIVqtQ3oL78RfCs0/+HAmzJwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAABlUlEQVR42uyWsWoUURSGv//M3TWKuLiVCNZCbCzsYhGwUix9ACFvIoKdteQxLCzE0s4nUFKtTQQLt9hNdnbvORZ3JsmIguDVWOQvZk4x3P+7579nuJrZdAbcAub0CkAMFC5EgFFLE+Bz6grOvIf+DhikZy3+tsHfN8iiGoR1fuXpwM3AHnqp/ZRI246mHVqoFkDYyS6vBoGwu0F60RKotOFKAVg/2SK/TjR7LbaTwetAdIkK3QhGb45J+yt02xkfHJFermHZfxEIsEcZ7jm1QtDMpt9wJiDswYbRu2OEkz+MWO9uwVLQZx4QCImT5P5Q89T3IRxiIfxjA4cJNhDL7uRzeh6anUx8EXGgKhMxWELXg83emNXuZfKrhN3JZ+ahhNA8b7HHuQukVgT9CEpELlYhlXHLBVPbDocijjrjBTU6MB8u4VFMrUCUtgvGkPZbdN+JhWqZA5CG/fhJHQEr2Dy9RHyt/jf8AeBXpyQgPhmorvnvAfTdUPA3ZJyzLgAuAP4LAJ2jv1J3F7w2uBP+G02A+fcBAI4njTwN0jRgAAAAAElFTkSuQmCC')) no-repeat 0 0
+
+	&.english
+		background 				url(unquote('data:image/png;base64,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')) no-repeat 0 0
+
+.modal
+	-webkit-border-radius $baseBorderRadius
+	-moz-border-radius $baseBorderRadius
+	border-radius $baseBorderRadius
+	font-family 				"Helvetica Neue", Helvetica, Arial, sans-serif
+	line-height 				1.5
+
+	@media print
+		display 				none
+	
+	h3
+		font-size 				2em
+
+	.button
+		text-shadow 			none
+		-webkit-box-shadow none
+		-moz-box-shadow none
+		box-shadow none
+
+.modal-body
+
+	td:first-of-type
+		width 					70%
+
+	.button
+		display 				block
+		margin 					divideByTwo($gridGutterWidth) 0
+
+	@media $mobile
+		max-height 				250px
+
+.button[href="mailto:tech@profero.com"]
+	display 					block
+	font-family 				"PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+	text-transform 				none
+
+	&:active,
+	&:focus,
+	&:hover
+		background 				$black
+		border 					none
+		color 					$white
+
+#jobs
+	margin-left 				-400px
+	width 						800px
+
+	@media $mobile
+		margin-left 			0
+		width 					auto
+
+	h4
+		font-size 				85%
+		font-weight 			bold
+		text-transform 			uppercase
+
+		small
+			text-transform 		none
+
+	.btn
+		margin-bottom 			divideByTwo($gridGutterWidth)
+		text-align 				left
+
+#menu-content
+	display 					none
+
+.job-description
+	background 					#f9f9f9
+
+	body
+		background 				#f9f9f9		
+		line-height 			1.7
+		padding 				$gridGutterWidth*2
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	a
+		color 					darken($proferoYellow,30%)

@@ -1,0 +1,10 @@
+TEAM
+
+    Darryl Snow -- Studio Lead -- @Profero-China
+
+
+SITE
+
+    HTML
+    CSS
+    JavaScript

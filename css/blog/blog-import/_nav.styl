@@ -1,0 +1,36 @@
+.pagination
+	text-align 				center
+
+.nav
+	list-style 				none
+	line-height 			64px
+	margin-bottom 			0
+	margin-left 			0
+	padding-left 			0
+	media-query(desk)
+		line-height 		128px
+	
+	> li
+		margin-left 		$half-spacing-unit
+		padding 			$half-spacing-unit
+		media-query(desk)
+			margin-left 	$base-spacing-unit
+
+		&,
+		> a
+			display 		inline-block
+			*display 		inline
+			zoom 			1
+
+	a
+		font-weight 		700
+		margin 				$half-spacing-unit
+		padding 			0 $half-spacing-unit
+		text-decoration 	none
+
+		&:hover
+			color 			$brand-color
+			text-decoration underline
+
+.disabled
+	opacity 				0.5
