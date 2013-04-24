@@ -4,10 +4,12 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		stylus: {
-			files: {
-				'css/styles.css': 'css/styles.styl',
-				'css/ie.css': ['css/ie.styl'],
-				'css/blog/blog-styles.css': ['css/blog-styles.styl']
+			compile: {
+				expand: true,
+				cwd: 'css/',
+				src: ['styles.styl', 'ie.styl', 'blog/blog-styles.styl'],
+				dest: 'css/',
+				ext: '.css'
 			}
 		},
 		concat: {
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
 			minify: {
 				expand: true,
 				cwd: 'css/',
-				src: ['styles.css', '**/blog-styles.css'],
+				src: ['styles.css', 'blog/blog-styles.css'],
 				dest: 'css/',
 				ext: '.min.css'
 			}
@@ -35,7 +37,7 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ["css/styles.styl", "css/ie.styl", "css/blog/blog-styles.styl", "javascript/!(main*).js"],
+			files: ["css/**/*.styl", "javascript/!(main*).js"],
 			tasks: ["stylus", "concat", "cssmin", "uglify"]
 		}
 	});
