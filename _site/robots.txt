@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: /css/import
-Disallow: *.styl
-Disallow: *.yml
+Disallow: /
