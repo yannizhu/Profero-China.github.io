@@ -76,7 +76,7 @@ To compile and watch stylus files during development, just do:
 grunt
 ```
 
-You can then preview the site at ("http://localhost:4000")["http://localhost:4000"] by doing:
+You can then preview the site at [http://localhost:4000](http://localhost:4000) by doing:
 
 ```
 jekyll --server
