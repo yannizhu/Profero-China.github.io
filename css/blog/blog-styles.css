@@ -15,6 +15,11 @@
   font-weight: 300;
   text-decoration: underline;
 }
+.page-footer a:active,
+.page-footer a:focus,
+.page-footer a:hover {
+  text-decoration: none;
+}
 .page-footer .wrapper {
   padding: 12px 0;
 }
