@@ -178,7 +178,6 @@ $("document").ready(function(){
             var _this = $(items[i]);
             var w = _this.width();
             var offset = (-i*w) + "px 0";
-            console.log(offset);
             _this.css({
                 "background-position":offset,
                 "height":w

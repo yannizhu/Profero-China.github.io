@@ -1,18 +1,27 @@
 # ProferoTech.com
 
-This is the public repo for ProferoTech.com, a website dedicated to promoting Profero's technical capabilities. Despite being open sourced, all content remains copyright of Profero.
+This is the public repo for ProferoTech.com, a website dedicated to promoting Profero's technical capabilities. It's hosted right here on github. Despite being open sourced, all content remains copyright of Profero.
 
 &copy; 2013 Profero
 
-["www.profero.com"]("http://www.profero.com")
+[www.profero.com](http://www.profero.com)
 
 ---
-["http://proferotech.com"]("http://proferotech.com")
-Blog: ["http://proferotech.com/blog"]("http://proferotech.com/blog/")
-Blog Archive: ["http://proferotech.com/blog/archive/"]("http://proferotech.com/blog/archive/")
+
+[http://proferotech.com](http://proferotech.com)
+
+Blog: [http://proferotech.com/blog](http://proferotech.com/blog/)
+
+Blog Archive: [http://proferotech.com/blog/archive/](http://proferotech.com/blog/archive/)
+
+if you want to take part in comments on the blog you'll need to send me your Twitter account details as I'm using (branch)[http://www.branch.com] for comments
+
 ---
-Jobs Feed: ["http://proferotech.com/feed/"]("http://proferotech.com/feed/")
-Blog Feed: ["http://proferotech.com/blog/feed/"]("http://proferotech.com/blog/feed/")
+
+Jobs Feed: [http://proferotech.com/feed/](http://proferotech.com/feed/)
+
+Blog Feed: [http://proferotech.com/blog/feed/](http://proferotech.com/blog/feed/)
+
 ---
 
 ## Tech Specs
@@ -24,7 +33,7 @@ The site is a single static page, generated using Jekyll. There are currently 2 
 * Modal windows
 * Generated content
 * HTML5 geolocation
-& HTML5 link & DNS prefetching
+* HTML5 link & DNS prefetching
 * Interactive Google map
 * Only 4 images used (=fast)
 * Only 6 external files loaded in total (=fast)
@@ -67,7 +76,7 @@ To compile and watch stylus files during development, just do:
 grunt
 ```
 
-You can then preview the site at ("http://localhost:4000")["http://localhost:4000"] by doing:
+You can then preview the site at [http://localhost:4000](http://localhost:4000) by doing:
 
 ```
 jekyll --server
