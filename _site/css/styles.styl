@@ -761,3 +761,44 @@ blockquote
 		font-size 				1.7em
 		line-height 			1.2
 		margin 					0
+
+#backtotop
+	background 					$black
+	background 					rgba(0,0,0,0.7)
+	-webkit-border-radius $gridGutterWidth
+	-moz-border-radius $gridGutterWidth
+	border-radius $gridGutterWidth
+	bottom 						$gridGutterWidth
+	color 						$white
+	display 					block
+	font-size 					1.4em
+	height 						$gridGutterWidth*2
+	line-height 				$gridGutterWidth*2
+	opacity 					0
+	position 					fixed
+	right 						$gridGutterWidth
+	text-align 					center
+	-webkit-transition 0.3s all ease-in-out
+	-moz-transition 0.3s all ease-in-out
+	-ms-transition 0.3s all ease-in-out
+	-o-transition 0.3s all ease-in-out
+	transition 0.3s all ease-in-out
+	width 						$gridGutterWidth*2
+	z-index 					5
+
+	&.shown
+		opacity 				30
+
+	.icon:before
+		margin-top 				-1px
+
+	&:active,
+	&:focus,
+	&:hover
+		opacity 				100
+		text-decoration 		none
+		-webkit-transition 0.3s all ease-in-out
+		-moz-transition 0.3s all ease-in-out
+		-ms-transition 0.3s all ease-in-out
+		-o-transition 0.3s all ease-in-out
+		transition 0.3s all ease-in-out

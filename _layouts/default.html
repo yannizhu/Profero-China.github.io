@@ -43,6 +43,68 @@
 		<link rel="apple-touch-icon-precomposed" href="/icon.png">
 		<link rel="apple-touch-icon-114x114-precomposed.png" href="/icon.png">
 		<meta name="apple-mobile-web-app-title" content="Profero Tech">
+			
+		<script type="text/x-jquery-tmpl" id="portfolioItemTemplate">
+
+			<li class="span3">
+						
+				<div class="portfolio-item ${slug}">
+					<div class="info">
+						<h3>${name}</h3>
+						<p>${category}</p>
+					</div>
+					<a href="${url}" data-slug="${slug}" title="Find out what we did for Western Union"></a>
+				</div>
+						
+			</li>
+
+		</script>
+
+		<script type="text/x-jquery-tmpl" id="portfolioExpandedTemplate">
+			
+			<div id="portfolio-item">
+			
+				<a href="/" class="back button" title="See other projects"><span class="icon icon-hand-left"></span>  back</a>
+			
+				<h2>${name}</h2>
+				<h3>${tagline}</h3>
+			
+				<div class="container-fluid">
+					<div class="row-fluid">
+					
+						<div class="span7">
+						
+							<div id="myCarousel" class="carousel slide">
+								<div class="carousel-inner">
+
+									{{each screenshot}}
+
+									<div class="item">
+										<img alt="${name} screenshot" src="${$value}">
+									</div>
+
+									{{/each}}
+
+								</div>
+								<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+									<span class="icon icon-large icon-chevron-left"></span>
+								</a>
+								<a class="carousel-control right" href="#myCarousel" data-slide="next">
+									<span class="icon icon-large icon-chevron-right"></span>
+								</a>
+							</div>
+						
+						</div>
+					
+						<div class="span5">
+							${description}
+						</div>
+
+					</div>
+				</div>
+			
+			</div>
+		</script>
  
 	</head>
 	<body>
@@ -292,6 +354,8 @@
 			</p>
 		</footer>
 		
+		<a id="backtotop" href="#top" title="Return to the top of the page"><span class="icon icon-large icon-caret-up"></span></a>
+		
 		<!-- Jobs Modal -->
 		<div id="jobs" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="jobs-modal-header" aria-hidden="true">
 			<div class="modal-header">
@@ -355,8 +419,15 @@
 		<script>window.jQuery || document.write('<script src="javascript/lib/jquery.min.js"><\/script>')</script>
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="/javascript/lib/bootstrap.min.js"></script>
-		<script src="/javascript/main.min.js"></script>
- 
+		<script src="/javascript/main.js"></script>
+<!--
+		<script src="/javascript/lib/json2.js"></script>
+		<script src="/javascript/lib/jquery.js"></script>
+		<script src="/javascript/lib/jquery.tmpl.js"></script>
+		<script src="/javascript/lib/spine.js"></script>
+		<script src="/javascript/lib/local.js"></script>
+		<script src="/javascript/lib/application.js"></script>
+-->
 		<script>
 			   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			   ga('create', 'UA-15576216-2', 'proferotech.com');

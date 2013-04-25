@@ -7689,3 +7689,59 @@ blockquote span {
   line-height: 1.2;
   margin: 0;
 }
+#backtotop {
+  background: #000;
+  background: rgba(0,0,0,0.7);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  bottom: 20px;
+  color: #fff;
+  display: block;
+  font-size: 1.4em;
+  height: 40px;
+  line-height: 40px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  width: 40px;
+  z-index: 5;
+}
+#backtotop.shown {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+#backtotop .icon:before {
+  margin-top: -1px;
+}
+#backtotop:active,
+#backtotop:focus,
+#backtotop:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}

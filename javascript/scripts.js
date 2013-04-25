@@ -146,7 +146,7 @@
 } )( jQuery, window );
 
 $("document").ready(function(){
-
+/*
     $(".portfolio-item a").click(function(e) {
         e.preventDefault();
         var t = $(this).attr("href");
@@ -154,7 +154,7 @@ $("document").ready(function(){
         var p = $("#portfolio");
         p.addClass("fadeOut");
         window.setTimeout(p.load(t, function() {
-            history.pushState(null, null, d);
+            //history.pushState(null, null, d);
             p.removeClass("fadeOut");
         }),1500);
         //return false;
@@ -165,12 +165,12 @@ $("document").ready(function(){
         var p = $("#portfolio");
         p.addClass("fadeOut");
         window.setTimeout(p.load("portfolio.html", function() {
-            history.pushState(null, null, "/");
+            //history.pushState(null, null, "/");
             p.removeClass("fadeOut");
         }), 1500);
         return false;
     });    
-
+*/
     function resizePortfolioItems() {
 
         var items = $(".portfolio-item").get();
@@ -287,6 +287,27 @@ $("document").ready(function(){
             });
         });
     }
+
+    $('#backtotop').click(
+        function (e) {
+            $('html, body').animate({scrollTop: '0px'}, 800);
+        }
+    );
+    $('.menu a').click(
+        function () {
+            var target = $(this).attr("href");
+            var pos = $(target).offset().top;
+            $('html, body').animate({scrollTop: pos}, 800);
+        }
+    );
+
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 150) {
+            $('#backtotop').addClass("shown");
+        } else {
+            $('#backtotop').removeClass("shown");
+        }
+    });
 
 });
 
