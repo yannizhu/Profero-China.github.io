@@ -48,11 +48,20 @@ The site is a single static page, generated using Jekyll. There are currently 2 
 
 #### Todo
 
-* Clean up Javascript, implement SpineJS (if possible... compatible with Jekyll?) to control portfolio section better and provide localisation.
 * Improve content
 * Offer Chinese version
 * Iterative design improvements
 * Implement unit tests
+
+#### For Content Maintainers
+
+To add or remove a jobs listing, just remove or commit new markdown documents in the ```_posts``` folder.
+
+To add or remove projects:
+* change the details in the ```projects.json``` file. The ```offset``` attribute is to denote which position in the work-sprite image the main screenshot for the project appears (positions from 0 to 7).
+* add create a folder inside images to add screenshots ```/images/project-name/```
+* update ```work-sprite.jpg``` and ```work-sprite-ie.jpg``` to include the main image for the project that will be displayed within the circle on the home page. Only 8 projects can be featured on the homepage without a code change.
+
 
 #### For Contributing Developers
 
