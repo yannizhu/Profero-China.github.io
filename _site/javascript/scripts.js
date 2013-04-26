@@ -145,45 +145,23 @@
  
 } )( jQuery, window );
 
-$("document").ready(function(){
-/*
-    $(".portfolio-item a").click(function(e) {
-        e.preventDefault();
-        var t = $(this).attr("href");
-        var d = $(this).data("slug");
-        var p = $("#portfolio");
-        p.addClass("fadeOut");
-        window.setTimeout(p.load(t, function() {
-            //history.pushState(null, null, d);
-            p.removeClass("fadeOut");
-        }),1500);
-        //return false;
-    });
+function resizePortfolioItems() {
 
-    $(".back").on("click", function(e) {
-        e.preventDefault();
-        var p = $("#portfolio");
-        p.addClass("fadeOut");
-        window.setTimeout(p.load("portfolio.html", function() {
-            //history.pushState(null, null, "/");
-            p.removeClass("fadeOut");
-        }), 1500);
-        return false;
-    });    
-*/
-    function resizePortfolioItems() {
-
-        var items = $(".portfolio-item").get();
-        for(i=0;i<items.length;i++) {
-            var _this = $(items[i]);
-            var w = _this.width();
-            var offset = (-i*w) + "px 0";
-            _this.css({
-                "background-position":offset,
-                "height":w
-            });
-        }
+    var items = $(".portfolio-item").get();
+    for(i=0;i<items.length;i++) {
+        var _this = $(items[i]);
+        var w = _this.width();
+        var o = _this.data("bgoffset");
+        var offset = (-o*w) + "px 0";
+        _this.css({
+            "background-position":offset,
+            "height":w
+        });
     }
+}
+
+$("document").ready(function(){
+
     resizePortfolioItems();
     $(window).resize(function(){
         resizePortfolioItems();

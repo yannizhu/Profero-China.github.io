@@ -143,116 +143,10 @@
 		
 		<section id="portfolio">
 			
-			<div class="banner">
-				<h2>just some of the work we're proud of</h2>
-			</div>
-			
-			<div class="container-fluid portfolio-items">
-					
-				<ul class="row-fluid">
-					
-					<li class="span3">
-						
-						<div class="portfolio-item westernunion">
-							<div class="info">
-								<h3>WESTERN UNION</h3>
-								<p>website build</p>
-							</div>
-							<a href="westernunion.html" data-slug="westernunion" title="Find out what we did for Western Union"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item omo">
-							<div class="info">
-								<h3>OMO</h3>
-								<p>campaign site</p>
-							</div>
-							<a href="omo.html" data-slug="omo" title="Find out what we did for OMO"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item blossomhill">
-							<div class="info">
-								<h3>BLOSSOM HILL</h3>
-								<p>facebook app</p>
-							</div>
-							<a href="blossomhill.html" data-slug="blossomhill" title="Find out what we did for Blossom Hill"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item smirnoff">
-							<div class="info">
-								<h3>SMIRNOFF</h3>
-								<p>website build</p>
-							</div>
-							<a href="smirnoff.html" data-slug="smirnoff" title="Find out what we did for Smirnoff"></a>
-						</div>
-						
-					</li>
-					
-				</ul>
-				
-				<ul class="row-fluid hiddenphone">
-					
-					<li class="span3">
-						
-						<div class="portfolio-item roadshow">
-							<div class="info">
-								<h3>ROADSHOW</h3>
-								<p>website build</p>
-							</div>
-							<a href="roadshow.html" data-slug="roadshow" title="Find out what we did for Roadshow"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item malts">
-							<div class="info">
-								<h3>MALTS</h3>
-								<p>website build</p>
-							</div>
-							<a href="malts.html" data-slug="malts" title="Find out what we did for Malts"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item catalent">
-							<div class="info">
-								<h3>CATALENT</h3>
-								<p>website build</p>
-							</div>
-							<a href="catalent.html" data-slug="catalent" title="Find out what we did for Catalent"></a>
-						</div>
-						
-					</li>
-					
-					<li class="span3">
-						
-						<div class="portfolio-item lufthansa">
-							<div class="info">
-								<h3>LUFTHANSA</h3>
-								<p>campaign site</p>
-							</div>
-							<a href="lufthansa.html" data-slug="lufthansa" title="Find out what we did for Lufthansa"></a>
-						</div>
-						
-					</li>
-					
-				</ul>
-				
+			<div data-ng-app="portfolio">
+    	
+				<div data-ng-view data-ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
+    
 			</div>
 			
 		</section>
@@ -417,17 +311,13 @@
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="javascript/lib/jquery.min.js"><\/script>')</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+		<script src="http://code.angularjs.org/1.0.1/angular-sanitize-1.0.1.js"></script>
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="/javascript/lib/bootstrap.min.js"></script>
-		<script src="/javascript/main.js"></script>
-<!--
-		<script src="/javascript/lib/json2.js"></script>
-		<script src="/javascript/lib/jquery.js"></script>
-		<script src="/javascript/lib/jquery.tmpl.js"></script>
-		<script src="/javascript/lib/spine.js"></script>
-		<script src="/javascript/lib/local.js"></script>
-		<script src="/javascript/lib/application.js"></script>
--->
+		<script src="/javascript/main.min.js"></script>
+		<script src="/javascript/lib/portfolio.js"></script>
+
 		<script>
 			   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			   ga('create', 'UA-15576216-2', 'proferotech.com');

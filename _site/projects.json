@@ -1,0 +1,82 @@
+[
+	{
+		"name": "Blossom Hill",
+		"slug": "blossom-hill",
+		"category": "facebook app",
+		"tagline": "Facebook Application for the UK market",
+		"images": ["images/blossomhill/1.jpg", "images/blossomhill/2.jpg", "images/blossomhill/3.jpg"],
+		"description": "<h4>Our Role</h4><p>Working with a UK-based agency who provided the creative, we implemented a Facebook application which encourages consumer engagement by running a questionnaire game which is tied to regular competitions and prize draws. It was important to leverage not only the social aspect offered by Facebook's platform but also the consumer data available. Therefore we implemented features to allow consumers to share content as much as possible, further promoting the brand, while also encouraging them to register as a member and share their Facebook data for further benefits. We also implemented google analytics tracking to provide further insight into consumer behaviour and demographics on top of the usage data that Facebook itself provides.</p><h4>The Challenge</h4><p>Given how many Facebook users are on handheld devices, it was important to make an optimal user experience and not use any potentially incompatible technologies. The target audience are relatively young and tech-savy so a rich design and smooth interface were essential. We accomplished this through the use of HTML5 and built the app functionality using the .NET framework.</p><h4>The Result</h4><p>30,000 monthly active users. Over 9,300 new consumer acquisitions.</p>",
+		"url": "",
+		"offset": 2
+	},
+	{
+		"name": "Catalent",
+		"slug": "catalent",
+		"category": "global website",
+		"tagline": "Global brand site build and maintenance",
+		"images": ["images/catalent/1.jpg", "images/catalent/2.jpg", "images/catalent/3.jpg", "images/catalent/4.jpg"],
+		"description": "<h4>Our Role</h4><p>Catalent is a major global provider of pharmaceutical technology and services, and therefore their website demands a futuristic and innovative interface. Profero designed and built the site using a combination of technologies, including a great deal of JavaScript. The site features an enormous amount of information as well as interactive features to all the brand to engage with potential partners and consumers. The website is localised in 8 languages, has been launched in markets across Europe, Asia, and the Americas, and also features mobile and tablet versions. The Catalent marketing team play an active role in maintaining content and so the site is built upon an extensive and versatile fully customised Content Management System (CMS). We continue to provide technical updates and support.</p>",
+		"url": "http://www.catalent.com",
+		"offset": 6
+	},
+	{
+		"name": "Lufthansa",
+		"slug": "lufthansa",
+		"category": "online advertising",
+		"tagline": "Social media management, online banners, and campaign minisites",
+		"images": ["images/lufthansa/1.jpg", "images/lufthansa/2.jpg", "images/lufthansa/3.jpg"],
+		"description": "<h4>Our Role</h4><p>In addition to designing and producing all online banner advertising materials for Lufthansa throughout the APAC region, we actively manage their social networking presence in China.</p><p>In support of these social networking activities, we regularly produce campaign sites to further engage consumers by providing further information on special offers, as well as interactive competitions.</p><h4>The Results</h4><p>In 2012 Lufthansa released their 'non-stop you' campaign, which orients their marketing strategy away from their products and services specifically and onto their consumers; this strategy is also distinct from those of their competitors. The social network activity and work with online advertising that we have carried out have helped make China in particular one of Lufthansa's fastest growing markets, with higher click through rates than in any other region. In 2013 we were awarded the <strong>'Golden Mouse' Gold award</strong> for social media.</p>",
+		"url": "",
+		"offset": 7
+	},
+	{
+		"name": "Malts",
+		"slug": "malts",
+		"category": "global website",
+		"tagline": "Global website design, build, & maintenance",
+		"images": ["images/malts/1.jpg", "images/malts/2.jpg", "images/malts/3.jpg"],
+		"description": "<h4>Our Role</h4><p>Malts is one of Diageo's fastest growing brands and incorporates many sub-brands of single malt whiskies. Localised marketing activity for each of these brands is all managed and represented through this website, which we designed, built, and continue to maintain.</p><p>The website is built upon a fully customised Content Management System (CMS), deployed to Diageo's 'NEO' platform, and localised specifically for 18 markets. We regularly deploy updates and new sections of the site dedicated to marketing campaigns and competitions. Such competitions often involve interactive content with images, video, and consumer contributions.</p><p>One of the website's main focuses is on consumer data acqusition. As part of the service we provide to Diageo, we use various technologies to leverage as many sources as possible capture data about the brands' consumers. We then provide regular reports on the analytics that we gather.</p><h4>The Results</h4><p>Malts.com has over 25,000 active monthly visitors, and a consumer acquisiton rate that peaks at 12,000 per month.</p>",
+		"url": "http://www.malts.com",
+		"offset": 5
+	},
+	{
+		"name": "OMO",
+		"slug": "omo",
+		"category": "campaign sites",
+		"tagline": "Monthly interactive campaign minisites",
+		"images": ["images/omo/1.jpg", "images/omo/2.jpg", "images/omo/3.jpg", "images/omo/4.jpg", "images/omo/5.jpg", "images/omo/6.jpg"],
+		"description": "<h4>Our Role</h4><p>As one of China's leading brands of detergent, OMO, a Unilever brand, is focused on targeting the increasing domestic consumer base. The market is extremely competitive and fairly tech-savvy with a relatively high proportion of mobile users.</p><p>We are engaged in planning, designing, building, and rolling out a stream of online marketing campaigns, supported by social media, minisites, and native applications on handheld devices (iOS and Android).</p><h4>The Challenge</h4><ul><li>Making a brand of detergent fun and engaging, focusing on family and younger demographics by using rich, playful, and highly interactive content.</li><li>Ensuring device compatibility and speed optimisation for a large proportion of users on handheld devices and slower internet connections.</li><li>Fast turnaround - OMO marketing campaigns are very frequent.</li></ul><h4>The Result</h4><p>Since working on OMO projects, Unilever have since engaged us to work on other brands. In 2013 we were awarded the 'Golden Mouse' <strong>Gold award</strong> for social media for our work on OMO.</p>",
+		"url": "",
+		"offset": 1
+	},
+	{
+		"name": "Roadshow",
+		"slug": "roadshow",
+		"category": "website",
+		"tagline": "Socially interactive & film reviews and rentals (Australia)",
+		"images": ["images/roadshow/1.jpg", "images/roadshow/2.jpg", "images/roadshow/3.jpg"],
+		"description": "<h4>Our Role</h4><p>Profero planned, designed, built, and deployed this immersive website for Australia's premier cinema and media company. The website leverages Facebook's social media platform to engage consumers by featuring reviews and discussions about the company's products.</p><p>The website was built on top of the .NET framework using HTML5 and a great deal of JavaScript to offer animations and interactive features.</p>",
+		"url": "http://roadshow.com.au/",
+		"offset": 4
+	},
+	{
+		"name": "Smirnoff",
+		"slug": "smirnoff",
+		"category": "global website",
+		"tagline": "Global website for Diageo's No.1 brand",
+		"images": ["images/smirnoff/1.jpg", "images/smirnoff/2.jpg", "images/smirnoff/3.jpg"],
+		"description": "<h4>Our Role</h4><p>Profero planned, designed, built, and continues to maintain the global website for Diageo's flagship brand. Localised across 54 markets, the website features information about Smirnoff products and marketing campaigns. The website's design focuses on the brand's younger, party-going audience and the content also promotes video and social media integration.</p><h4>The Results</h4><p>Smirnoff.com now receives over <strong>700,000 visits</strong> per month and has a conversion rate almost double that of any other Diageo brand. In 2012 Profero were awarded the prestigious <strong>Grand Prix</strong> award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than <strong>10 million</strong> consumers worldwide.</p>",
+		"url": "http://www.smirnoff.com",
+		"offset": 3
+	},
+	{
+		"name": "Western Union",
+		"slug": "western-union",
+		"category": "website",
+		"tagline": "Build and maintenance of all APAC region websites",
+		"images": ["images/westernunion/1.jpg", "images/westernunion/2.jpg", "images/westernunion/3.jpg"],
+		"description": "<h4>Our Role</h4><p>We built and continue to maintain all the Western Union websites throughout East Asia. This includes regular updates to the website about marketing activity as well as maintenance of the company's extensive transfer location database, enabling consumers to find and use Western Union's services.</p><p>The site makes use of a custom-built Content Management System (CMS) and also is built to be fast and easy to use, without requiring a fast internet connection.</p>",
+		"url": "http://www.westernunion.asia",
+		"offset": 0
+	}
+]

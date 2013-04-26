@@ -1,0 +1,39 @@
+<div class="banner">
+	<h2>just some of the work we're proud of</h2>
+</div>
+
+<div class="container-fluid portfolio-items">
+					
+	<ul class="row-fluid" resizeportfolioitems>
+					
+		<li class="span3" data-ng-repeat="project in projects.slice(0,4) | orderBy:'name'">
+						
+			<div class="portfolio-item {{project.slug}}" data-bgoffset="{{project.offset}}" setbackgroundoffset="{{project.offset}}">
+				<div class="info">
+					<h3>{{project.name}}</h3>
+					<p>{{project.category}}</p>
+				</div>
+				<a href="/#/portfolio/{{project.slug}}" title="Find out what we did for {{project.name}}"></a>
+			</div>
+						
+		</li>
+					
+	</ul>
+	
+	<ul class="row-fluid hiddenphone" resizeportfolioitems>
+					
+		<li class="span3" data-ng-repeat="project in projects.slice(4,8) | orderBy:'name'">
+						
+			<div class="portfolio-item {{project.slug}}" data-bgoffset="{{project.offset}}" setbackgroundoffset="{{project.offset}}">
+				<div class="info">
+					<h3>{{project.name}}</h3>
+					<p>{{project.category}}</p>
+				</div>
+				<a href="/#/portfolio/{{project.slug}}" title="Find out what we did for {{project.name}}"></a>
+			</div>
+						
+		</li>
+					
+	</ul>
+				
+</div>
