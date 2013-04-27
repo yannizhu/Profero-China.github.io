@@ -23,7 +23,7 @@ browserLanguage = browserLanguage.indexOf("zh") !==-1 ? "chinese" : "english";
 if(!languagePreference) {
 	if(browserLanguage !== "english" && browserLanguage !== currentLanguage) {
 		//console.log("no cookie, browser language is chinese, current language isn't chinese, redirecting");
-		window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');
+		//window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');
 	}
 } else {
 	if(languagePreference !== currentLanguage) {

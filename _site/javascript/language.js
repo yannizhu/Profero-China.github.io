@@ -22,17 +22,17 @@ var browserLanguage = window.navigator.userLanguage || window.navigator.language
 browserLanguage = browserLanguage.indexOf("zh") !==-1 ? "chinese" : "english";
 if(!languagePreference) {
 	if(browserLanguage !== "english" && browserLanguage !== currentLanguage) {
-		console.log("no cookie, browser language is chinese, current language isn't chinese, redirecting");
-		window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');
+		//console.log("no cookie, browser language is chinese, current language isn't chinese, redirecting");
+		//window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');
 	}
 } else {
 	if(languagePreference !== currentLanguage) {
-		console.log("cookie language isn't the one the page is currently displayed in")
+		//console.log("cookie language isn't the one the page is currently displayed in")
 		if(languagePreference === "english") {
-			console.log("cookie language is english so redirecting");
+			//console.log("cookie language is english so redirecting");
 			window.location = window.location.href.replace('http://proferotech.com/cn/','http://proferotech.com/');
 		} else {
-			console.log("cookie language is chinese so redirecting");
+			//console.log("cookie language is chinese so redirecting");
 			window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');		
 		}
 	}

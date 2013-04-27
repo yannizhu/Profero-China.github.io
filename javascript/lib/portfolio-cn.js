@@ -24,7 +24,7 @@ portfolio.config(function($routeProvider) {
 			controller: "ShowList"
 
 		}
-	).when('/cn/#/portfolio/:projectname',
+	).when('/portfolio/:projectname',
 		{
 			templateUrl: "../../templates/detail-cn.html",
 			controller: "ShowOne"
