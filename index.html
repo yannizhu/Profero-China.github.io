@@ -1,8 +1,8 @@
 ---
-layout: comingsoon
+layout: default
 ---
 {% for post in paginator.posts %}
-	{% if post.categories contains 'job' %}
+	{% if post.categories contains 'job' and post.language == 'english' %}
 						<tr>
 							<td>
 								<h4>{{ post.title }} : <small><i>posted: {{ post.date | date: "%d %B, %Y" }}</i></small></h4>

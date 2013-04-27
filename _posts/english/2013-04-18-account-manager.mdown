@@ -1,0 +1,86 @@
+---
+date: 2013-04-18 14:22:02
+layout: job
+slug: account-manager
+language: english
+title: Account Manager
+short-description: The Account Manager is the client-facing part of the company who is responsible for all planning and organising of projects
+categories:
+- job
+language: english
+---
+
+## Job Title:
+Account Manager
+
+## Location:
+Beijing
+
+## Position:
+Full-time
+
+## Job Description: 
+The Account Manager is the client-facing part of the company who hosts meetings with clients in order to gather requirements. Requirements are then thoroughly documented and disseminated to the Production and QA teams. The Account Manager must oversee each project and keep clients regularly notified on progress. Upon completion, the projects should be delivered, on time, and according to the functionality specification. The Account Manager is also responsible for quoting and invoicing for each project. Manage the client relationship, keep the clients happy.
+
+The Account Manager must also posses a high level of adaptability and willingness to take on newer and bigger challenges.
+
+## Areas of Responsibility:
+* Report to Head of Account
+* Coordinate with Project Managers to understand the production requirements and technical feasibility, to keep up to date with project progress, and to conduct project reviews
+* Coordinate with the Quality Assurance (QA) manager to understand the testing requirements and confirm deliverability status
+* Coordinate with the Studio Manager regarding resources, project status, and management processes
+* Arrange and host meetings (in person, online, and over the telephone) with clients on a daily basis
+* Learn about the clients’ businesses, including target audience and marketing strategies
+* Communicate with clients on a daily basis
+* Gather detailed requirements from the clients
+* Give the clients informed recommendations
+* Set and manage client expectations
+* Deliver status updates to clients
+* Deliver completed work to clients
+* Respond quickly to client requests
+* Quote for and invoice for every project; handle finances for each project
+* Create detailed documentation regarding the Scope of Work, the Requirements, the Functionality Specifications, and the Timing Plan before projects begin; deliver documentation to all project stakeholders (including Profero Project Managers and QA Manager)
+* Delegate tasks
+* Maintain accurate records: finance, project status and reviews, client feedback, change requests etc.
+* Constantly maintain and improve management processes
+* Oversee all projects throughout the project cycle; understand the project status on a daily basis
+* Maintain current industry knowledge
+
+## Required Education 
+* Bachelor in Computer Science or Marketing and Advertisement, or a related field.
+
+## Required Experience:
+* Minimum 2 years of client or project management experience
+* Minimum 3 to 5 years of working with web-based technologies
+* Experience with agile, and software development methodologies
+
+## Required Skills:
+* Solid understanding of web technologies
+* Solid understanding of Content Management Systems, Server architectures, frameworks, and back-end web technologies.
+* Detailed knowledge of web browser testing and compatibility issues
+* Good understanding of SEO and Google Analytics
+* Good awareness of Social Network APIs, particularly Facebook, Weibo, Renren, QQ, and Twitter
+* Extreme communication, clear and effective, both spoken and written, polite and respectful
+* Superb organisation: time management/meeting deadlines, multitasking/handling multiple projects simultaneously, prioritisation, record keeping, work distribution and delegation, and list making
+* Decisiveness & confidence, leadership
+* Outstanding problem-solving skills; ability to understand requirements and break down a problem into manageable parts
+* Independence, intuition, innovation, and initiative
+* Attention to detail / Perfectionism
+* Accurate and detailed documentation skills
+* Ability to simultaneously handle multiple projects
+* Fluent English
+* Flexibility & the ability to learn quickly
+* Positive attitude
+Desired Skills and Experience:
+* Experience developing web applications
+* Experience using red mine, basecamp, and version control systems (such as Github)
+* English and Chinese (reading, speaking)
+
+## Application Instructions:
+* Please bring/submit CV
+
+## Company Profile:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+
+---
+APPLY HERE: [tech@profero.com]("mailto:tech@profero.com?subject=Applying%20for%20position%3A%20Account%20Manager")

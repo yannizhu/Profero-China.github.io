@@ -17,6 +17,72 @@ window.enquire=function(t){"use strict";function i(t,i){var n,s=0,e=t.length;for
  * @version 1.0 (15th July 2010)
  */
 (function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
+//user arrives on the page from outside the site - check cookie
+//	cookie doesn't exist
+//		check browser language
+//			english
+//				do nothing
+//			chinese
+//				check if language is the one currently displayed
+//					yes
+//						do nothing
+//					no
+//						redirect to chinese
+//	cookie exists - get language preference
+//		check if language is the one currently displayed
+//			yes
+//				do nothing
+//			no
+//				redirect to language preference
+
+var languagePreference = getCookie("proferotech-language");
+var currentLanguage = window.location.href.indexOf("cn") !== -1 ? "chinese" : "english";
+var browserLanguage = window.navigator.userLanguage || window.navigator.language;
+browserLanguage = browserLanguage.indexOf("zh") !==-1 ? "chinese" : "english";
+if(!languagePreference) {
+	if(browserLanguage !== "english" && browserLanguage !== currentLanguage) {
+		//console.log("no cookie, browser language is chinese, current language isn't chinese, redirecting");
+		window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');
+	}
+} else {
+	if(languagePreference !== currentLanguage) {
+		//console.log("cookie language isn't the one the page is currently displayed in")
+		if(languagePreference === "english") {
+			//console.log("cookie language is english so redirecting");
+			window.location = window.location.href.replace('http://proferotech.com/cn/','http://proferotech.com/');
+		} else {
+			//console.log("cookie language is chinese so redirecting");
+			window.location = window.location.href.replace('http://proferotech.com/','http://proferotech.com/cn/');		
+		}
+	}
+
+}
+
+$(".language-toggle").click(function() {
+	if($(this).hasClass('chinese'))
+		setCookie('chinese');
+	else
+		setCookie('english');
+});
+
+function setCookie(language) {
+	document.cookie = "proferotech-language="+language+"; domain=proferotech.com; path=/";
+}
+
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) {
+			var tmp = c.substring(nameEQ.length,c.length);
+			tmp=tmp.replace(/'/g,'"');
+			return tmp;
+		}
+	}
+	return null;
+}
 $("document").ready(function(){
 
     var mapContainer = $(".map-container");
@@ -102,6 +168,32 @@ $("document").ready(function(){
     }
 
 });
+//copied from underscore js
+throttle = function(func, wait) {
+    var context, args, timeout, result;
+    var previous = 0;
+    var later = function() {
+        previous = new Date;
+        timeout = null;
+        result = func.apply(context, args);
+    };
+    return function() {
+        var now = new Date;
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+        if (remaining <= 0) {
+            clearTimeout(timeout);
+            timeout = null;
+            previous = now;
+            result = func.apply(context, args);
+        } else if (!timeout) {
+            timeout = setTimeout(later, remaining);
+        }
+        return result;
+    };
+};
+
 //when the page is loaded and resized
 //the size of the portfolio items needs
 //to be adjusted. the width is fluid %
@@ -159,13 +251,15 @@ $("document").ready(function(){
 
     //only show the 'back to top' button after the user
     //has scrolled down 150px
-    $(window).scroll(function(){
+    var throttled = throttle(showbacktotopbutton, 100);
+    $(window).scroll(throttled);
+    function showbacktotopbutton(){
         if($(this).scrollTop() > 150) {
             $('#backtotop').addClass("shown");
         } else {
             $('#backtotop').removeClass("shown");
         }
-    });
+    }
 
 });
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
