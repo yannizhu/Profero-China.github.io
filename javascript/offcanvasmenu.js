@@ -13,10 +13,12 @@ $("document").ready(function(){
     });
 
     //close the menu when going from mobile to desktop
-    enquire.register("screen and (min-width:980px)", {
-        match : function() {
-            $.sidr('close', 'sidr-right');
-        }
-    });
+    if ( window.matchMedia ) {
+        enquire.register("screen and (min-width:980px)", {
+            match : function() {
+                $.sidr('close', 'sidr-right');
+            }
+        });
+    }
 
 });
