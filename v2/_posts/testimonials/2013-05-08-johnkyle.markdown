@@ -1,0 +1,11 @@
+---
+layout: post
+language: english
+slug: diageo
+testimonial: I love these guys! They make me so happy!
+name: John Kyle
+company: Diageo
+date: 2013-05-08 14:25:03
+categories: testimonial
+permalink: /testimonials/diageo/index.html
+---

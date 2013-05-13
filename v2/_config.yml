@@ -1,0 +1,3 @@
+name: Profero Tech
+pygments: true
+exclude: [gruntfile.js, package.json, node_modules]

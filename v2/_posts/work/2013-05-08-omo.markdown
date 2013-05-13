@@ -1,0 +1,29 @@
+---
+layout: work
+title: OMO
+language: english
+slug: omo
+name: OMO
+tagline: Smartphone applications and regular campaign sites
+date: 2013-05-08 14:25:03
+categories: work
+images:
+- /images/work/omo/1.jpg
+- /images/work/omo/2.jpg
+- /images/work/omo/3.jpg
+goto: /#/work/omo
+link: http://omo.com
+permalink: /work/omo/index.html
+otheritems:
+- blossomhill
+- catalent
+- malts
+- roadshow
+- smirnoff
+---
+
+####our role
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo aspernatur odit obcaecati omnis animi fuga necessitatibus quaerat natus vero voluptates numquam debitis alias asperiores soluta vel magni veritatis ipsum totam.
+
+####the result
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate beatae cum nemo? Suscipit facere numquam reiciendis ullam delectus quisquam corrupti hic nulla dolorem quia officiis vero veritatis alias quam tenetur.

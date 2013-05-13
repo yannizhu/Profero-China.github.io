@@ -1,0 +1,29 @@
+---
+layout: default
+---
+		
+		<section class="clients" id="clients">
+			<div class="container">
+				<div class="testimonials">
+					
+					<h1>what our clients say about us</h1>
+					<h2>we've worked for a variety of global brands with amazing results</h2>
+					
+					<div class="testimonials-carousel">
+						
+{% for post in site.posts %}
+	{% if post.categories contains 'testimonial' and post.language == 'english' %}						
+						
+						<div class="testimonial">
+							<div class="client-logo {{ post.slug }}"></div>
+							<blockquote>
+								<p>{{ post.testimonial }}</p>
+								<footer>{{ post.name }} - <span>{{ post.company }}</span></footer>
+							</blockquote>
+						</div>
+	{% endif %}
+{% endfor %}
+					</div>
+					
+				</div>
+			</div>

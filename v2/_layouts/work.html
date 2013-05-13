@@ -1,0 +1,49 @@
+			<div class="work-header">
+				<h2>{{page.title}}</h2>
+				<h3>{{page.tagline}}</h3>
+			</div>
+			<div class="work-content container">
+				<div class="description">
+					{{content}}
+					<a href="/" class="goback button"><i class="icon icon-hand-left"></i> back</a>
+					
+					<p>Or have a look at another of our projects:</p>
+					<ul class="otherprojects">
+						{% for post in site.posts reversed %}{% if post.categories contains 'work' and post.language == 'english' and post.name != page.title%}
+						<li><a class="anotheritem" href="{{post.goto}}">{{post.name}}</a></li>
+						{% endif %}{% endfor %}
+					</ul>
+					
+				</div><!--
+			8--><div class="screenshots">
+				
+					<div class="slider-container">
+						<div class="slider-container2">
+							<ul class="bxslider">
+								{% for image in page.images%}
+								<li>
+									<img src="{{image}}" alt="">
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					{% if page.link %}
+					<a href="{{page.link}}" class="button special">visit {{page.link}}</a>
+					{% endif %}
+				</div>
+			</div>
+			<script>
+
+				try{
+        		    $('.bxslider').bxSlider({
+        		        mode: 'fade',
+        		        pager: false,
+        		        controls: false,
+        		        auto: true
+        		    });
+        		} catch(error) {
+        		    console.log("BXSlider not loaded");
+        		}
+
+			</script>

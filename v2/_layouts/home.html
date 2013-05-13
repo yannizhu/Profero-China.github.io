@@ -1,0 +1,21 @@
+			<h3>just some of the work we're proud of</h3>
+			
+			<div class="container portfolio-list">
+			
+			{% for post in site.posts reversed %}{% if post.categories contains 'work' and post.language == 'english' %}<div class="work-item">
+				
+					<a class="portfolio-link" href="{{post.goto}}" title="Click here to read more about {{ post.name }}">
+					
+						<img alt="" class="{{ post.slug }}" src="images/work-sprite.jpg">
+						<div class="info">
+							<h4>{{ post.name }}</h4>
+							<p>{{ post.tagline }}</p>
+							<p><i class="icon icon-hand-right"></i></p>
+						</div>
+					
+					</a>
+				
+				</div><!--
+			8-->{% endif %}{% endfor %}
+			
+			</div>

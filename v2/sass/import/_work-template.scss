@@ -1,0 +1,123 @@
+.work {
+
+	.work-header {
+		background: 				$proferoYellow;
+		color: 						$linkColour;
+		padding: 					$gutter;
+	
+		h2 {
+			font-size: 				4em;
+			margin: 				0;
+			max-width: 				48%;
+		}
+		h3 {
+			background: 			none;
+			display: 				block;
+			font-size: 				2em;
+			padding: 				0;
+			text-align: 			left;
+
+			@include breakpoint(palm) {
+				max-width: 			48%;
+			}
+		}
+	}
+
+	.otherprojects {
+		border-bottom: 				1px solid #ddd;
+		list-style: 				none;
+		margin: 					$gutter 0;
+		padding: 					0;
+
+		li {
+			border-top: 			1px solid #ddd;
+			margin: 				0;
+			padding: 				0;
+		}
+
+		a {
+			display: 				block;
+			padding: 				$gutter/2;
+			@include transition(0.3s all ease-in-out);
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 		rgba($white,0.5);
+				@include transition(0.3s all ease-in-out);
+			}
+		}
+	}
+
+	.work-content {
+
+		.description {
+			@extend 				%grid__item;
+			@extend 				%lap--one-half;
+			@extend 				%desk--one-half;
+
+			.button {
+				color: 				$textColour;
+				display: 			inline-block;
+				text-transform: 	none;
+			}
+		}
+
+		h4 {
+			color: 					$linkColour;
+			font-size: 				85%;
+			font-weight: 			600;
+			text-transform: 		uppercase;
+		}
+
+		.screenshots {
+			@extend 				%grid__item;
+			@extend 				%lap--one-half;
+			@extend 				%desk--one-half;
+
+			@include breakpoint(palm){
+				margin-top: 		-$gutter*5;
+			}
+
+			.slider-container{
+				background: 		url(../images/imac.png) no-repeat top center;
+				background-size: 	contain;
+				overflow: 			hidden;
+				width: 				100%;
+			}
+
+			.slider-container2{
+				margin: 			3% 4%;
+				padding-bottom: 	20%;
+
+			}
+
+			.bx-wrapper {
+				max-width: 			100%;
+			}
+
+			.bx-viewport {
+				width: 				100%;
+			}
+
+			ul {
+				list-style: 		none;
+				margin: 			0;
+			}
+
+			li {
+				left: 				0;
+				margin: 			0;
+			}
+
+			img {
+				width: 				100%;
+			}
+
+			.button {
+				margin: 			$gutter 0;
+				text-transform: 	none;
+			}
+		}
+	}
+}
