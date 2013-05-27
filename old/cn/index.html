@@ -1,0 +1,17 @@
+---
+layout: comingsoon
+---
+{% for post in paginator.posts %}
+	{% if post.categories contains 'job' and post.language == 'chinese' %}
+						<tr>
+							<td>
+								<h4>{{ post.title }} : <small><i>posted: {{ post.date | date: "%d %B, %Y" }}</i></small></h4>
+								<p>{{ post.short-description }}</p>
+							</td>
+							<td>
+								<a href="{{ post.url }}" class="button" title="查看{{ post.title }}的职位描述" target="_blank"><span class="icon icon-file"></span> 职位描述</a>
+								<a href="mailto:tech@profero.com?subject=Applying%20for%20position%3A%20{{ post.title }}" class="button" title="Apply for: {{ post.title }}"><span class="icon icon-thumbs-up"></span> 申请</a>
+							</td>
+						</tr>
+	{% endif %}
+{% endfor %}

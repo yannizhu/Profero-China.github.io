@@ -1,0 +1,264 @@
+---
+layout: preview-chinese
+---
+
+			<section class="work" id="work">
+				
+				<h1 class="fadedout">我们作品的选集</h1>
+				
+				<div id="work-carousel" class="carousel fade fadedout">
+					<ul class="carousel-inner work-items">
+
+{% for post in site.posts %}
+	{% if post.categories contains 'work' and post.language == 'chinese' %}
+		{% unless post.categories contains 'preview' %}
+
+						<!--work item: start-->
+						<li class="item work-item">
+							
+							<div class="work-item-header">
+								<h2>{{ post.title }}</h2>
+								<h3>{{ post.tagline }}</h3>
+							
+								<div class="button-container">
+									<div class="buttons">
+										
+										<a class="button nextproject" href="#work-carousel" data-slide="next">see another project <i class="icon-right"></i></a>
+										
+			{% if post.link %}
+										
+										<a href="{{ post.link }}" class="button button-primary">visit {{ post.link }}</a>
+										
+			{% endif %}
+									</div>
+								</div>
+							
+							</div>
+							<div class="work-item-body">
+								<div class="work-item-body-container">
+									<div class="work-item-images">
+									
+										<div id="{{ post.imagecarousel }}" class="carousel work-images-carousel">
+											<ul class="screenshots-slider">
+
+			{% for image in post.images %}
+
+												<li class="work-image-item">
+													<img src="{{image}}" alt="">
+												</li>
+												
+			{% endfor %}
+												
+											</ul>
+											<a class="carousel-control left" href="#{{ post.imagecarousel }}" data-slide="prev"><i class="icon-left"></i></a>
+											<a class="carousel-control right" href="#{{ post.imagecarousel }}" data-slide="next"><i class="icon-right"></i></a>
+											
+										</div>
+									
+									</div><!--
+								8--><div class="work-item-text">
+									
+										{{ post.content }}
+									
+									</div>
+								</div>
+							</div>
+						
+						</li>
+						<!--work item: end-->
+
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+					
+					</ul>
+				</div>
+				
+			</section>
+			
+			<section class="clients" id="clients">
+				
+				<h1 class="fadedout">我们与好杰出的牌子共事过&hellip;</h1>
+				
+				<div class="client-logos">
+					<div class="client-logo-container fadedout">
+						<div class="client-logo apple">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo baileys">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo blossomhill">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo catalent">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo circa">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo dfs">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo diageo">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo dyson">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo johnniewalker">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo lufthansa">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo m1">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo nutricia">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo pimms">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo pizzahut">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo roadshow">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo smirnoff">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo soho">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo talisker">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo unilever">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo vonage">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div><!--
+				8--><div class="client-logo-container fadedout">
+						<div class="client-logo westernunion">
+							<div class="img-wrapper">
+								<img src="/images/logo-sprite.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</section>
+			
+			<section class="testimonials" id="testimonials">
+				
+				<h1 class="fadedout">&hellip;也受到了很不错的反馈</h1>
+				
+				<div class="testimonials-wrapper fadedout">
+					<div class="testimonials-container">
+					
+						<div class="testimonials-slider">
+							
+{% for post in site.posts %}
+	{% if post.categories contains 'testimonial' and post.language == 'chinese' %}
+		{% unless post.categories contains 'preview' %}
+							
+							<div class="testimonial">
+								<blockquote>
+									{{ post.content }}
+									<footer>{{ post.reviewer }} &ndash; <span>{{ post.company }}</span></footer>
+								</blockquote>
+							</div>
+				
+		{% endunless %}			
+	{% endif %}
+{% endfor %}
+
+						</div>
+					
+					</div>
+				</div>
+				
+			</section>

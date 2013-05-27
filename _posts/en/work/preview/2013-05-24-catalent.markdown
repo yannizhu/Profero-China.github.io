@@ -1,0 +1,17 @@
+---
+categories: preview work
+date: 2013-04-24 00:04:04
+imagecarousel: work-images-carousel2
+images:
+- /images/work/catalent/1.jpg
+- /images/work/catalent/2.jpg
+- /images/work/catalent/3.jpg
+- /images/work/catalent/4.jpg
+language: english
+link: www.catalent.com
+tagline: Multilingual site for a North America-based global brand
+title: Catalent
+---
+
+####our role
+Catalent is a major global provider of pharmaceutical technology and services, and therefore their website demands a futuristic and innovative interface. Profero designed and built the site using a combination of technologies, including a great deal of JavaScript. The site features an enormous amount of information as well as interactive features to all the brand to engage with potential partners and consumers. The website is localised in 8 languages, has been launched in markets across Europe, Asia, and the Americas, and also features mobile and tablet versions. The Catalent marketing team play an active role in maintaining content and so the site is built upon an extensive and versatile fully customised Content Management System (CMS). We continue to provide technical updates and support.

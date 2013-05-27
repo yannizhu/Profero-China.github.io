@@ -1,63 +1,95 @@
-<!doctype html>
-<html itemscope itemtype="http://data-vocabulary.org/Organization" lang="en" manifest="proferotech.appcache" class="job-description">
- 
-<!--
-	*********************************************
-		This website was designed & created by
-		Darryl Snow
-		for Profero Tech
-		April, 2013
-		v1.0
-	*********************************************
-//-->
- 
+<!DOCTYPE html>
+<html lang="en" class="page page-job">
 	<head>
- 
-		<title>{{ page.title }} &ndash; Profero Tech Jobs</title>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="description" content="Profero Tech: technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
-		<meta name="keywords" content="technology digital marketing responsive html5 websites web app apps social media analytics facebook css javascript design consultancy consultants data">
-		<meta name="author" content="Darryl Snow">
-		<meta name="copyright" content="2013 Profero">
-		<meta name="distribution" content="Global">
-		<meta name="rating" content="General">
-		<meta name="robots" content="INDEX,FOLLOW">
-		<meta name="revisit-after" content="1 Month">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-			
-		<!-- Prefetch DNS for external assets (Google fonts, analytics etc). -->
-		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+		<!-- Prefetch DNS for external assets (Twitter widgets etc). -->
 		<link rel="dns-prefetch" href="//fonts.googleapis.com">
-		<link rel="dns-prefetch" href="//maps.google.com">
- 
- 		<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+		<title>{{ page.title }} &ndash; Jobs @ Proferotech &ndash; Technology Experts in Digital Marketing Solutions</title>
+
 		<link rel="stylesheet" href="/css/styles.css">
- 
-		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		
-		<link rel="shortcut-icon" href="/blog/icon.png">
-		<link rel="apple-touch-icon-precomposed" href="/blog/icon.png">
-		<link rel="apple-touch-icon-114x114-precomposed.png" href="/blog/icon.png">
-		<meta name="apple-mobile-web-app-title" content="Profero Tech">
- 
+			
+		<link rel="shortcut icon" href="/icon.png">
+		<link rel="apple-touch-icon-precomposed" href="/icon.png">
+		<meta name="apple-mobile-web-app-title" content="Profero Tech &ndash; Technology Experts in Digital Marketing Solutions">
+		<meta name="description" content="Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta name="msapplication-TileColor" content="#f6d431">
+		<meta name="msapplication-TileImage" content="/icon.png">
+			
+		<meta itemprop="name" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta itemprop="description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta itemprop="url" content="http://proferotech.com">
+		<meta itemprop="image" content="http://proferotech.com/images/logo.png">
+			
+		<meta property="og:title" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta property="og:description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta property="og:url" content="http://proferotech.com">
+		<meta property="og:image" content="http://proferotech.com/images/logo.png">
+
 	</head>
 	<body>
+	
+		<!-- Hidden preload `div` to fetch images before CSS needs them. -->
+		<div class="ಠ_ಠ">
+			<img src="/images/work-sprite.jpg" alt="">
+			<img src="/images/logo-sprite.png" alt="">
+		</div>
 		
-		<h1>{{ page.title }}</h1>
-		<p><i>posted: {{ page.date | date: "%d %B, %Y" }}</i></p>
 		
-		{{ content }}
+		<div class="wrapper" role="main">
+			
+			<div class="nav-wrapper">
+				<div class="navbar">
+					
+					<a class="home-button" href="/jobs/" title="Back to the Jobs Page"><i class="icon-left"></i></a>
+					
+					<a href="#" class="menu-toggle" data-reveal-id="letsgetstarted" title="Apply for a job"><i class="icon-thumbs-up" data-animation="fade"></i></a>
+					
+				</div>
+			</div>
+			
+			<section class="job" id="job">
+				
+				<h1>{{ page.title }}</h1>
+				<p class="date-posted">{{ page.date | date: "%B %d, %Y" }}</p>
+				
+				<div class="job-description">
+
+					{{ content }}
+
+				</div>
+				
+				<a href="mailto:tech@profero.com?subject=Job%20Application%3A%20{{ page.title }}" class="button apply-button"><i class="icon-thumbs-up"></i> Apply for this job</a>
+				
+			</section>
 		
+		</div>
+		
+		<footer class="page-footer" role="contentinfo">
+			<p>&copy; 2013 Profero &ndash; <a href="http://www.profero.com" title="visit our parent company website">www.profero.com</a> &ndash; <a href="/cn{{ page.url }}?lang=cn">中文版</a></p>
+		</footer>
+		
+		<div id="letsgetstarted" class="reveal-modal">
+			<h1>Join us!</h1>
+			<h2>If you're passionate about web technology and think you'd like to work with some amazing brands then let us know!</h2>
+			<div class="button-group">
+				<a href="mailto:tech@profero.com?subject=Job%20Application" class="button emailus"><i class="icon-envelope"></i> tech@profero.com</a>
+				<a href="#" class="button close close-reveal-modal">close &#215;</a>
+			</div>
+		</div>
+		
+		<script src="/js/main.min.js"></script>
+
+		<!--
 		<script>
-			var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-			(function(d, t) {
-				var g = d.createElement(t),
-				s = d.getElementsByTagName(t)[0];
-				g.async = true;
-				g.src = '//www.google-analytics.com/ga.js';
-				s.parentNode.insertBefore(g, s);
-			})(document, 'script');
+			   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			   ga('create', 'UA-15576216-2', 'proferotech.com');
+			   ga('send', 'pageview');
 		</script>
+		-->
+
 	</body>
 </html>

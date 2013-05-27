@@ -1,0 +1,79 @@
+---
+categories: cn jobs
+date: 2013-04-24 00:00:53
+layout: job-chinese
+language: chinese
+shortdescription: 客户经理是公司对着客户的组成部分，负责项目的方案
+title: 客户经理
+englishurl: jobs/account-manager
+---
+
+## 职位:
+客户经理（全职）
+
+## 位置:
+北京
+
+## 职位描述: 
+The Account Manager is the client-facing part of the company who hosts meetings with clients in order to gather requirements. Requirements are then thoroughly documented and disseminated to the Production and QA teams. The Account Manager must oversee each project and keep clients regularly notified on progress. Upon completion, the projects should be delivered, on time, and according to the functionality specification. The Account Manager is also responsible for quoting and invoicing for each project. Manage the client relationship, keep the clients happy.
+
+The Account Manager must also posses a high level of adaptability and willingness to take on newer and bigger challenges.
+
+## 负责:
+* Report to Head of Account
+* Coordinate with Project Managers to understand the production requirements and technical feasibility, to keep up to date with project progress, and to conduct project reviews
+* Coordinate with the Quality Assurance (QA) manager to understand the testing requirements and confirm deliverability status
+* Coordinate with the Studio Manager regarding resources, project status, and management processes
+* Arrange and host meetings (in person, online, and over the telephone) with clients on a daily basis
+* Learn about the clients’ businesses, including target audience and marketing strategies
+* Communicate with clients on a daily basis
+* Gather detailed requirements from the clients
+* Give the clients informed recommendations
+* Set and manage client expectations
+* Deliver status updates to clients
+* Deliver completed work to clients
+* Respond quickly to client requests
+* Quote for and invoice for every project; handle finances for each project
+* Create detailed documentation regarding the Scope of Work, the Requirements, the Functionality Specifications, and the Timing Plan before projects begin; deliver documentation to all project stakeholders (including Profero Project Managers and QA Manager)
+* Delegate tasks
+* Maintain accurate records: finance, project status and reviews, client feedback, change requests etc.
+* Constantly maintain and improve management processes
+* Oversee all projects throughout the project cycle; understand the project status on a daily basis
+* Maintain current industry knowledge
+
+## 所需教育:
+* Bachelor in Computer Science or Marketing and Advertisement, or a related field.
+
+## 所需经验:
+* Minimum 2 years of client or project management experience
+* Minimum 3 to 5 years of working with web-based technologies
+* Experience with agile, and software development methodologies
+
+## 所需能力:
+* Solid understanding of web technologies
+* Solid understanding of Content Management Systems, Server architectures, frameworks, and back-end web technologies.
+* Detailed knowledge of web browser testing and compatibility issues
+* Good understanding of SEO and Google Analytics
+* Good awareness of Social Network APIs, particularly Facebook, Weibo, Renren, QQ, and Twitter
+* Extreme communication, clear and effective, both spoken and written, polite and respectful
+* Superb organisation: time management/meeting deadlines, multitasking/handling multiple projects simultaneously, prioritisation, record keeping, work distribution and delegation, and list making
+* Decisiveness & confidence, leadership
+* Outstanding problem-solving skills; ability to understand requirements and break down a problem into manageable parts
+* Independence, intuition, innovation, and initiative
+* Attention to detail / Perfectionism
+* Accurate and detailed documentation skills
+* Ability to simultaneously handle multiple projects
+* Fluent English
+* Flexibility & the ability to learn quickly
+* Positive attitude
+Desired Skills and Experience:
+* Experience developing web applications
+* Experience using red mine, basecamp, and version control systems (such as Github)
+* English and Chinese (reading, speaking)
+
+## 申请方式:
+* Please bring/submit CV
+
+## 公司简介:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+[www.profero.com](http://www.profero.com)

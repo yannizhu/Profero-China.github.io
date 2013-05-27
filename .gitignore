@@ -5,7 +5,7 @@
 *.DS_Store
 # Folder config file
 Desktop.ini
-node_modules
+.sass-cache
 
 #################
 ## Visual Studio

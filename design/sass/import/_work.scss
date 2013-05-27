@@ -1,0 +1,241 @@
+.work {
+	border-bottom: 				1px solid $lightergrey;
+}
+
+.work-items {
+
+	@extend 					.unstyled-list;
+
+	.work-item-header {
+		background: 			$yellow;
+		overflow: 				hidden;
+		padding: 				0 $gutter;
+		text-align: 			center;
+	}
+
+	.button:last-of-type {
+		margin-bottom: 			$gutter*3;
+
+		@include breakpoint(desk) {
+			margin-bottom: 		$gutter;
+		}
+
+		@media print {
+			display: 			none;
+		}
+	}
+
+	li:nth-child(6n+1) {
+		.work-item-header {
+			background: 		$colour1;
+			color: 				$white;
+		}
+		.button {
+			background: 		$yellow;
+			color: 				$black;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$orange;
+			}
+		}
+	}
+	li:nth-child(6n+2) {
+		.work-item-header {
+			background: 		$colour2;
+		}
+		.button {
+			background: 		$orange;
+			color: 				$white;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$orange;
+			}
+		}
+	}
+	li:nth-child(6n+3) {
+		.work-item-header {
+			background: 		$colour3;
+			color: 				$white;
+		}
+		.button {
+			background: 		$darkblue;
+			color: 				$white;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$green;
+			}
+		}
+	}
+	li:nth-child(6n+4) {
+		.work-item-header {
+			background: 		$colour4;
+			color: 				$white;
+		}
+		.button {
+			background: 		$darkblue;
+			color: 				$white;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$blue;
+			}
+		}
+	}
+	li:nth-child(6n+5) {
+		.work-item-header {
+			background: 		$colour5;
+			color: 				$white;
+		}
+		.button {
+			background: 		$blue;
+			color: 				$white;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$blue;
+			}
+		}
+	}
+	li:nth-child(6n+6) {
+		.work-item-header {
+			background: 		$colour6;
+			color: 				$white;
+		}
+		.button {
+			background: 		$blue;
+			color: 				$white;
+
+			&:active,
+			&:focus,
+			&:hover {
+				background: 	$white;
+				color: 			$blue;
+			}
+		}
+	}
+
+	h2 {
+		font-size: 				3em;
+		font-weight: 			500;
+		margin-bottom: 			0;
+	}
+
+	h3 {
+		font-size: 				1.6em;
+		font-weight: 			500;
+		margin-top: 			0;
+	}
+
+	li {
+		@media print {
+			.work-item-header {
+				color: 			$almostblack !important;
+			}
+			.button {
+				color: 			$almostblack !important;
+			}
+		}
+	}
+
+	.button-container {
+		@extend 				%grid--full;
+	}
+
+	.buttons {
+		@extend 				%grid__item;
+		@extend 				%desk--one-half;
+		@extend 				%push--desk--one-quarter;
+
+		@include breakpoint(desk) {
+			text-align: 			left;
+		}
+	}
+
+	h4 {
+		font-size: 				1.5em;
+		margin-bottom: 			0;
+		padding-left: 			$gutter;
+		padding-right: 			$gutter;
+
+		@include breakpoint(desk) {
+			padding-left: 		0;
+		}
+	}
+
+	p {
+		line-height: 			1.6;
+		padding-left: 			$gutter;
+		padding-right: 			$gutter;
+
+		@include breakpoint(desk) {
+			padding-left: 		0;
+		}
+	}
+}
+
+.work-item-body-container {
+	@extend 					%grid;
+}
+
+.work-item-images,
+.work-item-text {
+	@extend 					%grid__item;
+	@extend 					%desk--one-half;
+}
+
+.work-item-text {
+	text-align: 				center;
+
+	@include breakpoint(desk) {
+		text-align: 			left;
+	}
+}
+
+.screenshots-slider {
+	@extend 					.unstyled-list;
+}
+
+.work-item-images {
+
+	img {
+		display: 				block;
+		height: 				auto;
+		margin: 				0 auto;
+		width: 					75%;
+
+		@media print {
+			display: 			inline-block;
+			margin: 			$gutter;
+			width: 				100%;
+		}
+	}
+}
+
+.carousel-control {
+	display: 					none;
+
+	@include breakpoint(desk) {
+		display: 				block;
+	}
+}
+
+.work-images-carousel {
+	margin-top: 				-$gutter*2;
+
+	@media print {
+		margin: 				0;
+	}
+}

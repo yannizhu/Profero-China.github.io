@@ -1,0 +1,19 @@
+.button {
+	background: 	$buttoncolour;
+	color: 			$black;
+	@include border-radius($borderradius);
+	display: 		inline-block;
+	margin: 		$gutter/2;
+	padding: 		$gutter/2;
+	text-align: 	center;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: $white;
+	}
+
+	&.button-yellow {
+		background: $yellow;
+	}
+}

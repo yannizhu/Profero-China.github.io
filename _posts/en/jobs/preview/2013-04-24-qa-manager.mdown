@@ -1,0 +1,68 @@
+---
+categories: preview jobs
+date: 2013-04-24 00:00:10
+layout: preview-job
+language: english
+shortdescription: We are looking for a perfectionist to lead the QA team and instigate testing best practices across the board
+title: QA Manager
+chineseurl: /preview/cn/jobs/qa-manager
+---
+
+## Job Title:
+QA Manager
+
+## Location:
+Beijing
+
+## Position:
+Full-time
+
+## Job Description: 
+Coordinating with all project managers and leading a team of Quality Assurance testers to ensure all projects are delivered according to quality standards and client requirements. The QA Manager is responsible for taking a leadership role, coaching other Testers, consulting project and account managers on testing requirements and timelines, generating comprehensive test case plans, ensuring all projects are thoroughly tested, and providing testing documentation.
+
+Above all, the QA Manager is a perfectionist.
+
+## Areas of Responsibility:
+* Report to Studio Manager
+* Coordinate with Account managers to understand the client’s requirements
+* Coordinate with Project Managers to understand the project scope, functionality, timeline, and technical requirements
+* Generate appropriate test cases for each project
+* Lead a team of testers, briefing them on the test requirements and ensuring tests are carried out satisfactorily
+* Determine testing timelines
+* Analyse test results and coordinate with the Project Managers to track and resolve issues
+* Generate comprehensive testing documentation
+* Define, establish, and enforce best practices for the Test Team and effectively manage the Quality Assurance process
+* Continuously monitor and improve Quality Assurance process
+* Coach the Test Team
+Required Education 
+* Bachelor in Computer Science or Marketing and Advertisement, or a related field.
+Required Experience:
+* Minimum 3 to 5 years of Quality Assurance Testing experience
+* Minimum 2 years of working with web-based technologies
+* Minimum 1 year of management/leadership experience
+* Experience with bug/issue tracking software and testing methodologies
+
+## Required Skills:
+* Good understanding of HTML, CSS, JavaScript, other web technologies
+* Knowledge of web browser testing and compatibility issues
+* Outstanding problem-solving skills; ability to understand requirements and break down a problem into manageable parts
+* Independence, intuition, and initiative
+* Organisation & management: time management, prioritisation, multitasking, work distribution and delegation
+* Communication & teamwork
+* Leadership
+* Fluent English (reading, writing, speaking, listening)
+* Attention to detail / Perfectionism
+* Accurate and detailed documentation skills
+* Ability to simultaneously handle multiple projects
+Desired Skills and Experience:
+* Familiarity with Agile practices, and other software development methodologies
+* Experience developing web applications
+* Experience using red mine, basecamp, and version control systems (such as Github)
+* English and Chinese (reading, speaking)
+
+## Application Instructions:
+* Please bring/submit CV
+
+## Company Profile:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+[www.profero.com](http://www.profero.com)

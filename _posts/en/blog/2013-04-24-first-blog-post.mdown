@@ -1,0 +1,9 @@
+---
+categories: blog
+date: 2013-04-24 00:00:39
+layout: blog-post
+excerpt: This is the first blog post
+title: First Blog Post
+---
+
+This is the first blog post

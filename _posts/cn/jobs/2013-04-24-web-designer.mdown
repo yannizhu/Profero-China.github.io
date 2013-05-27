@@ -1,0 +1,66 @@
+---
+categories: cn jobs
+date: 2013-04-24 00:00:49
+layout: job-chinese
+language: chinese
+shortdescription: 一个想望美丽网络，想设计世界上最漂亮最好用的网站和软件的的人。这个人为了建造原型网站会写HTML和CSS。
+title: 网站设计师
+englishurl: jobs/web-designer
+---
+
+## 职位:
+网站设计师（全职）
+
+## 位置:
+北京
+
+##职位描述: 
+Working as part of a team, the Web Designer will create wireframes, design comps, and interactive prototypes based on the specific requirements of each project. Our web designers are passionate about user experience and user interface design and will be involved in controlling this aspect of the project throughout its lifecycle. In addition, this is someone who longs to produce the smartest and most visually stunning web pages and applications in the world.
+
+## 负责:
+* Report to Creative Manager
+* Think carefully about user experience and user interface design
+* Create wireframes
+* Design and develop interactive prototypes as well as static mockups
+* Provide general support for multimedia content (including images and video)
+* Coordinate with project team members and the rest of the creative team to understand the client’s requirements and brainstorm ideas
+* Be responsible for testing and optimising own projects
+* Continue to learn about new tools, technologies and techniques used for web design
+* Deliver projects on time
+* Deliver projects to a high level of quality
+* Document the design process
+* Communicate design decisions effectively
+
+## 所需教育:
+* Graphic Design, Multimedia, Interactive Design, or Computing background, or any degree in a related area (Degree not essential if skills/experience can be proven)
+
+## 所需经验:
+* Minimum 2 years of web design and development experience
+
+## 所需能力:
+* Basic HTML and CSS
+* Wireframing
+* Good understanding of colour theory
+* Great typography knowledge and skills
+* UI design ability and an understanding of human-computer interaction
+* Problem solving
+* Ability to learn quickly and adapt to new technologies and skill requirements
+* Image cropping and manipulation, optimisation for the web
+* Strong understanding of front-end web technologies and their capabilities and limitations
+* Strong understanding of best practice web design – accessibility and usability
+* Strong awareness of mobile and responsive design
+
+## 想望的能力和经验:
+* Experience developing web-based products using HTML, CSS, and JavaScript
+* Experience using front-end frameworks such as Twitter bootstrap for prototyping
+* Experience using version control (especially GitHub) and issue-tracking
+* Experience working with multimedia
+* Experience working with Adobe products such as Fireworks, Illustrator, Reflow etc.
+* Animation skills (After Effects, 3D Max, Flash etc.) are a bonus!
+
+## 申请方式:
+* Please bring/submit portfolio/personal website
+
+## 公司简介:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+[www.profero.com](http://www.profero.com)

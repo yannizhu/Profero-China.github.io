@@ -1,0 +1,24 @@
+---
+layout: preview-jobs-index-chinese
+---
+				
+				<ul class="jobs-list">
+					
+{% for post in site.posts %}
+	{% if post.categories contains 'jobs' and post.language == 'chinese' %}
+		{% unless post.categories contains 'preview' %}
+					
+					<li>
+						<a href="/preview{{ post.url }}">
+							<h2>{{ post.title }}</h2>
+							<p class="date-posted">{{ post.date | date: "%B %d, %Y" }}</p>
+							<p>{{ post.shortdescription }}</p>
+							<i class="icon-info"></i>
+						</a>
+					</li>
+					
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+					
+				</ul>

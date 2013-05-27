@@ -1,0 +1,17 @@
+---
+categories: cn work
+date: 2013-04-24 01:01:44
+imagecarousel: work-images-carousel2
+images:
+- /images/work/catalent/1.jpg
+- /images/work/catalent/2.jpg
+- /images/work/catalent/3.jpg
+- /images/work/catalent/4.jpg
+language: chinese
+link: www.catalent.com
+tagline: 多语言网站为北美的全球品牌
+title: Catalent
+---
+
+#### 我们的角色
+Catalent公司是全球主要的制药技术和服务供应商，因此，他们的网站需要一个未来的，创新的界面。博斐设计，并建立了网站，用相结合的技术，其中包括了大量的JavaScript。该网站提供了大量的信息，以及互动功能的所有品牌与潜在的合作伙伴和消费者。 8种语言的本地化网站，已经推出了横跨欧洲，亚洲和美洲市场，而且还具有手机和平板版本。康泰伦特营销团队发挥了积极的作用，在保持内容，所以网站是建立在广泛而通用的完全定制的内容管理系统（CMS）。我们将继续提供技术更新和支持。

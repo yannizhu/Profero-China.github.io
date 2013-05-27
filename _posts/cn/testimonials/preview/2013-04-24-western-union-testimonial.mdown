@@ -1,0 +1,9 @@
+---
+categories: preview cn testimonial
+company: 西联汇款
+date: 2013-04-24 00:00:19
+language: chinese
+reviewer: Bessie Tam
+---
+
+Profero提供一个真正伟大的服务，永远友好，乐于助人，非常敏感。

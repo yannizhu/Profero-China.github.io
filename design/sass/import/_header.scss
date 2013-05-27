@@ -1,0 +1,223 @@
+.page-header {
+	background: 					url(../images/bg.jpg) no-repeat 50% 25%;
+	background-size: 				cover;
+	@include 						box-shadow(inset 0 0 35px rgba(0,0,0,0.9));
+	color: 							$grey;
+	text-align: 					center;
+
+	@media print {
+		@include 					box-shadow(none);
+		height: 					auto !important;
+	}
+}
+
+.header-container {
+	overflow: 						hidden;
+	padding-bottom: 				$gutter;
+
+	@media print {
+		padding: 					0;
+	}
+
+	.hgroup {
+		background: 				rgba($white,0.5);
+		padding: 					$gutter*2 $gutter $gutter $gutter;
+
+		@media print {
+			padding: 				$gutter 0 0 0;
+		}
+	}
+
+	h1 {
+		font-size: 					3em;
+		letter-spacing: 			-1px;
+		line-height: 				1;
+		margin: 					0;
+
+		@include breakpoint(lap) {
+			font-size: 				4em;
+		}
+	}
+	h2 {
+		font-size: 					2em;
+		line-height: 				1;
+		margin: 					$gutter/2 0 0 0;
+	}
+
+	[role="navigation"] {
+		@extend 					.unstyled-list;
+		@extend 					.inline-list;
+		font-size: 					1.5em;
+		margin: 					$gutter*2 auto $gutter auto;
+		max-width: 					80%;
+
+		@media print {
+			display: 				none;
+		}
+
+		a {
+			color: 					rgba($white,0.9);
+			display: 				block;
+			padding: 				0.4em;
+			text-align: 			left;
+			width: 					auto;
+
+			@include breakpoint(desk) {
+				height: 			9em;
+				padding: 			0;
+				text-align: 		center;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+				
+				@include breakpoint(desk) {
+					height: 		10em;
+				}
+
+				.icon + span {
+					@include 		transition($transition);
+
+					@include breakpoint(desk) {
+						margin-top: 3.2em;
+					}
+				}
+
+				i {
+					border: 		4px solid rgba(255,255,255,0.1);
+					@include 		box-shadow(0 0 0 0 rgba($white, 0.2));
+
+					@include breakpoint(desk) {
+						border: 	none;
+					}
+				}
+			}
+		}
+
+		li {
+			transition: 			border .5s;
+			vertical-align: 		top;
+			width: 					100%;
+
+			@include breakpoint(lap) {
+				width: 				50%;
+			}
+
+			@include breakpoint(desk) {
+				width: 				20%;
+			}
+
+		}
+
+		li:nth-child(5n+1) {
+			background: 			$colour1;
+
+			a:active,
+			a:focus,
+			a:hover {
+				background: 		darken($colour1,15);
+
+				@include breakpoint(desk) {
+					background: 	$colour1;
+					border-bottom: 	4px solid darken($colour1, 20%);
+				}
+			}
+		}
+		li:nth-child(5n+2) {
+			background: 			$colour2;
+
+			a:active,
+			a:focus,
+			a:hover {
+				background: 		darken($colour2,15);
+
+				@include breakpoint(desk) {
+					background: 	$colour2;
+					border-bottom: 	4px solid darken($colour2, 20%);
+				}
+			}
+		}
+		li:nth-child(5n+3) {
+			background: 			$colour3;
+
+			a:active,
+			a:focus,
+			a:hover {
+				background: 		darken($colour3,15);
+
+				@include breakpoint(desk) {
+					background: 	$colour3;
+					border-bottom: 	4px solid darken($colour3, 20%);
+				}
+			}
+		}
+		li:nth-child(5n+4) {
+			background: 			$colour4;
+
+			a:active,
+			a:focus,
+			a:hover {
+				background: 		darken($colour4,15);
+
+				@include breakpoint(desk) {
+					background: 	$colour4;
+					border-bottom: 	4px solid darken($colour4, 20%);
+				}
+			}
+		}
+		li:nth-child(5n+5) {
+			background: 			$colour5;
+
+			a:active,
+			a:focus,
+			a:hover {
+				background: 		darken($colour5,15);
+
+				@include breakpoint(desk) {
+					background: 	$colour5;
+					border-bottom: 	4px solid darken($colour5, 20%);
+				}
+			}
+		}
+		.icon {
+			display: 				inline-block;
+
+			@include breakpoint(desk) {
+				display: 			block;
+				padding-top: 		1.4em;
+			}
+		}
+ 
+		.icon + span {
+			display: 				inline-block;
+			position: 				relative;
+			top: 					-0.4em;
+
+			@include breakpoint(desk) {
+				display: 			block;
+				margin-top: 		2.1em;
+				position: 			static;
+				transition: 		margin .5s;
+			}
+		}
+
+		i {
+			background: 			rgba($white,0.1);
+			border: 				4px solid transparent;
+			@include 				border-radius(50%);
+			@include 				box-shadow(0 0 0 0.8em rgba($white, 0));
+			display: 				inline-block;
+			font-size: 				1.8em;
+			margin: 				0 auto;
+			padding: 				0.4em;
+			position: 				relative;
+			@include 				translate3d(0, 0, 0);
+			@include 				transition($transition);
+
+			@include breakpoint(desk) {
+				border: 			none;
+			}
+		}
+	}
+}

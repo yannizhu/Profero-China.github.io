@@ -1,0 +1,66 @@
+---
+categories: cn jobs
+date: 2013-04-24 00:00:52
+layout: job-chinese
+language: chinese
+shortdescription: 你是不是有特别想制作世界上最精彩的网站?
+title: 前端开发者
+englishurl: jobs/front-end-web-developer
+---
+
+## 职位:
+前端开发者（全职）
+
+## 位置:
+北京
+
+## 职位描述: 
+Work as part of a team, writing and maintaining standards-compliant and best-practice HTML, CSS, and Javascript code for a variety of small-scale and large-scale projects. If you have an overwhelming desire to build amazing websites and web applications that impress users and exceed expectations, then this is the place for you!
+
+## 负责:
+* Report to Project Manager
+* Build front-end projects according to provided designs and functional specifications
+* Maintain and document code
+* Be responsible for testing and optimising own projects
+* Continue to learn about new web technologies
+* Deliver projects on time
+* Deliver projects to the required level of quality, according to Profero's coding guidelines
+
+## 所需要求:
+* Maths/Science/Technology Related Degree
+* Computer Science / Programming / Software Engineering Preferred
+* Degree not essential if skills/experience can be proven
+
+## 所需教育:
+* Minimum 2 years' experience as a front-end developer writing HTML, CSS, and Javascript code.
+
+## 所需能力:
+* HTML, including HTML5
+* CSS, including CSS3
+* Javascript (without libraries), and including familiarity with at least 1 library like jQuery, Prototype, Mootools, YUI
+* Understanding of W3C web standards
+* Understanding of browser compatibility issues
+* Understanding of accessibility and speed optimisation issues
+* Understanding of mobile and responsive design
+* Knowledge of browser testing methods
+* Ability to use Adobe Photoshop
+* Basic English reading & writing
+
+## 想望能力和经验:
+* Familiarity with back-end programming technologies like PHP and .NET
+* Familiarity with Javascript and CSS frameworks
+* Familiarity with MVC frameworks
+* Familiarity with Agile and other software development methodologies
+* Familiarity with Content Management Systems like Wordpress, Drupal, Joomla, SiteCore, EzPublish
+* Familiarity with Flash / ActionScript
+* Ability to use pre-compilers and languages like Jade, Blade, Handlebars, Moustache, SASS/LESS, CoffeeScript
+* Ability to learn quickly required skills
+* Ability to use other software packages by Adobe
+* Experience with version control (especially GitHub), issue tracking, and build/release management
+
+## 申请方式:
+* Please bring/submit portfolio / personal website / code samples.
+
+## 公司简介:
+Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
+[www.profero.com](http://www.profero.com)

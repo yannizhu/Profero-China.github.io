@@ -1,12 +1,12 @@
 ---
 layout: nil
-permalink: /feed/
+permalink: /jobs/feed/
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Profero Tech : Jobs</title>
- <link href="http://proferotech.com/feed/" rel="self"/>
+ <title>Jobs @ Proferotech</title>
+ <link href="http://proferotech.com/jobs/feed/" rel="self"/>
  <link href="http://proferotech.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://proferotech.com/</id>
@@ -19,9 +19,9 @@ permalink: /feed/
  	{% if post.categories contains 'job' %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://proferotech.com/{{ post.url }}"/>
+   <link href="http://proferotech.com{{ post.permalink }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://proferotech.com/blog/{{ post.id }}</id>
+   <id>http://proferotech.com{{ post.permalink }}</id>
    		{% if post.meta %}
     <content type="html">{{ post.meta }}</content>
     	{% endif %}

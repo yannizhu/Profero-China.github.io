@@ -1,0 +1,24 @@
+---
+layout: preview-blog-index
+---
+
+				<ul class="blog-list">
+					
+{% for post in site.posts %}
+	{% if post.categories contains 'blog' %}
+		{% unless post.categories contains 'preview' %}
+					
+					<li>
+						<a href="{{ post.url }}">
+							<h2>{{ post.title }}</h2>
+							<p class="date-posted">{{ post.date | date: "%B %d, %Y" }}</p>
+							<p>{{ post.excerpt }}</p>
+							<i class="icon-right"></i>
+						</a>
+					</li>
+					
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+					
+				</ul>

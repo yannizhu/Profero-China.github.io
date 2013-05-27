@@ -1,0 +1,9 @@
+---
+categories: preview cn testimonial
+company: 汉莎航空
+date: 2013-04-24 00:00:20
+language: chinese
+reviewer: Frank Bournemann
+---
+
+他们总是做伟大的工作，准时交货

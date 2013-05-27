@@ -1,0 +1,82 @@
+.whyus {
+	margin-bottom: 			$gutter/2;
+}
+
+h1 {
+	font-size: 				3em;
+	padding: 				0 $gutter;
+	text-align: 			center;
+
+	@media print {
+		font-size: 			1.5em;
+	}
+}
+
+.reasons {
+	@extend 				%grid--full;
+}
+
+.reason-wrapper {
+	@extend 				%grid__item;
+	@extend 				%one-half;
+	@extend 				%lap--one-third;
+	@extend 				%desk--one-third;
+
+
+	&:nth-child(6n+1) .reason {
+		color: 				$colour1;
+	}
+	&:nth-child(6n+2) .reason {
+		color: 				$colour2;
+	}
+	&:nth-child(6n+3) .reason {
+		color: 				$colour3;
+	}
+	&:nth-child(6n+4) .reason {
+		color: 				$colour4;
+	}
+	&:nth-child(6n+5) .reason {
+		color: 				$colour5;
+	}
+	&:nth-child(6n+6) .reason {
+		color: 				$colour6;
+	}
+}
+
+.reason {
+	background: 			$reallylightgrey;
+	margin: 				$gutter/2;
+	overflow: 				hidden;
+	padding: 				$gutter;
+	text-align: 			center;
+
+	@include breakpoint(desk) {
+
+		&:hover {
+			background: 	$white;
+		}
+	}
+
+	@media print {
+		color: 				$black !important;
+		padding: 			0;
+	}
+
+	h3 {
+		font-size: 			1.5em;
+		margin: 			0;
+
+		@include breakpoint(lap) {
+			font-size: 		1.6em;
+		}
+
+		@include breakpoint(desk) {
+			font-size: 		2em;
+		}
+	}
+
+	.icon {
+		color: 				$green;
+		float: 				left;
+	}
+}

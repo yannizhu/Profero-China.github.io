@@ -1,0 +1,19 @@
+---
+categories: preview work
+date: 2013-04-24 00:01:00
+imagecarousel: work-images-carousel0
+images:
+- /images/work/smirnoff/1.jpg
+- /images/work/smirnoff/2.jpg
+- /images/work/smirnoff/3.jpg
+language: english
+link: www.smirnoff.com
+tagline: Global website for the world's 2nd biggest alcohol brand
+title: Smirnoff
+---
+
+#### our role
+Profero planned, designed, built, and continues to maintain the global website for Diageo's flagship brand. Localised across 54 markets, the website features information about Smirnoff products and marketing campaigns. The website's design focuses on the brand's younger, party-going audience and the content also promotes video and social media integration.
+
+#### the results
+Smirnoff.com now receives over *700,000 visits* per month and has a conversion rate almost double that of any other Diageo brand. In 2012 Profero were awarded the prestigious *Grand Prix* award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than *10 million* consumers worldwide.

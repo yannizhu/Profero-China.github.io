@@ -1,0 +1,19 @@
+---
+categories: cn work
+date: 2013-04-24 01:01:41
+imagecarousel: work-images-carousel5
+images:
+- /images/work/roadshow/1.jpg
+- /images/work/roadshow/2.jpg
+- /images/work/roadshow/3.jpg
+language: chinese
+link: roadshow.com.au
+tagline: 澳大利亚品牌的社会网络综合网站
+title: Village Roadshow Community
+---
+
+#### 我们的角色
+博斐规划，设计，建造和部署这种身临其境的网站澳大利亚首屈一指的影院和媒体公司。该网站利用Facebook的社交媒体平台，评论和讨论有关该公司的产品特色吸引消费者。
+
+#### 的结果
+该网站建在上面的。NET框架使用HTML5和JavaScript来提供大量的动画和互动功能。

@@ -1,0 +1,9 @@
+---
+categories: preview cn testimonial
+company: 帝亚吉欧
+date: 2013-04-24 00:00:21
+language: chinese
+reviewer: Dan Hatton
+---
+
+我惊讶的技术专长，这些家伙！

@@ -1,0 +1,19 @@
+---
+categories: preview work
+date: 2013-04-24 00:04:01
+imagecarousel: work-images-carousel5
+images:
+- /images/work/roadshow/1.jpg
+- /images/work/roadshow/2.jpg
+- /images/work/roadshow/3.jpg
+language: english
+link: roadshow.com.au
+tagline: Social network integrated site for an Australian brand
+title: Village Roadshow Community
+---
+
+####our role
+Profero planned, designed, built, and deployed this immersive website for Australia's premier cinema and media company. The website leverages Facebook's social media platform to engage consumers by featuring reviews and discussions about the company's products.
+
+####the result
+The website was built on top of the .NET framework using HTML5 and a great deal of JavaScript to offer animations and interactive features.

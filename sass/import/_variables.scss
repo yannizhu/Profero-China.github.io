@@ -1,0 +1,41 @@
+/*-----Colours-----*/
+$proferoYellow:		#f6d431;
+$yellow: 			$proferoYellow;
+$white: 			#FFFFFF;
+$black: 			#222222;
+$almostblack: 		#333333;
+$grey: 				#666666;
+$lightgrey: 		#CCCCCC;
+$lightergrey: 		#F2F2F2;
+$reallylightgrey: 	#F9F9F9;
+
+$green: 			#1abc9c;
+$orange: 			#f39c12;
+$blue: 				#3498db;
+$darkblue: 			#34495e;
+$purple: 			#9b59b6;
+
+$colour1: 			$green;
+$colour2: 			$yellow;
+$colour3: 			$orange;
+$colour4: 			$blue;
+$colour5: 			$darkblue;
+$colour6: 			$purple;
+
+$bodybg: 			$white;
+$bodytext: 			$grey;
+
+$buttoncolour: 		$lightgrey;
+
+/*-----Typography-----*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,700);
+$font: 				"Raleway", sans-serif;
+
+/*-----Layout-----*/
+$desk: 				60em;
+$lap: 				40em;
+$borderradius: 		3px;
+
+/*-----Misc-----*/
+$transition: 		0.2s all ease-out;
+$slow-transition: 	0.5s all ease-out;

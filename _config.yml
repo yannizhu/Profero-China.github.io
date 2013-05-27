@@ -1,6 +1,5 @@
-auto: true
-server: true
-markdown: rdiscount
+name: Proferotech
 pygments: true
-permalink: /:title
-paginate: 10
+paginate: 1000
+exclude: ['sass', 'node_modules', '.gitignore', 'config.rb', 'gruntfile.js', 'gzip.rb', 'package.json', 'README.md', 'design', '.sass-cache', 'js/lib']
+permalink: /:categories/:title
