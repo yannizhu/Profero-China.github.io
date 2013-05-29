@@ -1,0 +1,114 @@
+---
+categories: preview blog
+date: 2013-05-29 17:04:39
+layout: blog-post
+excerpt: The purpose of this website is to promote and showcase our capabilities in design and technology in ways that apply to marketeers, highlight our experience, and provide a point of reference to those looking to get in touch with us or seeking to work with us. You'll see there's a page listing job opportunities and, well, you've already found this blog, which is where we're going to be writing about new technologies and learnings that we can apply to our work...
+title: Welcome to Proferotech
+---
+
+The purpose of this website is to promote and showcase our capabilities in design and technology in ways that apply to marketeers, highlight our experience, and provide a point of reference to those looking to get in touch with us or seeking to work with us. You'll see there's a page listing job opportunities and, well, you've already found this blog, which is where we're going to be writing about new technologies and learnings that we can apply to our work. In this first blog post, let's talk about the site itself and what we can learn from it. 
+
+If you have any questions, ideas, comments or suggestions, please send them to [tech@profero.com](mailto:tech@profero.com)! Also, you'll find all the code and content available on the [public repo on github](https://github.com/Profero-China/Profero-China.github.io) so do also let us know if you'd like to contribute to this project.
+
+## The Requirements
+
+During a management meeting in January, we identified that potential clients may not be engaging us because they don't fully understand what exactly it is that we do and what capabilities and experience we have. Even though we have our global profero.com website, it doesn't necessarily provide clients with this information and is not very specific to the services offered by Profero Beijing (a.k.a. Proferotech).
+
+Therefore we decided a suitable way to remedy this problem would be to build our very own Proferotech website. The requirements were:
+* single page website - simple, clean, fast, easy
+* highlight the link between marketing and technology
+* showcase some of our work, explain our capabilities through these examples
+* show off our clients
+* feature client testimonials, text/audio/video
+* provide contact information
+* sleek, modern, and enticing design
+* fast loading
+* responsive layout
+* show off some popular technologies such that the page itself could be used as an example to demonstrate the technology to clients
+
+Do you think the site meets these requirements? Let us know!
+
+## The Design Process
+
+As with all good websites, it was designed in the browser, without the need for any static design comps (i.e. PSDs). The site went through 3 design iterations. The first used Twitter Bootstrap as a framework to determine general layout. In the second iteration, Bootstrap was removed and more design details were added. In the 3rd and final iteration, the site was built based on a custom framework that resulted from the previous iteration.
+
+The colour scheme was always focused around our brand colours: yellow, white, and black. The white background keeps the page feeling very light and clean. More bright colours were added later to differentiate us from the global brand and also to align the design with other popular styles such as Windows 8 and the latest iOS, which feature lots of bright, flat colouring.
+
+In keeping with the minimalist design, a lightweight font was chosen from Google web fonts. This font works well in larger sizes, which is appropriate in this case as the page content is relatively sparse.
+
+## The Technology Stack
+
+The development was carried out by 1 person, although the project files have been organised in such a way that it should be easy for another developer to work on. We decided to host the project on github because it's fast and easy to deploy updates to. Github pages use Jekyll to generate content and so this was also chosen as the solution for maintaining the content on Proferotech. All content on the site, including this blog post, is in the form of a plain-text Markdown file which is simply pushed to the github repo.
+
+The CSS is compile from SASS, which means that the code can be easily organised into separate files for easier maintenance. The Javascript is also separated into files which relate to blocks of functionality. All the CSS and JavaScript files are managed by *the* de-facto build system for front-end projects, [GruntJS](http://gruntjs.com).
+
+### Build system
+
+Grunt uses nodeJS modules to perform actions like linting, compressing, minifying, concatonating, and moving files. During development it was kept running simply by typing ```grunt``` into a terminal window. It then watched the files so that any changes made to any SASS or JavaScript files were automatically included into product-ready files ```styles.min.css``` and ```main.min.js```. Grunt will also notify you if there are any syntax errors in your files, making it incredibly convenient - your files are always ready to go!
+
+### HTML
+
+The HTML features some interesting features such as:
+* LOTS of meta tags, which mean the site can be saved as an iOS dashboard icon, saved as a tile on Windows8, and shared on Facebook.
+* Google Analytics tracking
+* Data-Attributes
+* Rich Snippets - attributes which highlight the pertinent information to search engines.
+* ARIA Roles - this makes the page accessible to disabled users by highlighting the purpose of certain sections of content
+
+### CSS
+
+The CSS is compiled from SASS. This means it can be kept organised and easier for the developer, although the resulting CSS is rather bloated and not quite as modular as it could be. However the SASS itself is organised in a modular fashion. Semantic classes were used where possible: for instance instead of writing ```<section class="grid">``` we can do 
+```
+.my-module {
+	section {
+		@extend 	.grid;
+	}
+}
+```
+
+We tried to keep class names sensible and reusable like this, e.g. "unstyled-list" rather than "top-list" or "menu-list". Then other elements can @extend .unstyled-list and it will make sense to everyone.
+
+### JavaScript
+
+The site makes use of several jQuery plugins and a fair amount of DOM manipulation is required. To keep the code clean it was organised in the 'module pattern' where distinct blocks of functionality are contained within functions that contain objects and functions such as el{} and init(). This has the double advantage of containing all the variables and private functions safely as well as keeping the code clear and easy to maintain.
+
+## How the Site can be Used
+
+### By Designers
+
+The site features 'Flat Design', which is very much in style in 2013. There is a consistent grid layout, spacing, use of colours and typographic hierarchy. You'll see that the icons are actually using a custom font, generated at [icomoon.io](http://icomoon.io) - this is highly recommended because it means you don't have to spend time designing icons that are already available, and the resulting icons are vector-based (so can be resized and styled using code without sacrificing quality). 
+
+There isn't a styleguide for this website yet (but you can make one if you like!).
+
+### By Developers
+
+Lots of really useful tools were used to build this site, such as SASS, Compass, Grunt, and Jekyll. If you're interested in learning any of these technologies then reference the code for this site as a learning tool.
+
+The code is organised very neatly so everything is clearly indented and commented, and all the SASS code is separated into separate files which are imported at compile time. Have a look at js/lib/proferotech.js to see how the JavaScript is organised into nice functional chunks.
+
+### By Account Managers
+
+When you're trying to win new clients, or explain our capabilities or certain technologies to clients, you can point them to proferotech.com as a reference. For instane here are some of the cool features the site has that clients may be interested to see demonstrated:
+
+*	*Responsive layout*
+	If you resize the browser window on a desktop computer, or display it on a mobile or tablet device and rotate the device, the layout will adapt according to the available screen width. This kind of development is cheaper for clients as they don't need to pay for and maintain separate mobile/tablet/desktop versions of their website. It also means that everyone, no matter what device they are using to access the site, can get a good user experience. (NOTE: the site isn't entirely responsive - all devices download the same assets such as scripts and images)
+	
+* 	*HTML5 geolocation*
+	If the device supports it and the visitor grants access, the website will use the HTML5 Geolocation API to automatically detect the visitor's location and plot a route on the map from their location to ours.
+	
+*	*Customised Google map*
+	The page features a google map with a custom colour scheme and map pointers which remains centred on our office, even when the screen is resized. It automatically displays at the most appropriate scale and also shows a route from the visitor's location to ours.
+
+*	*HTML5 link & DNS prefetching*
+	To make it faster, when the page loads, the browser is instructed to autmatically try and download in the background any other pages/assets before they are needed.
+	
+*	*Custom web font*
+	The font used is chosen from Google Web Fonts. This has the advantage of being easy to implement and fast to load. Despite being a different font style to our logo, it compliments the design and branding, rather than detracting from it.
+
+*	*Speed optimised*
+	As well as prefetching, the number of assets is kept to a minimum to reduce load time. This includes the use of icon fonts - the icons are actually text, not images, using a special font. This means the icons are fast to download and will remain crisp and clear no matter the screen size (i.e. retina-friendly)
+	
+*	*Rich snippets*
+	These are tags in the code which highlight pertinent information (such as logo, description, address, telephone, geo coordinatates etc.) to search engines like Google.
+	
+That's all for now. Keep coming back to check for more posts!
