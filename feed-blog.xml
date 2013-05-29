@@ -17,15 +17,17 @@ permalink: /blog/feed/
 
  {% for post in site.posts %}
  	{% if post.categories contains 'blog' %}
+ 		{% unless post.categories contains 'preview' %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://proferotech.com{{ post.permalink }}"/>
+   <link href="http://proferotech.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://proferotech.com{{ post.permalink }}</id>
    		{% if post.meta %}
     <content type="html">{{ post.meta }}</content>
     	{% endif %}
  </entry>
+ 		{% endunless %}
  	{% endif %}
  {% endfor %}
  
