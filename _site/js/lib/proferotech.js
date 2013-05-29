@@ -180,7 +180,7 @@
 
 				if(targetlanguage=="en") {
 					
-					newURL = window.location.href.replace('http://localhost:4000/cn/', 'http://localhost:4000/');
+					newURL = window.location.href.replace('http://proferotech.com/cn/', 'http://proferotech.com/');
 					//newURL = newURL.indexOf('?')==-1 ? newURL : newURL.substring(0,newURL.indexOf('?'));
 
 					console.log("redirecting to: " + newURL);
@@ -188,7 +188,7 @@
 
 				} else {
 					
-					newURL = window.location.href.replace('http://localhost:4000/', 'http://localhost:4000/cn/');
+					newURL = window.location.href.replace('http://proferotech.com/', 'http://proferotech.com/cn/');
 					//newURL = newURL.indexOf('?')==-1 ? newURL : newURL.substring(0,newURL.indexOf('?'));
 
 					console.log("redirecting to: " + newURL);
