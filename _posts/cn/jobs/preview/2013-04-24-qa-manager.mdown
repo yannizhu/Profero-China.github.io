@@ -3,7 +3,7 @@ categories: preview cn jobs
 date: 2013-04-24 00:00:24
 layout: preview-job-chinese
 language: chinese
-shortdescription: 我们想要一个能领导测试人对和指挥最优实践的完美主义者
+shortdescription: 我们寻找完美主义者领导测试团队找出最佳方案
 title: 测试经理
 englishurl: preview/jobs/qa-manager
 ---

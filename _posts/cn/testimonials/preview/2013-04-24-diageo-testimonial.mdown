@@ -6,4 +6,4 @@ language: chinese
 reviewer: Dan Hatton
 ---
 
-我惊讶的技术专长，这些家伙！
+我真为这些小伙子们的专业技能感到惊奇！（帝亚吉欧）

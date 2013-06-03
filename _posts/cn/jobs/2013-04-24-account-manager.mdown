@@ -3,7 +3,7 @@ categories: cn jobs
 date: 2013-04-24 00:00:53
 layout: job-chinese
 language: chinese
-shortdescription: 客户经理是公司对着客户的组成部分，负责项目的方案
+shortdescription: 客户经理是公司直面客户的窗口，负责项目所有的计划和组织工作。
 title: 客户经理
 englishurl: jobs/account-manager
 ---

@@ -3,7 +3,7 @@ categories: cn jobs
 date: 2013-04-24 00:00:49
 layout: job-chinese
 language: chinese
-shortdescription: 一个想望美丽网络，想设计世界上最漂亮最好用的网站和软件的的人。这个人为了建造原型网站会写HTML和CSS。
+shortdescription: 如果你渴望设计出世界上最美观、惊艳的网页和应用，并且有HTML和CSS的基础，那么就快加入我们吧！
 title: 网站设计师
 englishurl: jobs/web-designer
 ---

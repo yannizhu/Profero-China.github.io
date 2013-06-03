@@ -3,8 +3,8 @@ categories: preview cn jobs
 date: 2013-04-24 00:00:23
 layout: preview-job-chinese
 language: chinese
-shortdescription: 你是不是有Are you someone with an overwhelming desire to build amazing websites and web applications?
-title: 前端开发者
+shortdescription: 你有强烈的愿望想要建立令人赞叹的网站和应用程序吗？
+title: 前端工程师
 englishurl: preview/jobs/front-end-web-developer
 ---
 

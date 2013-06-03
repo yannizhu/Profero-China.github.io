@@ -6,4 +6,4 @@ language: chinese
 reviewer: Frank Bournemann
 ---
 
-他们总是做伟大的工作，准时交货
+他们的工作十分出色，并且总能准时交付。（汉莎航空）
