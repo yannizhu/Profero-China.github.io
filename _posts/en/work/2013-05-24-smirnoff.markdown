@@ -9,8 +9,25 @@ tagline: Global website for the world's 2nd biggest alcohol brand
 title: Smirnoff
 ---
 
-#### our role
-Profero planned, designed, built, and continues to maintain the global website for Diageo's flagship brand. Localised across 54 markets, the website features information about Smirnoff products and marketing campaigns. The website's design focuses on the brand's younger, party-going audience and the content also promotes video and social media integration.
+#### what is the opportunity?
+Master of the Mix is a reality TV series and DJ competition presented by Smirnoff.
 
-#### the results
-Smirnoff.com now receives over *700,000 visits* per month and has a conversion rate almost double that of any other Diageo brand. In 2012 Profero were awarded the prestigious *Grand Prix* award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than *10 million* consumers worldwide.
+#### what did we do?
+‘Master of the Mix’ needed to be properly advertised on www.smirnoff.com, so we created a whole section dedicated to this popular event. The design was done by Profero New York, who also maintain the content.
+
+The webpage features:
+* Videos and episodes
+* The latest news 
+* New drink recipes
+* More about the cast
+* Links for joining  the fan community on Facebook and to follow it on Twitter
+
+#### how did we do it?
+* Built using Umbraco as CMS
+* Hosted on NEO
+* Development enviroments: Visual Studio 2008+, SQL Server 2005 and Windows Server 2003+
+
+#### our results
+* Smirnoff.com now receives over *700,000* visits per month and has a conversion rate almost double that of any other Diageo brand.
+* In 2012 Profero were awarded the prestigious *Grand Prix* award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than *10 million* consumers worldwide.
+* It targets in over 140 markets and is localised in multiple languages

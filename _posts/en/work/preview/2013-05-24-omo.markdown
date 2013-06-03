@@ -8,15 +8,28 @@ tagline: Native applications and regular campaign sites
 title: OMO
 ---
 
-#### our role
-As one of China's leading brands of detergent, OMO, a Unilever brand, is focused on targeting the increasing domestic consumer base. The market is extremely competitive and fairly tech-savvy with a relatively high proportion of mobile users.
+#### what is the opportunity
+China’s leading brand of detergent: OMO
 
-We are engaged in planning, designing, building, and rolling out a stream of online marketing campaigns, supported by social media, minisites, and native applications on handheld devices (iOS and Android).
+#### what did we do?
+Create an APP for young children to learn during playing games
 
-#### the challenge
-* Making a brand of detergent fun and engaging, focusing on family and younger demographics by using rich, playful, and highly interactive content.
-* Ensuring device compatibility and speed optimisation for a large proportion of users on handheld devices and slower internet connections.
-* Fast turnaround - OMO marketing campaigns are very frequent.
+List different kinds of games parents can play with their children to get closer and help to develop potentials
 
-#### the result
-Since working on OMO projects, Unilever have since engaged us to work on other brands. In 2013 we were awarded the 'Golden Mouse' *Gold award* for social media for our work on OMO.
+Show the calendar for children as well as their parents to make it a better May, including not only games, activities but also weather forecast and delicious food
+
+Create an online platform for consumers to feel free asking any questions about washing clothes
+
+Create a vote counter for charity for children in the villages to give them better equipment to enjoy playing games
+
+#### technical
+What we use:
+
+* HTML
+* JavaScript
+* CSS
+
+#### our results
+* Successfully working on OMO projects
+* Engaged in other brands under Unilever
+* Awarded the '*Golden Mouse*' Gold award for social media in 2013

@@ -9,5 +9,17 @@ tagline: Multilingual site for a North America-based global brand
 title: Catalent
 ---
 
-####our role
-Catalent is a major global provider of pharmaceutical technology and services, and therefore their website demands a futuristic and innovative interface. Profero designed and built the site using a combination of technologies, including a great deal of JavaScript. The site features an enormous amount of information as well as interactive features to all the brand to engage with potential partners and consumers. The website is localised in 8 languages, has been launched in markets across Europe, Asia, and the Americas, and also features mobile and tablet versions. The Catalent marketing team play an active role in maintaining content and so the site is built upon an extensive and versatile fully customised Content Management System (CMS). We continue to provide technical updates and support.
+#### what did we do?
+Create the Solution Finder for the drug development professional in order to provide a tool designated to help people in the drug development, determining the optimal finished dose suited to specific product requirements, target indication and molecule properties
+* Show a clean interface to help them understand their needs better
+* Prepare different questions for the customers to make sure their requirements
+
+#### how did we do it?
+* Built using HTML, CSS, and a lot of JavaScript
+* It has been developed on Apache, PHP and Mysql environments
+* It has separate mobile and tablet versions 
+* It's localised in 8 languages for markets in North America, South America, Europe, and Asia
+* Percentages for all steps
+* List all the choices, can go back and reset
+* Considerate choices, you will always find what you want
+* EZ Publish as CMS

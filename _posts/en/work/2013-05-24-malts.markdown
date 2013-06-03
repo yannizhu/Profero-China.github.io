@@ -9,12 +9,33 @@ tagline: Design, build, and maintenance for a parent site for over 20 brands
 title: Malts
 ---
 
-####our role
-Malts is one of Diageo's fastest growing brands and incorporates many sub-brands of single malt whiskies. Localised marketing activity for each of these brands is all managed and represented through this website, which we designed, built, and continue to maintain.
+#### what is the opportunity?
+Malts is one of Diageo's fastest growing brands and incorporates many sub-brands of single malt whiskies. To keep up with its continuous growth, Malts needed a site up to date, that showcased the wide range of its products.
 
-The website is built upon a fully customised Content Management System (CMS), deployed to Diageo's 'NEO' platform, and localised specifically for 18 markets. We regularly deploy updates and new sections of the site dedicated to marketing campaigns and competitions. Such competitions often involve interactive content with images, video, and consumer contributions.
+#### what did we do?
+We provide localised marketing activities for each of these brands, all managed and represented through this website, which:
+* we designed
+* we built
+* we continue to maintain
 
-One of the website's main focuses is on consumer data acqusition. As part of the service we provide to Diageo, we use various technologies to leverage as many sources as possible capture data about the brands' consumers. We then provide regular reports on the analytics that we gather.
+We regularly deploy updates and new sections of the site dedicated to marketing campaigns and competitions. Such competitions often involve interactive content with images, video, and consumer contributions. One of the website's main focuses is on consumer data acquisition. 
 
-####the result
-Malts.com has over 25,000 active monthly visitors, and a consumer acquisiton rate that peaks at 12,000 per month.
+We built the ‘Donalds Journey’ section, featuring videos and comments streams. 
+
+We built the ‘Share your Journey’ section, featuring an interactive Google map with an image gallery for each distillery which users can contribute to.
+
+We rebuilt the home page, and registration process to make it more user-friendly and increase user engagement and registration.
+
+We created a customised ‘Distillery Pass’ for all locales that logged-in users can generate and print out before taking to Malts Distilleries.
+
+We created a Facebook application (a registration form), so that users can link the account to Malts.com
+
+#### how did we do it?
+* The website is built upon a fully customised Content Management System (CMS)
+* It’s deployed to Diageo's 'NEO' platform
+* The website is localised specifically for 18 markets
+
+As part of the service we provide to Diageo, we use various technologies to leverage as many sources as possible capture data about the brands' consumers. We then provide regular reports on the analytics that we gather.
+
+#### our results
+Malts.com has over 25,000 active monthly visitors, and a consumer acquisition rate that peaks at 12,000 per month.
