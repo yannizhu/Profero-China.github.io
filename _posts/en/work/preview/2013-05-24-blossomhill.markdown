@@ -2,10 +2,7 @@
 categories: preview work
 date: 2013-04-24 00:04:05
 imagecarousel: work-images-carousel1
-images:
-- /images/work/blossomhill/1.jpg
-- /images/work/blossomhill/2.jpg
-- /images/work/blossomhill/3.jpg
+imagequantity: 3
 language: english
 tagline: Facebook application for a UK brand
 title: Blossom Hill

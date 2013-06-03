@@ -2,10 +2,7 @@
 categories: preview cn work
 date: 2013-04-24 01:03:18
 imagecarousel: work-images-carousel1
-images:
-- /images/work/blossomhill/1.jpg
-- /images/work/blossomhill/2.jpg
-- /images/work/blossomhill/3.jpg
+imagequantity: 3
 language: chinese
 tagline: 英国牌子的Facebook软件
 title: Blossom Hill

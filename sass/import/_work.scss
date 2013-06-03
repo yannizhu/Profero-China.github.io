@@ -211,16 +211,21 @@
 
 .screenshots-slider {
 	@extend 					.unstyled-list;
+	border: 					1px solid #f9f9f9;
+	margin: 					0 auto;
+	overflow: 					hidden;
+	position: 					relative;
+	width: 						80%;
+
 }
 
 .work-item-images {
 
 	img {
-		border: 				1px solid $reallylightgrey;
 		display: 				block;
 		height: 				auto;
 		margin: 				0 auto;
-		width: 					75%;
+		width: 					2200%;			/* This will need to change according to the sprite */
 
 		@media print {
 			display: 			inline-block;

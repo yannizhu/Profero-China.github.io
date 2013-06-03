@@ -2,13 +2,7 @@
 categories: cn work
 date: 2013-04-23 01:01:42
 imagecarousel: work-images-carousel4
-images:
-- /images/work/omo/1.jpg
-- /images/work/omo/2.jpg
-- /images/work/omo/3.jpg
-- /images/work/omo/4.jpg
-- /images/work/omo/5.jpg
-- /images/work/omo/6.jpg
+imagequantity: 6
 language: chinese
 tagline: 本机应用程序和定期的竞选网站
 title: OMO

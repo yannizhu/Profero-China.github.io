@@ -2,10 +2,7 @@
 categories: preview cn work
 date: 2013-04-24 01:03:14
 imagecarousel: work-images-carousel5
-images:
-- /images/work/roadshow/1.jpg
-- /images/work/roadshow/2.jpg
-- /images/work/roadshow/3.jpg
+imagequantity: 3
 language: chinese
 link: roadshow.com.au
 tagline: 澳大利亚品牌的社会网络综合网站

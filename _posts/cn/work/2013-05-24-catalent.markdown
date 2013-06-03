@@ -2,11 +2,7 @@
 categories: cn work
 date: 2013-04-24 01:01:44
 imagecarousel: work-images-carousel2
-images:
-- /images/work/catalent/1.jpg
-- /images/work/catalent/2.jpg
-- /images/work/catalent/3.jpg
-- /images/work/catalent/4.jpg
+imagequantity: 4
 language: chinese
 link: www.catalent.com
 tagline: 多语言网站为北美的全球品牌

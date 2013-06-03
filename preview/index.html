@@ -10,8 +10,7 @@ layout: preview
 					<ul class="carousel-inner work-items">
 
 {% for post in site.posts %}
-	{% if post.categories contains 'work' and post.language == 'english' %}
-		{% unless post.categories contains 'preview' %}
+	{% if post.categories contains 'work' and post.categories contains 'preview' and post.language == 'english' %}
 
 						<!--work item: start-->
 						<li class="item work-item">
@@ -42,12 +41,12 @@ layout: preview
 										<div id="{{ post.imagecarousel }}" class="carousel work-images-carousel">
 											<ul class="screenshots-slider">
 
-			{% for image in post.images %}
+			{% for image in (1..post.imagequantity) %}
 
 												<li class="work-image-item">
-													<img src="{{ image }}" alt="">
+													<img src="/images/work-sprite.jpg" alt="">
 												</li>
-												
+
 			{% endfor %}
 												
 											</ul>
@@ -67,7 +66,6 @@ layout: preview
 						</li>
 						<!--work item: end-->
 
-		{% endunless %}
 	{% endif %}
 {% endfor %}
 					

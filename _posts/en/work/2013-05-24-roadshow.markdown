@@ -2,10 +2,7 @@
 categories: work
 date: 2013-04-24 00:02:27
 imagecarousel: work-images-carousel5
-images:
-- /images/work/roadshow/1.jpg
-- /images/work/roadshow/2.jpg
-- /images/work/roadshow/3.jpg
+imagequantity: 3
 language: english
 link: roadshow.com.au
 tagline: Social network integrated site for an Australian brand

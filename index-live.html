@@ -42,12 +42,12 @@ layout: default
 										<div id="{{ post.imagecarousel }}" class="carousel work-images-carousel">
 											<ul class="screenshots-slider">
 
-			{% for image in post.images %}
+			{% for image in (1..post.imagequantity) %}
 
 												<li class="work-image-item">
-													<img src="{{ image }}" alt="">
+													<img src="/images/work-sprite.jpg" alt="">
 												</li>
-												
+
 			{% endfor %}
 												
 											</ul>

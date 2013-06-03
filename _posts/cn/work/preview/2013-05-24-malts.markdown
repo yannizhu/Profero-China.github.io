@@ -2,10 +2,7 @@
 categories: preview cn work
 date: 2013-04-24 01:03:15
 imagecarousel: work-images-carousel3
-images:
-- /images/work/malts/1.jpg
-- /images/work/malts/2.jpg
-- /images/work/malts/3.jpg
+imagequantity: 3
 language: chinese
 link: www.malts.com
 tagline: 设计，建造和维护父站点超过20个品牌

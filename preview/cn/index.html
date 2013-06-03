@@ -25,11 +25,13 @@ layout: preview-chinese
 										
 										<a class="button nextproject" href="#work-carousel" data-slide="next">see another project <i class="icon-right"></i></a>
 										
-			{% if post.link %}
-										
-										<a href="{{ post.link }}" class="button button-primary">visit {{ post.link }}</a>
-										
-			{% endif %}
+			{% for image in (1..post.imagequantity) %}
+
+												<li class="work-image-item">
+													<img src="/images/work-sprite.jpg" alt="">
+												</li>
+
+			{% endfor %}
 									</div>
 								</div>
 							

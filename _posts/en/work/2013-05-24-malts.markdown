@@ -2,10 +2,7 @@
 categories: work
 date: 2013-04-24 00:02:29
 imagecarousel: work-images-carousel3
-images:
-- /images/work/malts/1.jpg
-- /images/work/malts/2.jpg
-- /images/work/malts/3.jpg
+imagequantity: 3
 language: english
 link: www.malts.com
 tagline: Design, build, and maintenance for a parent site for over 20 brands

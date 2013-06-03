@@ -2,11 +2,7 @@
 categories: preview work
 date: 2013-04-24 00:04:04
 imagecarousel: work-images-carousel2
-images:
-- /images/work/catalent/1.jpg
-- /images/work/catalent/2.jpg
-- /images/work/catalent/3.jpg
-- /images/work/catalent/4.jpg
+imagequantity: 4
 language: english
 link: www.catalent.com
 tagline: Multilingual site for a North America-based global brand

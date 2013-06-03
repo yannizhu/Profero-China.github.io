@@ -2,10 +2,7 @@
 categories: cn work
 date: 2013-04-24 01:04:40
 imagecarousel: work-images-carousel0
-images:
-- /images/work/smirnoff/1.jpg
-- /images/work/smirnoff/2.jpg
-- /images/work/smirnoff/3.jpg
+imagequantity: 3
 language: chinese
 link: www.smirnoff.com
 tagline: 世界第二大酒精品牌的全球网站

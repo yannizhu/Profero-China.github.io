@@ -2,10 +2,7 @@
 categories: preview work
 date: 2013-04-24 00:01:00
 imagecarousel: work-images-carousel0
-images:
-- /images/work/smirnoff/1.jpg
-- /images/work/smirnoff/2.jpg
-- /images/work/smirnoff/3.jpg
+imagequantity: 3
 language: english
 link: www.smirnoff.com
 tagline: Global website for the world's 2nd biggest alcohol brand

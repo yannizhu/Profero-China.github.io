@@ -282,9 +282,17 @@
 
 			//resize height of carousel after sliding
 			el.workCarousel.bind('slid', function(e) {
-				var newHeight = $(".work-item.active .work-item-header").height() + $(".work-item.active .work-item-text").height();
-				el.workCarousel.css('height', newHeight);
-				el.workCarousel.find('.work-items').css('height', newHeight);
+				el.workCarousel.css('height', $(".work-item.active").height());
+			});
+
+			//the sprite is a big horizontal list of images
+			//each image needs to be given a corresponding negative left margin
+			//so for example, the fifth image (catalent) need a left margin
+			//of -400%
+			var imageCounter = 0;
+			el.workImages.each(function() {
+				$(this).find("img").css('marginLeft',imageCounter+"%");
+				imageCounter-=100;
 			});
 
 			var imageCarousels = el.workItemImagesCarousels();
@@ -331,6 +339,13 @@
 
 			//equal height columns for map and contact details
 			el.mapContainer.height(el.contactDetails.height());
+
+			//ensure the work images maintain aspect ratio
+			//because only the width is set in CSS because we're using
+			//an image sprite
+			el.workImages.each(function() {
+				$(this).find("img").css('height',$(this).width()*0.729);
+			});
 
 		},
 
