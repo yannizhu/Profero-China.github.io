@@ -1558,10 +1558,9 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
 			var imageCarousels = el.workItemImagesCarousels();
 
-			console.log(workItems.length);
 			for(var i=0; i<el.workItems.length; i++) {
 				currentCarousel = imageCarousels[i];
-				console.log("i: " + i + "carousel: " + currentCarousel);
+
 				//initialise
 				currentCarousel.carousel({
 					interval: 	4000,
