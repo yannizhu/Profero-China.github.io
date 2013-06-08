@@ -10,7 +10,7 @@ layout: preview-chinese
 					<ul class="carousel-inner work-items">
 
 {% for post in site.posts %}
-	{% if post.categories contains 'work' and post.language == 'chinese' %}
+	{% if post.categories contains 'work' and post.categories contains 'preview' and post.language == 'chinese' %}
 
 						<!--work item: start-->
 						<li class="item work-item">
@@ -240,8 +240,7 @@ layout: preview-chinese
 						<div class="testimonials-slider">
 							
 {% for post in site.posts %}
-	{% if post.categories contains 'testimonial' and post.language == 'chinese' %}
-		{% unless post.categories contains 'preview' %}
+	{% if post.categories contains 'testimonial' and post.categories contains 'preview' and post.language == 'chinese' %}
 							
 							<div class="testimonial">
 								<blockquote>
@@ -249,8 +248,7 @@ layout: preview-chinese
 									<footer>{{ post.reviewer }} &ndash; <span>{{ post.company }}</span></footer>
 								</blockquote>
 							</div>
-				
-		{% endunless %}			
+		
 	{% endif %}
 {% endfor %}
 
