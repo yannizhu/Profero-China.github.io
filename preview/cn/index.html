@@ -11,7 +11,6 @@ layout: preview-chinese
 
 {% for post in site.posts %}
 	{% if post.categories contains 'work' and post.language == 'chinese' %}
-		{% unless post.categories contains 'preview' %}
 
 						<!--work item: start-->
 						<li class="item work-item">
@@ -25,13 +24,11 @@ layout: preview-chinese
 										
 										<a class="button nextproject" href="#work-carousel" data-slide="next">see another project <i class="icon-right"></i></a>
 										
-			{% for image in (1..post.imagequantity) %}
-
-												<li class="work-image-item">
-													<img src="/images/work-sprite.jpg" alt="">
-												</li>
-
-			{% endfor %}
+			{% if post.link %}
+										
+										<a href="{{ post.link }}" class="button button-primary">visit {{ post.link }}</a>
+										
+			{% endif %}
 									</div>
 								</div>
 							
@@ -43,12 +40,12 @@ layout: preview-chinese
 										<div id="{{ post.imagecarousel }}" class="carousel work-images-carousel">
 											<ul class="screenshots-slider">
 
-			{% for image in post.images %}
+			{% for image in (1..post.imagequantity) %}
 
 												<li class="work-image-item">
-													<img src="{{image}}" alt="">
+													<img src="/images/work-sprite.jpg" alt="">
 												</li>
-												
+
 			{% endfor %}
 												
 											</ul>
@@ -69,7 +66,6 @@ layout: preview-chinese
 						</li>
 						<!--work item: end-->
 
-		{% endunless %}
 	{% endif %}
 {% endfor %}
 					
