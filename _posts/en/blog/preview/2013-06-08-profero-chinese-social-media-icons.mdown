@@ -1,0 +1,18 @@
+---
+categories: preview blog
+date: 2013-06-08 11:48:00
+layout: blog-post
+excerpt: Miller has put together some lovely Chinese social media icons that we can use in our online projects!
+title: Profero's Chinese Social Media Icons
+---
+
+Isn't it frustrating when you find a really nice icon set that has everything you need except for the social media icons which are invariably for only the North American social networks? Well now you can add these to your project:
+
+![Chinese Social Media Icon Pack](http://files.proferochina.com/?8a6t9cl0aggsw "Chinese Social Media Icon Pack")
+
+Thanks to **Miller Liang** for putting these together. In the pack are 3 formats:
+* **PNG**: for using in design mockups and print design
+* **SVG**: also for use in design mockups and print design, or on the web. SVG will allow you to change the size, shape, colour etc. If you want to combine these icons with some other icons, you can upload these SVG files to [icomoon.io](http://icomoon.io) and generate your own icon font!
+* **Icon fonts**: ready to embed into your online project using a custom font and a handy bit of CSS. That will allow you to include things like this right into your HTML: ```<i class="icon-weibo"></i> Weibo```. Icon fonts are just as scalable and stylable as plain text and much easier to manage than an image sprite!
+
+* [Download the Chinese Social Media Icon Pack](http://files.proferochina.com/?utscoifmd34480 "Download the Chinese Social Media Icon Pack")
