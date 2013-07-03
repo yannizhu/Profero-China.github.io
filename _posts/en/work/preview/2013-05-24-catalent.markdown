@@ -10,16 +10,9 @@ title: Catalent
 ---
 
 #### what did we do?
-Create the Solution Finder for the drug development professional in order to provide a tool designated to help people in the drug development, determining the optimal finished dose suited to specific product requirements, target indication and molecule properties
-* Show a clean interface to help them understand their needs better
-* Prepare different questions for the customers to make sure their requirements
+Catalent prides itself on innovation and so the global website had to reflect that. Therefore we implemented a unique and attractive user interface entirely using CSS and JavaScript. This presented huge challenges in terms of performance and cross-platform compatibility. The website has separate mobile and tablet versions and is localised in 8 languages for markets in North America, South America, Europe, and Asia.
 
 #### how did we do it?
 * Built using HTML, CSS, and a lot of JavaScript
-* It has been developed on Apache, PHP and Mysql environments
-* It has separate mobile and tablet versions 
-* It's localised in 8 languages for markets in North America, South America, Europe, and Asia
-* Percentages for all steps
-* List all the choices, can go back and reset
-* Considerate choices, you will always find what you want
-* EZ Publish as CMS
+* It was developed for an Apache server, using PHP and Mysql
+* EZ Publish is used as the Content Management System for all versions and locales

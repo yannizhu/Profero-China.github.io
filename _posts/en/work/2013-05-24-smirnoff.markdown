@@ -10,24 +10,20 @@ title: Smirnoff
 ---
 
 #### what is the opportunity?
-Master of the Mix is a reality TV series and DJ competition presented by Smirnoff.
+Smirnoff is Diageo's flagship brand. The target demographic is generally younger and therefore likely to be more tech savvy. This places extra importance on their online marketing and especially the website, which we built and continue to maintain. The brand uses the website for all major marketing activities worldwide, most notably the Master of the Mix, a reality TV series and DJ competition presented by Smirnoff.
 
 #### what did we do?
+We build the website using HTML, CSS, Javascript, with .NET and Umbraco CMS running the back-end. It features:
+
+* videos
+* latest news 
+* drink recipes
+* facebook comment streams
+* links for joining the fan community on Facebook and Twitter
+
 ‘Master of the Mix’ needed to be properly advertised on www.smirnoff.com, so we created a whole section dedicated to this popular event. The design was done by Profero New York, who also maintain the content.
 
-The webpage features:
-* Videos and episodes
-* The latest news 
-* New drink recipes
-* More about the cast
-* Links for joining  the fan community on Facebook and to follow it on Twitter
-
-#### how did we do it?
-* Built using Umbraco as CMS
-* Hosted on NEO
-* Development enviroments: Visual Studio 2008+, SQL Server 2005 and Windows Server 2003+
-
 #### our results
-* Smirnoff.com now receives over *700,000* visits per month and has a conversion rate almost double that of any other Diageo brand.
-* In 2012 Profero were awarded the prestigious *Grand Prix* award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than *10 million* consumers worldwide.
+* Smirnoff.com now receives over *700,000* visits per month and has a conversion rate almost double that of any other Diageo brand
+* In 2012 Profero were awarded the prestigious *Grand Prix* award in Digital Marketing Solutions for a campaign in association with Madonna, which engaged more than *10 million* consumers worldwide
 * It targets in over 140 markets and is localised in multiple languages

@@ -3,63 +3,59 @@ categories: cn jobs
 date: 2013-04-24 00:00:50
 layout: job-chinese
 language: chinese
-shortdescription: 我们寻找完美主义者领导测试团队找出最佳方案
+shortdescription: 我们需要一个能够带领测试团队找到最佳实践方案的完美主义者。
 title: 测试经理
 englishurl: jobs/qa-manager
 ---
 
-## 职位:
+## 工作名称:
 测试经理（全职）
 
-## 位置:
+## 工作地点:
 北京
 
 ## 职位描述: 
-Coordinating with all project managers and leading a team of Quality Assurance testers to ensure all projects are delivered according to quality standards and client requirements. The QA Manager is responsible for taking a leadership role, coaching other Testers, consulting project and account managers on testing requirements and timelines, generating comprehensive test case plans, ensuring all projects are thoroughly tested, and providing testing documentation.
+与所有项目经理配合，带领QA团队测试人员确保所有项目达到质量标准和客户要求。测试经理负责起带头作用，指导其他测试人员，向项目经理和客户经理了解测试要求和期限，指定完善的测试代码计划，确保所有项目经过全面测试，并提供详细的测试记录。
 
-Above all, the QA Manager is a perfectionist.
+最重要的一点，测试经理应该是一位完美主义者。
 
-## 负责:
-* Report to Studio Manager
-* Coordinate with Account managers to understand the client’s requirements
-* Coordinate with Project Managers to understand the project scope, functionality, timeline, and technical requirements
-* Generate appropriate test cases for each project
-* Lead a team of testers, briefing them on the test requirements and ensuring tests are carried out satisfactorily
-* Determine testing timelines
-* Analyse test results and coordinate with the Project Managers to track and resolve issues
-* Generate comprehensive testing documentation
-* Define, establish, and enforce best practices for the Test Team and effectively manage the Quality Assurance process
-* Continuously monitor and improve Quality Assurance process
-* Coach the Test Team
-Required Education 
-* Bachelor in Computer Science or Marketing and Advertisement, or a related field.
-Required Experience:
-* Minimum 3 to 5 years of Quality Assurance Testing experience
-* Minimum 2 years of working with web-based technologies
-* Minimum 1 year of management/leadership experience
-* Experience with bug/issue tracking software and testing methodologies
+## 职责范围:
+* 向制作经理汇报
+* 与客户经理配合，了解客户要求
+* 与项目经理配合，了解项目范围、功能、期限和技术要求
+* 针对每个项目制定对应的测试案例
+* 带领测试团队，传达测试要求，确保圆满完成测试
+* 制定测试时间表
+* 分析测试结果，与项目经理配合，跟踪和解决问题
+* 完成详细的测试记录
+* 为测试团队明确、制定和实施最佳实践，高效管理测试流程
+* 持续监督和改善测试流程
+* 对测试团队进行指导  学历要求
+* 计算机科学、市场营销和广告，或相关专业本科学历，具备相关工作经验
+* 至少3-5年测试经验
+* 2年以上网络技术应用经验
+* 1年以上管理/领导经验
+* 使用错误/问题跟踪软件和测试方法的经验
 
-## 所需能力:
-* Good understanding of HTML, CSS, JavaScript, other web technologies
-* Knowledge of web browser testing and compatibility issues
-* Outstanding problem-solving skills; ability to understand requirements and break down a problem into manageable parts
-* Independence, intuition, and initiative
-* Organisation & management: time management, prioritisation, multitasking, work distribution and delegation
-* Communication & teamwork
-* Leadership
-* Fluent English (reading, writing, speaking, listening)
-* Attention to detail / Perfectionism
-* Accurate and detailed documentation skills
-* Ability to simultaneously handle multiple projects
-Desired Skills and Experience:
-* Familiarity with Agile practices, and other software development methodologies
-* Experience developing web applications
-* Experience using red mine, basecamp, and version control systems (such as Github)
-* English and Chinese (reading, speaking)
+## 技能要求:
+* 精通HTML、CSS、Javascript和其他网络技术
+* 熟悉网络浏览器测试和兼容性问题
+* 较强的解决问题能力，能够了解相关要求，将问题分成多个部分以便于妥善处理
+* 较强的独立性和主动性，具有敏锐的洞察力
+* 组织和管理：时间管理、优先顺序安排、多任务处理、工作分配和委派
+* 较强的沟通能力和团队合作精神
+* 优秀的领导能力
+* 流利的英语听说读写能力
+* 注重细节，追求完美
+* 准确、详细的记录能力
+* 能够同时处理多个项目  技能和经验要求
+* 熟悉Agile实践和其他软件开发方法
+* 具备开发网络应用程序的经验
+* 具备使用Redmine、Basecamp和版本控制系统（如Github）的经验
+* 流利的英语和汉语读说能力
 
-## 申请方式:
-* Please bring/submit CV
+## 职位申请说明：
+* 请携带/提交个人简历
 
-## 公司简介:
-Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
-[www.profero.com](http://www.profero.com)
+## 公司简介：
+博斐是一家独立的全球数字广告公司，为众多全球知名品牌制作数字广告。详细信息请访问[www.profero.com](http://www.profero.com)

@@ -4,15 +4,21 @@ date: 2013-04-24 01:01:45
 imagecarousel: work-images-carousel1
 imagequantity: 3
 language: chinese
-tagline: 英国牌子的Facebook软件
+tagline: 一个英国品牌的Facebook应用程序
 title: Blossom Hill
 ---
 
-####我们的角色
-Working with a UK-based agency who provided the creative, we implemented a Facebook application which encourages consumer engagement by running a questionnaire game which is tied to regular competitions and prize draws. It was important to leverage not only the social aspect offered by Facebook's platform but also the consumer data available. Therefore we implemented features to allow consumers to share content as much as possible, further promoting the brand, while also encouraging them to register as a member and share their Facebook data for further benefits. We also implemented google analytics tracking to provide further insight into consumer behaviour and demographics on top of the usage data that Facebook itself provides.
+#### 工作内容
+我们使用Facebook应用程序，通过运行问卷调查游戏的方式，鼓励消费者积极参与，该游戏与一般比赛和抽奖相互关联。其中，利用Facebook平台提供的社会资源以及现有消费者数据非常重要。
 
-####挑战
-Given how many Facebook users are on handheld devices, it was important to make an optimal user experience and not use any potentially incompatible technologies. The target audience are relatively young and tech-savy so a rich design and smooth interface were essential. We accomplished this through the use of HTML5 and built the app functionality using the .NET framework.
+我们使用多项功能让消费者共享尽可能多的内容，进一步提升品牌知名度，同时鼓励消费者注册为会员，与他人共享其Facebook数据，让优势进一步扩大。
 
-####结果
-30,000 monthly active users. Over 9,300 new consumer acquisitions.
+我们还进行了Google分析跟踪，在Facebook提供的使用数据基础上进一步了解消费者行为和用户统计结果。
+
+#### 工作方式
+* 我们通过使用HTML5完成这些工作。
+* 我们使用.NET框架构建了app功能。
+
+#### 我们的成果
+* 每月30000活跃用户
+* 获得超过9300个新用户

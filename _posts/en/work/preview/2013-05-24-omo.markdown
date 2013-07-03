@@ -9,27 +9,21 @@ title: OMO
 ---
 
 #### what is the opportunity
-China’s leading brand of detergent: OMO
+OMO is China’s leading brand of detergent, and is owned by Unilever.
 
 #### what did we do?
-Create an APP for young children to learn during playing games
+We regularly create apps for young children to learn while playing games and for families to play together. Such apps have featured events calendars, weather information, recipes, and more.
 
-List different kinds of games parents can play with their children to get closer and help to develop potentials
+In addition, we created an online platform for consumers to freely ask questions about any aspect of laundry.
 
-Show the calendar for children as well as their parents to make it a better May, including not only games, activities but also weather forecast and delicious food
+As a bonus charity feature, the apps have a counter facility which users contribute to by playing the games. Points earned go towards buying equipment for disadvantaged children.
 
-Create an online platform for consumers to feel free asking any questions about washing clothes
+#### how we did it
 
-Create a vote counter for charity for children in the villages to give them better equipment to enjoy playing games
-
-#### technical
-What we use:
-
+All the minisites and applications are built using:
 * HTML
 * JavaScript
 * CSS
 
 #### our results
-* Successfully working on OMO projects
-* Engaged in other brands under Unilever
-* Awarded the '*Golden Mouse*' Gold award for social media in 2013
+Through successful consumer engagement for OMO, we have been contracted to work for other Unilever brands. By leveraging social media to support our work for OMO, we were awarded the '*Golden Mouse*' Gold award for social media in 2013.

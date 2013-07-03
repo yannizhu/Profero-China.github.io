@@ -3,64 +3,63 @@ categories: cn jobs
 date: 2013-04-24 00:00:49
 layout: job-chinese
 language: chinese
-shortdescription: 如果你渴望设计出世界上最美观、惊艳的网页和应用，并且有HTML和CSS的基础，那么就快加入我们吧！
+shortdescription: 如果你渴望设计出世界上最美观、最惊艳的网页和应用，并且有HTML和CSS的基础，那么就快加入我们吧！
 title: 网站设计师
 englishurl: jobs/web-designer
 ---
 
-## 职位:
+## 工作名称:
 网站设计师（全职）
 
-## 位置:
+## 工作地点:
 北京
 
 ##职位描述: 
-Working as part of a team, the Web Designer will create wireframes, design comps, and interactive prototypes based on the specific requirements of each project. Our web designers are passionate about user experience and user interface design and will be involved in controlling this aspect of the project throughout its lifecycle. In addition, this is someone who longs to produce the smartest and most visually stunning web pages and applications in the world.
+作为团队的一份子，网络设计师需要根据每个项目的具体要求创建线框、设计样稿和交互原型。我们的网络设计师对用户体验和用户界面设计有着强烈的热情，并且积极参与控制项目周期的每个环节。此外，我们的网页设计师渴望设计出世界上最美观、最惊艳的网页和应用。
 
-## 负责:
-* Report to Creative Manager
-* Think carefully about user experience and user interface design
-* Create wireframes
-* Design and develop interactive prototypes as well as static mockups
-* Provide general support for multimedia content (including images and video)
-* Coordinate with project team members and the rest of the creative team to understand the client’s requirements and brainstorm ideas
-* Be responsible for testing and optimising own projects
-* Continue to learn about new tools, technologies and techniques used for web design
-* Deliver projects on time
-* Deliver projects to a high level of quality
-* Document the design process
-* Communicate design decisions effectively
+## 职责范围:
+* 向创意经理汇报
+* 认真思考如何完成出色的用户体验和用户界面设计
+* 创建线框
+* 设计和开发交互原型和静态模型
+* 对多媒体内容（包括图像和视频）提供全方位支持
+* 协同项目团队以及创意团队其他工作人员，了解客户要求，进行头脑风暴。
+* 负责测试和优化自己的项目
+* 不断学习新的工具、技术以及网络设计用到的技巧
+* 按时完成项目
+* 按质按量交付项目
+* 记录设计流程
+* 高效传达设计决策
 
 ## 所需教育:
-* Graphic Design, Multimedia, Interactive Design, or Computing background, or any degree in a related area (Degree not essential if skills/experience can be proven)
+* 具有图形设计、多媒体、交互设计，或计算机专业背景，或相关专业学历（如果可以提供技能/经验证明，学历不重要）
 
 ## 所需经验:
-* Minimum 2 years of web design and development experience
+* 2年以上网页设计和开发经验
 
-## 所需能力:
-* Basic HTML and CSS
-* Wireframing
-* Good understanding of colour theory
-* Great typography knowledge and skills
-* UI design ability and an understanding of human-computer interaction
-* Problem solving
-* Ability to learn quickly and adapt to new technologies and skill requirements
-* Image cropping and manipulation, optimisation for the web
-* Strong understanding of front-end web technologies and their capabilities and limitations
-* Strong understanding of best practice web design – accessibility and usability
-* Strong awareness of mobile and responsive design
+## 技能要求:
+* 掌握HTML和CSS基础知识
+* 创建线框
+* 熟悉色彩理论
+* 精通原型知识和技能
+* 熟练设计UI，熟悉人机互动
+* 有效解决问题
+* 能够快速学习并适应新的技术和技能要求
+* 熟悉图像剪裁和处理，网页优化
+* 对前端网络技术，及其功能和限制有深入的理解
+* 对最佳实践网络设计、可访问性和可用性有深入的理解
+* 具备强烈的移动和响应设计意识
 
-## 想望的能力和经验:
-* Experience developing web-based products using HTML, CSS, and JavaScript
-* Experience using front-end frameworks such as Twitter bootstrap for prototyping
-* Experience using version control (especially GitHub) and issue-tracking
-* Experience working with multimedia
-* Experience working with Adobe products such as Fireworks, Illustrator, Reflow etc.
-* Animation skills (After Effects, 3D Max, Flash etc.) are a bonus!
+## 技能和经验要求：
+* 具备使用HTML、CSS和Javascript开发网络产品的经验
+* 具有使用前端框架的经验，如使用Twitter启动程式进行原型设计
+* 具有使用版本控制（尤其GitHub）和跟踪问题的经验
+* 具有使用多媒体的经验
+* 具有使用Adobe产品的经验，如Fireworks、Illustrator、Reflow等。
+* 具备动画制作技巧者优先考虑（(After Effects、3D Max、Flash等）
 
-## 申请方式:
-* Please bring/submit portfolio/personal website
+## 职位申请说明：
+* 请携带/提交简历/个人网站/代码样本
 
 ## 公司简介:
-Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
-[www.profero.com](http://www.profero.com)
+博斐是一家独立的全球数字广告公司，为众多全球知名品牌制作数字广告。详细信息请访问[www.profero.com](http://www.profero.com)

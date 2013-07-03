@@ -3,77 +3,75 @@ categories: cn jobs
 date: 2013-04-24 00:00:53
 layout: job-chinese
 language: chinese
-shortdescription: 客户经理是公司直面客户的窗口，负责项目所有的计划和组织工作。
+shortdescription: 客户经理是全权代表公司与客户进行联系的“大使”，负责项目规划和组织的所有工作。
 title: 客户经理
 englishurl: jobs/account-manager
 ---
 
-## 职位:
+## 工作名称:
 客户经理（全职）
 
-## 位置:
+## 工作地点:
 北京
 
 ## 职位描述: 
-The Account Manager is the client-facing part of the company who hosts meetings with clients in order to gather requirements. Requirements are then thoroughly documented and disseminated to the Production and QA teams. The Account Manager must oversee each project and keep clients regularly notified on progress. Upon completion, the projects should be delivered, on time, and according to the functionality specification. The Account Manager is also responsible for quoting and invoicing for each project. Manage the client relationship, keep the clients happy.
+客户经理是全权代表公司与客户进行联系的“大使”，负责与客户会面，收集并记录客户需求，然后将其传达给生产和QA部门。客户经理必须对每个项目进行监督，确保客户即时了解项目的进展情况。对于已经完工的项目，根据功能规范按时交付。客户经理还负责针对每个项目进行报价、开具发票。管理客户关系，让客户满意。
 
-The Account Manager must also posses a high level of adaptability and willingness to take on newer and bigger challenges.
+客户经理必须具备出色的适应能力，愿意承担更新、更大的挑战。
 
-## 负责:
-* Report to Head of Account
-* Coordinate with Project Managers to understand the production requirements and technical feasibility, to keep up to date with project progress, and to conduct project reviews
-* Coordinate with the Quality Assurance (QA) manager to understand the testing requirements and confirm deliverability status
-* Coordinate with the Studio Manager regarding resources, project status, and management processes
-* Arrange and host meetings (in person, online, and over the telephone) with clients on a daily basis
-* Learn about the clients’ businesses, including target audience and marketing strategies
-* Communicate with clients on a daily basis
-* Gather detailed requirements from the clients
-* Give the clients informed recommendations
-* Set and manage client expectations
-* Deliver status updates to clients
-* Deliver completed work to clients
-* Respond quickly to client requests
-* Quote for and invoice for every project; handle finances for each project
-* Create detailed documentation regarding the Scope of Work, the Requirements, the Functionality Specifications, and the Timing Plan before projects begin; deliver documentation to all project stakeholders (including Profero Project Managers and QA Manager)
-* Delegate tasks
-* Maintain accurate records: finance, project status and reviews, client feedback, change requests etc.
-* Constantly maintain and improve management processes
-* Oversee all projects throughout the project cycle; understand the project status on a daily basis
-* Maintain current industry knowledge
+## 职责范围:
+* 向客户领导汇报
+* 与项目经理进行配合协调，了解生产要求和技术可行性，掌握项目进程，进行项目审核。
+* 与质量保证 (QA) 部门经理协调配合，了解测试要求，确认交付状态。
+* 与工作室经理协调资源、项目状态和管理流程等方面的问题。
+* 每天安排和主持与客户举行的会议 (面对面、在线、电话)
+* 了解客户的业务，包括目标受众和营销策略。
+* 与客户之间的日常沟通
+* 向客户了解详细的要求
+* 向客户提供明确的建议
+* 确定并满足客户期望
+* 向客户提供最新项目进度信息
+* 向客户交付已完成的项目
+* 快速响应客户请求
+* 针对每个项目提供报价并开具发票；处理每个项目的相关财务事项。
+* 在项目开始之前针对工作范围、要求、功能规范和计时计划创建详细文档，并将文档分发给所有项目干系人（包括Profero项目经理和QA经* 理）。
+* 委派任务
+* 保持准确记录：财务、项目状态和审查、客户反馈、变更请求等。
+* 持续维护并改善管理流程
+* 在项目周期内对所有项目进行严格监督；每天查看项目状态
+* 掌握最新行业知识
 
-## 所需教育:
-* Bachelor in Computer Science or Marketing and Advertisement, or a related field.
+## 学历要求:
+* 计算机科学、市场营销与广告，或相关领域本科学历
 
-## 所需经验:
-* Minimum 2 years of client or project management experience
-* Minimum 3 to 5 years of working with web-based technologies
-* Experience with agile, and software development methodologies
+## 工作经历:
+* 2年以上客户或项目管理经验
+* 3-5年网络技术应用经验
+* 灵活使用软件开发方法的经验
 
-## 所需能力:
-* Solid understanding of web technologies
-* Solid understanding of Content Management Systems, Server architectures, frameworks, and back-end web technologies.
-* Detailed knowledge of web browser testing and compatibility issues
-* Good understanding of SEO and Google Analytics
-* Good awareness of Social Network APIs, particularly Facebook, Weibo, Renren, QQ, and Twitter
-* Extreme communication, clear and effective, both spoken and written, polite and respectful
-* Superb organisation: time management/meeting deadlines, multitasking/handling multiple projects simultaneously, prioritisation, record keeping, work distribution and delegation, and list making
-* Decisiveness & confidence, leadership
-* Outstanding problem-solving skills; ability to understand requirements and break down a problem into manageable parts
-* Independence, intuition, innovation, and initiative
-* Attention to detail / Perfectionism
-* Accurate and detailed documentation skills
-* Ability to simultaneously handle multiple projects
-* Fluent English
-* Flexibility & the ability to learn quickly
-* Positive attitude
-Desired Skills and Experience:
-* Experience developing web applications
-* Experience using red mine, basecamp, and version control systems (such as Github)
-* English and Chinese (reading, speaking)
+## 技能要求:
+* 精通网络技术
+* 精通内容管理系统、服务器架构、框架和后端网络技术。
+* 熟悉网络浏览器测试和兼容性问题
+* 熟悉SEO和Google Analytics
+* 熟悉社交网站API，尤其是Facebook、微博、人人网、QQ和Twitter
+* 清晰、有效的口头和书面表达能力，懂礼节，尊敬他人
+* 出色的组织能力：时间管理/满足期限要求，多任务处理/同时处理多个项目，妥善安排优先顺序，做记录，分配和委派任务，列清单
+* 出色的决策能力和领导能力，自信心强
+* 出众的解决问题技巧，能够了解要求，将问题分成多个部分以便于妥善处理
+* 具有敏锐的洞察力、较强的独立性、创造性和主动性
+* 注重细节，追求完美
+* 准确、详细的记录能力
+* 能够同时处理多个项目
+* 流利的英语表达能力
+* 较强的适应能力和学习能力
+* 工作积极向上 技能和经验要求
+* 具备开发网络应用程序工作经验
+* 具备使用 red mine、basecamp和版本控制系统（如Github）的经验
+* 流利的中英文读说能力
 
-## 申请方式:
-* Please bring/submit CV
+## 职位申请说明：
+* 请携带/提交个人简历
 
-## 公司简介:
-Profero is a global independent digital advertising agency, producing digital campaigns for number of well known global brands.
-[www.profero.com](http://www.profero.com)
+## 公司简介：
+博斐是一家独立的全球数字广告公司，为众多全球知名品牌制作数字广告。详细信息请访问[www.profero.com](http://www.profero.com)
