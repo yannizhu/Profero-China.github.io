@@ -1560,7 +1560,7 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
 			for(var i=0; i<el.workItems.length; i++) {
 				currentCarousel = imageCarousels[i];
-
+			
 				//initialise
 				currentCarousel.carousel({
 					interval: 	4000,

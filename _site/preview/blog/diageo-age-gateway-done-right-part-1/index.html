@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="page page-blog-post">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+		<!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+		<title>Diageo Age Gateway, done right - Part 1 &ndash; Proferotech Blog &ndash; Technology Experts in Digital Marketing Solutions</title>
+
+		<link rel="stylesheet" href="/css/styles.css">
+			
+		<link rel="shortcut icon" href="/icon.png">
+		<link rel="apple-touch-icon-precomposed" href="/icon.png">
+		<meta name="apple-mobile-web-app-title" content="Profero Tech &ndash; Technology Experts in Digital Marketing Solutions">
+		<meta name="description" content="Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta name="msapplication-TileColor" content="#f6d431">
+		<meta name="msapplication-TileImage" content="/icon.png">
+			
+		<meta itemprop="name" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta itemprop="description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta itemprop="url" content="http://proferotech.com">
+		<meta itemprop="image" content="http://proferotech.com/images/logo.png">
+			
+		<meta property="og:title" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta property="og:description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta property="og:url" content="http://proferotech.com">
+		<meta property="og:image" content="http://proferotech.com/images/logo.png">
+
+	</head>
+	<body>
+		
+		<div class="wrapper" role="main">
+			
+			<div class="nav-wrapper">
+				<div class="navbar">
+					
+					<a class="home-button" href="/blog" title="Proferotech Blog"><i class="icon-left"></i></a>
+					
+				</div>
+			</div>
+			
+			<section class="blog" id="blog">
+				
+				<h1>Diageo Age Gateway, done right - Part 1</h1>
+				<p class="date-posted">July 05, 2013</p>
+				
+				<div class="blog-post">
+
+<p><em>Word Count: 2,230</em></p>
+
+<p><em>Estimated Reading Time: 15 minutes</em></p>
+
+<p>This series of articles is going to talk through the workflow to create the ultimate Age Gateway solution, according to Diageo&#39;s requirements, from planning through to deployment.</p>
+
+<ul>
+<li>Part 1: <strong>Planning</strong></li>
+<li>Part 2: Basic Features</li>
+<li>Part 3: Advanced Features</li>
+<li>Part 4: Browser Testing</li>
+<li>Part 5: Deployment, Packaging, and Summary</li>
+</ul>
+
+<h2>Part 1: Planning</h2>
+
+<p>When planing any project, it&#39;s a good idea to write down a short introduction and the basic objectives to make them clear in your head and ensure everyone working on the project shares the same understanding.</p>
+
+<h3>Introduction</h3>
+
+<hr>
+
+<p>The purpose of the Age Gateway is to control access to a website or webpage by confirming the visitor meets the legal drinking age requirement in the country they are in. It has the following basic requirements:</p>
+
+<ul>
+<li>Block access to the webpage for all visitors who do not have a cookie indicating they have already verified their age</li>
+<li>Grant unrestricted access to the webpage for search engines to index content</li>
+<li>Allow users to select their country, language (optional), and date of birth - date of birth must be 3 separate fields for day, month, and year</li>
+<li>Allow users to set a time limit for the cookie to persis (i.e. a &#39;remember me&#39; checkbox)</li>
+<li>Show all the required legal disclaimers and provide links to the Terms &amp; Conditions, Privacy &amp; Cookies notice, and responsible drinking websites etc.</li>
+</ul>
+
+<h3>Technical Requirements</h3>
+
+<hr>
+
+<p>The basic requirements present us with the following technical challenges. These requirements will tell us exactly what we need to build:
+* Cookie detection
+* Ensure the webpage is fully obstructed/covered in all circumstances on <em>all devices</em> until it can be confirmed that the cookie exists
+* Load in the Age Gateway via AJAX (and then attach any event listeners to the new DOM elements)
+* Ensure that the input fields maintain valid options (e.g. If you have a dropdown list for the Day, the number of days available for selection should change according to the selected Month and Year)
+* Input validation - we need to ensure that the user has selected a valid country and that the Date of Birth entered is <em>equal to or greater than</em> the legal drinking age for the selected country (e.g. if &#39;UK&#39; is selected, then the Date of Birth should be exactly 18 years from today, or more)
+* Show appropriate error messages when the data entered is invalid
+* Save a cookie indicating that the visitor has verified they are of legal drinking age - this should be a session cookie or have an explicit expiry date, depending on the value of the &#39;remember me&#39; checkbox
+* Grant immediate access to the webpage both when the cookie is detected and when the user submits valid input on the Age Gateway
+* Ensure search engines can index the webpage but not the Age Gateway
+* The cookie should contain the visitor information so that it may be re-used elsewhere within the website, if required (i.e. on registration forms - no need to ask the visitor twice for their date of birth, a required field for registration on Diageo&#39;s NEO platform)</p>
+
+<p>Diageo asked us to make an Age Gateway toolkit that all agencies could use to simply plug into their projects to make the Age Gateways across all their websites and applications consistent and easier/quicker/cheaper to develop. That introduces other requirements as we have to be able to guarantee the Age Gateway will behave correctly for all projects, in all legal juristictions:</p>
+
+<ul>
+<li>Don&#39;t pollute the global namespace in CSS or JavaScript - that is, ensure that variable names should not conflict with other variable names used elsewhere in the project code</li>
+<li>Cross platform: it needs to be tested an verified on as many platforms/devices/browsers as possible</li>
+<li>Responsive / Device agnostic - we don&#39;t know what projects it will be installed on so we need to ensure it will work no matter what the screen size, resolution, or bandwidth (Use CSS and media queries for a fluid layout with breakpoints, and keep file sizes and external assets to a minimum)</li>
+<li>Make it easy for agencies to customise the style and appearance of the Age Gateway without affecting the functionality</li>
+<li>Make sure cookies are secure and domain-restricted</li>
+<li>Make sure it&#39;s accessible to screen readers and disabled users</li>
+<li>Allow agencies to set specific options to customise the appearance and functionality of the Age Gateway:
+
+<ul>
+<li><strong>Age Gateway Template</strong>: multi-language websites may need localised versions of the age gateway and so agencies may need to specify which version is loaded</li>
+<li><strong>Bypass</strong>: in some circumstances (e.g. when linking to the webpage from an age-verified source like Facebook or marketing email), agencies may need to bypass the Age Gateway whether the cookie is detected or not</li>
+<li><strong>Callback</strong>: agencies may want to call a function to &#39;activate&#39; something on their webpage after the Age Gateway is passed</li>
+<li><strong>Cookie Name</strong>: agencies may want to customise or change the name of the cookie saved (changing the name of the cookie will force all visitors to re-verify their age)</li>
+<li><strong>Country Error</strong>: an error will be shown when visitors submit an invalid country (e.g. alcohol-free countries or places like Yemen or Afghanistan) - that error message may need to be localised for other languages or brand copywriting styles</li>
+<li><strong>Date Format</strong>: different countries have different date formats, e.g. DMY, YMD, MDY</li>
+<li><strong>Default Values</strong>: agencies may wish to set specific default values for the country, language, and date of birth input fields (for legal reasons, the remember me checkbox must be unchecked by default)</li>
+<li><strong>DOB Error</strong>: like the Country Error, another error should be displayed when the visitor enters an invalid date of birth, and this error message should also be customisable for other languages or brand copywriting styles</li>
+<li><strong>Domain</strong>: as the cookie may contain visitor information, it should be domain restricted so that it may only be accessed by the current website</li>
+<li><strong>Expiration Date</strong>: agencies may wish to set a custom time limit for the cookie to persist if the user checks the &#39;remember me&#39; checkbox</li>
+<li><strong>Language Detection</strong>: it is sensible to reduce the number of steps required for the visitor to pass the Age Gateway and so we can have the language input field automatically select the visitor&#39;s browser language, if it is available; agencies may not want this processing overhead if they already have their own language detection in place or if the website or application is not multi-language (the language input is an optional field)</li>
+<li>*<em>Path to Asset</em>s*: each project will likely have its own folder structure which we cannot make assumptions about; assets such as the Age Gateway HTML will need to be loaded dynamically via AJAX so agencies may want to customise the path to those assets</li>
+<li><strong>Redirect</strong>: in some circumstances it may be required that the visitor is redirected to another site upon failing to pass the Age Gateway; agencies will need to be able to customise the number of seconds after a failed attemp the redirect should occur, a URL to redirect to, and the type of the redirect (i.e. whether it should be a normal link or replace the browsers history to prevent the visitor returning by clicking their browser&#39;s back button)</li>
+<li><strong>Skip to Next Field</strong>: as there must be 3 separate input fields for date of birth, sometimes agencies may want focus to transfer immediately to the next input field when sufficient data is entered</li>
+<li><strong>Show Language Input</strong>: as the language input is optional, agencies should have the option to hide the field altogether</li>
+<li><strong>Use Text Boxes</strong>: Date of Birth inputs could either be select dropdown lists or text boxes, each requiring different JavaScript to validate</li>
+</ul></li>
+<li>Make the Age Gateway simple to install on any webpage in the minimal number of steps</li>
+<li>Provice full, clear, and easy to understand </li>
+</ul>
+
+<p>Now we know exactly what we need to build, let&#39;s think about how to build it:</p>
+
+<h3>Execution Plan</h3>
+
+<hr>
+
+<p>We know we&#39;re going to need HTML, CSS, and JavaScript, so to make development faster, and the code cleaner, modular, and 
+easier to maintain, let&#39;s use Jade, Stylus, and CoffeeScript (which compile down to HTML, CSS, and JavaScript, respectively). So we&#39;re going to need a way to watch for changes and compile them. This is an ideal situation for <a href="http://gruntjs.com">GruntJS</a>. The only dependency for Grunt is <a href="http://nodejs.org">NodeJS</a> and NPM (Node Package Manager). We&#39;ll also want to ensure we have both unoptimised versions of the CSS and JavaScript files (for agency developers to inspect, and for them to update in case they can&#39;t use Stylus and CoffeeScript) as well as minified and compressed versions ready for production (we want the Age Gateway to load as fast as possible without obstructing the agency project). Finally we&#39;ll want to run unit tests to ensure that the code we write functions exactly as expected and that as we code or make updates, we don&#39;t break anything we&#39;ve previously written. For unit tests I chose Jasmine (JavaScript unit test runner) and Phantom JS (a headless webkit browser so you can test not just functions but also DOM manipulation programmatically, without testing in the browser). Grunt can handle all of this nicely for us with just a few necessary plugins (see the package.json file below).</p>
+
+<p>So we&#39;re going to have a source folder, containing the Jade, Stylus, and CoffeeScript files, and a public folder containing the compiled HTML, CSS, and JavaScript files, ready for production. Let&#39;s call the public folder &#39;age-gateway&#39; so it&#39;s clear to agencies that this is the folder they need. Let&#39;s also create folders for holding the unit tests, the project documentation, and a demonstration showing how the Age Gateway works and how it may be installed on an example webpage. In our project root directory, we&#39;ll need a <code>package.json</code> file to tell Node which modules to install, and the Grunt build file. As we&#39;re hosting the project in a github repository, we&#39;ll also include a README file. The project folder now looks like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Diageo-Age-Gateway-v4.0.1
+|
+|- /age-gateway
+|    |- /css
+|    |- /images
+|    |- /javascript
+|- /demo
+|    |- /css
+|    |- /images
+|    |- /javascript
+|- /docs
+|- /src
+|    |- /coffee
+|    |- /jade
+|    |- /stylus
+|         |- imports
+|- /test
+|- gruntfile.js
+|- package.json
+|- README.md
+</code></pre></div>
+<p>The first step will be to install the required Node packages. The <code>package.json</code> file will look like this. It just tells node to install the packages that Grunt needs to do its magic:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Diageo-Age-Gateway&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;4.0.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;grunt&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grunt-contrib&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grunt-contrib-coffee&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>    <span class="c1">// to compile coffeescript</span>
+        <span class="s2">&quot;grunt-contrib-jade&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>      <span class="c1">// to compile jade</span>
+        <span class="s2">&quot;grunt-contrib-stylus&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>    <span class="c1">// to compile stylus</span>
+        <span class="s2">&quot;grunt-contrib-cssmin&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>    <span class="c1">// to minify CSS</span>
+        <span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>    <span class="c1">// to minify JavaScript</span>
+        <span class="s2">&quot;grunt-contrib-jasmine&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>   <span class="c1">// to run unit tests</span>
+        <span class="s2">&quot;grunt-contrib-connect&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>   <span class="c1">// to run a webserver for testing</span>
+        <span class="s2">&quot;grunt-contrib-watch&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span>      <span class="c1">// to watch for changes</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;readmeFilename&quot;</span><span class="o">:</span> <span class="s2">&quot;README.md&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;Profero Tech&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now in the terminal, navigate to the project folder and type:
+<code>
+npm install
+</code></p>
+
+<p>Your project directory will now have a sub-folder called <code>npm_modules</code>. You can ignore this folder but it should be included with the final package to ensure everyone always has the same version of the node modules. The next step is writing the build script for Grunt. The <code>gruntfile.js</code> will look like this:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+        <span class="nx">pkg</span><span class="o">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">&#39;package.json&#39;</span><span class="p">),</span>
+        <span class="nx">coffee</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">agegateway</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">bare</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;./age-gateway/javascript/age-gateway.js&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./src/coffee/age-gateway.coffee&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">test</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">cwd</span><span class="o">:</span> <span class="s1">&#39;./test/&#39;</span><span class="p">,</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;age-gateway.spec.coffee&#39;</span><span class="p">,</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;./test/&#39;</span><span class="p">,</span>
+                <span class="nx">ext</span><span class="o">:</span> <span class="s1">&#39;.spec.js&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">jade</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">agegateway</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">pretty</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">debug</span><span class="o">:</span> <span class="kc">false</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;./age-gateway/age-gateway.html&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./src/jade/age-gateway.jade&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">demo</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">pretty</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">debug</span><span class="o">:</span> <span class="kc">false</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;./demo/index.html&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./src/jade/demo.jade&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">nocookies</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">pretty</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">debug</span><span class="o">:</span> <span class="kc">false</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;./age-gateway/nocookies.html&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./src/jade/nocookies.jade&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">stylus</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">compile</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">cwd</span><span class="o">:</span> <span class="s1">&#39;./src/stylus/&#39;</span><span class="p">,</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;age-gateway.styl&#39;</span><span class="p">,</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/css/&#39;</span><span class="p">,</span>
+                <span class="nx">ext</span><span class="o">:</span> <span class="s1">&#39;.css&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">cssmin</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">minify</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">cwd</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/css/&#39;</span><span class="p">,</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;age-gateway.css&#39;</span><span class="p">,</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/css/&#39;</span><span class="p">,</span>
+                <span class="nx">ext</span><span class="o">:</span> <span class="s1">&#39;.min.css&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">compressjs</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">expand</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">cwd</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/javascript/&#39;</span><span class="p">,</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;age-gateway.js&#39;</span><span class="p">,</span>
+                <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/javascript/&#39;</span><span class="p">,</span>
+                <span class="nx">ext</span><span class="o">:</span> <span class="s1">&#39;.min.js&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">customTemplate</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;./age-gateway/javascript/age-gateway.js&#39;</span><span class="p">,</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">specs</span><span class="o">:</span> <span class="s1">&#39;./test/age-gateway.spec.js&#39;</span><span class="p">,</span>
+                    <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;./demo/javascript/jquery.min.js&#39;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;./src/coffee/age-gateway.coffee&quot;</span><span class="p">,</span> <span class="s2">&quot;./test/age-gateway.spec.coffee&quot;</span><span class="p">,</span> <span class="s2">&quot;./src/stylus/**/*.styl&quot;</span><span class="p">,</span> <span class="s2">&quot;./src/jade/**/*.jade&quot;</span><span class="p">,</span> <span class="s2">&quot;./age-gateway/javascript/age-gateway.js&quot;</span><span class="p">,</span> <span class="s2">&quot;.age-gateway/css/age-gateway.css&quot;</span><span class="p">],</span>
+            <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;coffee&quot;</span><span class="p">,</span> <span class="s2">&quot;jade&quot;</span><span class="p">,</span> <span class="s2">&quot;stylus&quot;</span><span class="p">,</span> <span class="s2">&quot;cssmin&quot;</span><span class="p">,</span> <span class="s2">&quot;uglify&quot;</span><span class="p">,</span> <span class="s2">&quot;jasmine&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nx">connect</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">demo</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">port</span><span class="o">:</span> <span class="mi">1861</span><span class="p">,</span>
+                    <span class="nx">base</span><span class="o">:</span> <span class="s1">&#39;./&#39;</span><span class="p">,</span>
+                    <span class="nx">keepalive</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-coffee&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-jade&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-stylus&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-cssmin&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-uglify&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-watch&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-connect&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-jasmine&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;watch&#39;</span><span class="p">,</span> <span class="s1">&#39;connect&#39;</span><span class="p">]);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">,</span> <span class="nx">filepath</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">grunt</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">filepath</span> <span class="o">+</span> <span class="s1">&#39; has &#39;</span> <span class="o">+</span> <span class="nx">action</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It&#39;s pretty straight forward - there are separate tasks, each taking various options such as source files and destination files. The most important task is <code>watch</code>, which says &quot;if any of these files change at any time, run these other tasks&quot;. If you need more information about GruntJS then check out the <a href="http://gruntjs.com/getting-started">documentation</a>. If you create the following empty files:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">|- /src
+|    |- /coffee
+|    |    |- age-gateway.coffee
+|    |- /jade
+|    |    |- age-gateway.jade
+|    |    |- demo.jade
+|    |    |- nocookies.jade
+|    |- /stylus
+|         |- imports
+|         |    |- variables.styl
+|         |- age-gateway.styl
+|- /test
+|    |- age-gateway.spec.coffee
+</code></pre></div>
+<p>Then you just type this into the terminal window:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">grunt
+</code></pre></div>
+<p>Now you should see it&#39;s waiting for changes. Save one of your jade files so see Grunt run all the tasks. The project is now set up and ready to go:</p>
+
+<p>In Part 2 we&#39;re going to go through the building of the basic features, by using <strong>Test-Driven Development</strong>.</p>
+
+
+				</div>
+				
+			</section>
+		
+		</div>
+		
+		<footer class="page-footer" role="contentinfo">
+			<p>&copy; 2013 Profero &ndash; <a href="http://www.profero.com" title="visit our parent company website">www.profero.com</a></p>
+		</footer>
+
+		<!--
+		<script>
+			   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			   ga('create', 'UA-15576216-2', 'proferotech.com');
+			   ga('send', 'pageview');
+		</script>
+		-->
+
+	</body>
+</html>

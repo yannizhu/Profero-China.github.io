@@ -1,0 +1,287 @@
+---
+categories: blog
+date: 2013-07-05 11:44:00
+layout: blog-post
+excerpt: The Diageo Age Gateway is a great example project to show off some nice technologies, such as building with GruntJS and Unit Testing. This series of blog posts will go through how we can build it the modern way, the right way.
+title: Diageo Age Gateway, done right - Part 1
+---
+
+_Word Count: 2,230_
+
+_Estimated Reading Time: 15 minutes_
+
+This series of articles is going to talk through the workflow to create the ultimate Age Gateway solution, according to Diageo's requirements, from planning through to deployment.
+
+* Part 1: **Planning**
+* Part 2: Basic Features
+* Part 3: Advanced Features
+* Part 4: Browser Testing
+* Part 5: Deployment, Packaging, and Summary
+
+## Part 1: Planning
+
+When planing any project, it's a good idea to write down a short introduction and the basic objectives to make them clear in your head and ensure everyone working on the project shares the same understanding.
+
+### Introduction
+-------------
+The purpose of the Age Gateway is to control access to a website or webpage by confirming the visitor meets the legal drinking age requirement in the country they are in. It has the following basic requirements:
+
+* Block access to the webpage for all visitors who do not have a cookie indicating they have already verified their age
+* Grant unrestricted access to the webpage for search engines to index content
+* Allow users to select their country, language (optional), and date of birth - date of birth must be 3 separate fields for day, month, and year
+* Allow users to set a time limit for the cookie to persis (i.e. a 'remember me' checkbox)
+* Show all the required legal disclaimers and provide links to the Terms & Conditions, Privacy & Cookies notice, and responsible drinking websites etc.
+
+### Technical Requirements
+-------------
+The basic requirements present us with the following technical challenges. These requirements will tell us exactly what we need to build:
+* Cookie detection
+* Ensure the webpage is fully obstructed/covered in all circumstances on _all devices_ until it can be confirmed that the cookie exists
+* Load in the Age Gateway via AJAX (and then attach any event listeners to the new DOM elements)
+* Ensure that the input fields maintain valid options (e.g. If you have a dropdown list for the Day, the number of days available for selection should change according to the selected Month and Year)
+* Input validation - we need to ensure that the user has selected a valid country and that the Date of Birth entered is *equal to or greater than* the legal drinking age for the selected country (e.g. if 'UK' is selected, then the Date of Birth should be exactly 18 years from today, or more)
+* Show appropriate error messages when the data entered is invalid
+* Save a cookie indicating that the visitor has verified they are of legal drinking age - this should be a session cookie or have an explicit expiry date, depending on the value of the 'remember me' checkbox
+* Grant immediate access to the webpage both when the cookie is detected and when the user submits valid input on the Age Gateway
+* Ensure search engines can index the webpage but not the Age Gateway
+* The cookie should contain the visitor information so that it may be re-used elsewhere within the website, if required (i.e. on registration forms - no need to ask the visitor twice for their date of birth, a required field for registration on Diageo's NEO platform)
+
+Diageo asked us to make an Age Gateway toolkit that all agencies could use to simply plug into their projects to make the Age Gateways across all their websites and applications consistent and easier/quicker/cheaper to develop. That introduces other requirements as we have to be able to guarantee the Age Gateway will behave correctly for all projects, in all legal juristictions:
+
+* Don't pollute the global namespace in CSS or JavaScript - that is, ensure that variable names should not conflict with other variable names used elsewhere in the project code
+* Cross platform: it needs to be tested an verified on as many platforms/devices/browsers as possible
+* Responsive / Device agnostic - we don't know what projects it will be installed on so we need to ensure it will work no matter what the screen size, resolution, or bandwidth (Use CSS and media queries for a fluid layout with breakpoints, and keep file sizes and external assets to a minimum)
+* Make it easy for agencies to customise the style and appearance of the Age Gateway without affecting the functionality
+* Make sure cookies are secure and domain-restricted
+* Make sure it's accessible to screen readers and disabled users
+* Allow agencies to set specific options to customise the appearance and functionality of the Age Gateway:
+	- **Age Gateway Template**: multi-language websites may need localised versions of the age gateway and so agencies may need to specify which version is loaded
+	- **Bypass**: in some circumstances (e.g. when linking to the webpage from an age-verified source like Facebook or marketing email), agencies may need to bypass the Age Gateway whether the cookie is detected or not
+	- **Callback**: agencies may want to call a function to 'activate' something on their webpage after the Age Gateway is passed
+	- **Cookie Name**: agencies may want to customise or change the name of the cookie saved (changing the name of the cookie will force all visitors to re-verify their age)
+	- **Country Error**: an error will be shown when visitors submit an invalid country (e.g. alcohol-free countries or places like Yemen or Afghanistan) - that error message may need to be localised for other languages or brand copywriting styles
+	- **Date Format**: different countries have different date formats, e.g. DMY, YMD, MDY
+	- **Default Values**: agencies may wish to set specific default values for the country, language, and date of birth input fields (for legal reasons, the remember me checkbox must be unchecked by default)
+	- **DOB Error**: like the Country Error, another error should be displayed when the visitor enters an invalid date of birth, and this error message should also be customisable for other languages or brand copywriting styles
+	- **Domain**: as the cookie may contain visitor information, it should be domain restricted so that it may only be accessed by the current website
+	- **Expiration Date**: agencies may wish to set a custom time limit for the cookie to persist if the user checks the 'remember me' checkbox
+	- **Language Detection**: it is sensible to reduce the number of steps required for the visitor to pass the Age Gateway and so we can have the language input field automatically select the visitor's browser language, if it is available; agencies may not want this processing overhead if they already have their own language detection in place or if the website or application is not multi-language (the language input is an optional field)
+	- **Path to Asset*s*: each project will likely have its own folder structure which we cannot make assumptions about; assets such as the Age Gateway HTML will need to be loaded dynamically via AJAX so agencies may want to customise the path to those assets
+	- **Redirect**: in some circumstances it may be required that the visitor is redirected to another site upon failing to pass the Age Gateway; agencies will need to be able to customise the number of seconds after a failed attemp the redirect should occur, a URL to redirect to, and the type of the redirect (i.e. whether it should be a normal link or replace the browsers history to prevent the visitor returning by clicking their browser's back button)
+	- **Skip to Next Field**: as there must be 3 separate input fields for date of birth, sometimes agencies may want focus to transfer immediately to the next input field when sufficient data is entered
+	- **Show Language Input**: as the language input is optional, agencies should have the option to hide the field altogether
+	- **Use Text Boxes**: Date of Birth inputs could either be select dropdown lists or text boxes, each requiring different JavaScript to validate
+* Make the Age Gateway simple to install on any webpage in the minimal number of steps
+* Provice full, clear, and easy to understand 
+
+Now we know exactly what we need to build, let's think about how to build it:
+
+### Execution Plan
+-------------
+We know we're going to need HTML, CSS, and JavaScript, so to make development faster, and the code cleaner, modular, and 
+easier to maintain, let's use Jade, Stylus, and CoffeeScript (which compile down to HTML, CSS, and JavaScript, respectively). So we're going to need a way to watch for changes and compile them. This is an ideal situation for [GruntJS](http://gruntjs.com). The only dependency for Grunt is [NodeJS](http://nodejs.org) and NPM (Node Package Manager). We'll also want to ensure we have both unoptimised versions of the CSS and JavaScript files (for agency developers to inspect, and for them to update in case they can't use Stylus and CoffeeScript) as well as minified and compressed versions ready for production (we want the Age Gateway to load as fast as possible without obstructing the agency project). Finally we'll want to run unit tests to ensure that the code we write functions exactly as expected and that as we code or make updates, we don't break anything we've previously written. For unit tests I chose Jasmine (JavaScript unit test runner) and Phantom JS (a headless webkit browser so you can test not just functions but also DOM manipulation programmatically, without testing in the browser). Grunt can handle all of this nicely for us with just a few necessary plugins (see the package.json file below).
+
+So we're going to have a source folder, containing the Jade, Stylus, and CoffeeScript files, and a public folder containing the compiled HTML, CSS, and JavaScript files, ready for production. Let's call the public folder 'age-gateway' so it's clear to agencies that this is the folder they need. Let's also create folders for holding the unit tests, the project documentation, and a demonstration showing how the Age Gateway works and how it may be installed on an example webpage. In our project root directory, we'll need a ```package.json``` file to tell Node which modules to install, and the Grunt build file. As we're hosting the project in a github repository, we'll also include a README file. The project folder now looks like this:
+
+```
+Diageo-Age-Gateway-v4.0.1
+|
+|- /age-gateway
+|    |- /css
+|    |- /images
+|    |- /javascript
+|- /demo
+|    |- /css
+|    |- /images
+|    |- /javascript
+|- /docs
+|- /src
+|    |- /coffee
+|    |- /jade
+|    |- /stylus
+|         |- imports
+|- /test
+|- gruntfile.js
+|- package.json
+|- README.md
+```
+
+The first step will be to install the required Node packages. The ```package.json``` file will look like this. It just tells node to install the packages that Grunt needs to do its magic:
+
+```javascript
+{
+	"name": "Diageo-Age-Gateway",
+	"version": "4.0.1",
+	"dependencies": {
+		"grunt": "*",
+		"grunt-contrib": "*",
+		"grunt-contrib-coffee": "*",    // to compile coffeescript
+		"grunt-contrib-jade": "*",      // to compile jade
+		"grunt-contrib-stylus": "*",    // to compile stylus
+		"grunt-contrib-cssmin": "*",    // to minify CSS
+		"grunt-contrib-uglify": "*",    // to minify JavaScript
+		"grunt-contrib-jasmine": "*",   // to run unit tests
+		"grunt-contrib-connect": "*",   // to run a webserver for testing
+		"grunt-contrib-watch": "*"      // to watch for changes
+	},
+	"readmeFilename": "README.md",
+	"author": "Profero Tech"
+}
+```
+
+Now in the terminal, navigate to the project folder and type:
+```
+npm install
+```
+
+Your project directory will now have a sub-folder called ```npm_modules```. You can ignore this folder but it should be included with the final package to ensure everyone always has the same version of the node modules. The next step is writing the build script for Grunt. The ```gruntfile.js``` will look like this:
+
+```javascript
+module.exports = function(grunt) {
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+		coffee: {
+			agegateway: {
+				options: {
+					bare: true
+				},
+				files: {
+					"./age-gateway/javascript/age-gateway.js": ["./src/coffee/age-gateway.coffee"]
+				}
+			},
+			test: {
+				expand: true,
+				cwd: './test/',
+				src: 'age-gateway.spec.coffee',
+				dest: './test/',
+				ext: '.spec.js'
+			}
+		},
+		jade: {
+			agegateway: {
+				options: {
+					pretty: false,
+					data: {
+						debug: false
+					}
+				},
+				files: {
+					"./age-gateway/age-gateway.html": ["./src/jade/age-gateway.jade"]
+				}
+			},
+			demo: {
+				options: {
+					pretty: true,
+					data: {
+						debug: false
+					}
+				},
+				files: {
+					"./demo/index.html": ["./src/jade/demo.jade"]
+				}
+			},
+			nocookies: {
+				options: {
+					pretty: false,
+					data: {
+						debug: false
+					}
+				},
+				files: {
+					"./age-gateway/nocookies.html": ["./src/jade/nocookies.jade"]
+				}
+			}
+		},
+		stylus: {
+			compile: {
+				expand: true,
+				cwd: './src/stylus/',
+				src: 'age-gateway.styl',
+				dest: './age-gateway/css/',
+				ext: '.css'
+			}
+		},
+		cssmin: {
+			minify: {
+				expand: true,
+				cwd: './age-gateway/css/',
+				src: 'age-gateway.css',
+				dest: './age-gateway/css/',
+				ext: '.min.css'
+			}
+		},
+		uglify: {
+			compressjs: {
+				expand: true,
+				cwd: './age-gateway/javascript/',
+				src: 'age-gateway.js',
+				dest: './age-gateway/javascript/',
+				ext: '.min.js'
+			}
+		},
+		jasmine: {
+			customTemplate: {
+				src: './age-gateway/javascript/age-gateway.js',
+				options: {
+					specs: './test/age-gateway.spec.js',
+					vendor: './demo/javascript/jquery.min.js'
+				}
+			}
+		},
+		watch: {
+			files: ["./src/coffee/age-gateway.coffee", "./test/age-gateway.spec.coffee", "./src/stylus/**/*.styl", "./src/jade/**/*.jade", "./age-gateway/javascript/age-gateway.js", ".age-gateway/css/age-gateway.css"],
+			tasks: ["coffee", "jade", "stylus", "cssmin", "uglify", "jasmine"]
+		},
+		connect: {
+			demo: {
+				options: {
+					port: 1861,
+					base: './',
+					keepalive: true
+				}
+			}
+		}
+	});
+	grunt.loadNpmTasks('grunt-contrib-coffee');
+	grunt.loadNpmTasks('grunt-contrib-jade');
+	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.registerTask('default', ['watch', 'connect']);
+
+	grunt.event.on('watch', function(action, filepath) {
+		grunt.log.writeln(filepath + ' has ' + action);
+	});
+}
+```
+
+It's pretty straight forward - there are separate tasks, each taking various options such as source files and destination files. The most important task is ```watch```, which says "if any of these files change at any time, run these other tasks". If you need more information about GruntJS then check out the [documentation](http://gruntjs.com/getting-started). If you create the following empty files:
+
+```
+|- /src
+|    |- /coffee
+|    |    |- age-gateway.coffee
+|    |- /jade
+|    |    |- age-gateway.jade
+|    |    |- demo.jade
+|    |    |- nocookies.jade
+|    |- /stylus
+|         |- imports
+|         |    |- variables.styl
+|         |- age-gateway.styl
+|- /test
+|    |- age-gateway.spec.coffee
+```
+
+Then you just type this into the terminal window:
+
+```
+grunt
+```
+
+Now you should see it's waiting for changes. Save one of your jade files so see Grunt run all the tasks. The project is now set up and ready to go:
+
+In Part 2 we're going to go through the building of the basic features, by using **Test-Driven Development**.
