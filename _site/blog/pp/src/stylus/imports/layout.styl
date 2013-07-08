@@ -1,0 +1,17 @@
+//don't pollute the global namespace
+.pp
+
+	.one-whole
+		display 					block
+		width 						100%
+
+	.one-half
+		display 					block
+		width 						100%
+		@media $lap-and-desk
+			display					inline-block
+			width					50%
+	
+	.one-third
+		display 					inline-block
+		width 						33%

@@ -1,0 +1,207 @@
+// FONTS
+// --------------------------------------------------
+$font-shorthand($size = $baseFontSize, $weight = normal, $lineHeight = $baseLineHeight)
+	font-size 					$size
+	font-weight 				$weight
+	line-height 				$lineHeight
+
+$font-family-sans-serif()
+	font-family 				"Helvetica Neue", Helvetica, Arial, sans-serif
+
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Border Radius
+$border-radius($radius = 5px)
+	-webkit-border-radius 		$radius
+	-moz-border-radius 			$radius
+	border-radius 				$radius
+
+$transition($t)
+	-webkit-transition 			$t
+	-moz-transition 			$t
+	-ms-transition 				$t
+	-o-transition 				$t
+	transition 					$t
+
+$transition2($t1, $t2)
+	-webkit-transition 			$t1, $t2
+	-moz-transition 			$t1, $t2
+	-ms-transition 				$t1, $t2
+	-o-transition 				$t1, $t2
+	transition 					$t1, $t2
+
+// Box sizing
+$box-sizing($boxmodel)
+	-webkit-box-sizing 			$boxmodel
+	-moz-box-sizing 			$boxmodel
+	box-sizing 					$boxmodel
+
+
+// UTILITY MIXINS
+// --------------------------------------------------
+
+// Webkit-style focus
+// ------------------
+$tab-focus()
+	// Default
+	outline 					thin dotted #333
+	// Webkit
+	outline 					5px auto -webkit-focus-ring-color
+	outline-offset 				-2px
+
+// IE7 inline-block
+// ----------------
+$ie7-inline-block()
+	*display 					inline /* IE7 inline-block hack */
+	*zoom 						1
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+$ie7-restore-left-whitespace()
+	*margin-left: .3em
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+$clearfix()
+	*zoom: 1
+	&:before,
+	&:after
+		content 				""
+		display 				table
+
+	&:after
+		clear 					both
+
+// Reset filters for IE
+$reset-filter()
+	filter: "progid:DXImageTransform.Microsoft$gradient(enabled = false)"
+
+$gradient-vertical($startColor = #555, $endColor = #333)
+	background-color 			mix($startColor, $endColor, 60%)
+	background-image 			-moz-linear-gradient(top, $startColor, $endColor) // FF 3.6+
+	background-image 			-ms-linear-gradient(top, $startColor, $endColor) // IE10
+	background-image 			-webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)) // Safari 4+, Chrome 2+
+	background-image 			-webkit-linear-gradient(top, $startColor, $endColor) // Safari 5.1+, Chrome 10+
+	background-image 			-o-linear-gradient(top, $startColor, $endColor) // Opera 11.10
+	background-image 			linear-gradient(top, $startColor, $endColor) // The standard
+	background-repeat 			repeat-x
+	filter 						"progid:DXImageTransform.Microsoft$gradient(startColorstr=$startColor, endColorstr=$endColor, GradientType=0)" // IE9 and down
+
+// Gradient Bar Colors for buttons and alerts
+$gradientBar($primaryColor, $secondaryColor)
+	$gradient-vertical($primaryColor, $secondaryColor)
+	border-color 				$secondaryColor $secondaryColor darken($secondaryColor, 15%)
+	border-color 				rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%)
+
+// Mixin for generating button backgrounds
+// ---------------------------------------
+$buttonBackground($startColor, $endColor)
+	// gradientBar will set the background to a pleasing blend of these, to support IE<=9
+	$gradientBar($startColor, $endColor)
+	$reset-filter()
+
+	// in these cases the gradient won't cover the background, so we override
+	&:hover, &:active, &.active, &.disabled, &[disabled]
+		background-color 		$endColor
+
+	// IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+	&:active,
+	&.active
+		background-color 		darken($endColor, 10%) e("\9")
+
+// GRID SYSTEM
+// --------------------------------------------------
+
+// Input grid system
+// -------------------------
+$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
+  width 						(($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10
+
+$inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
+	input,
+	.uneditable-input
+		&.span1
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1)
+		&.span2
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2)
+		&.span3
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3)
+		&.span4
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4)
+		&.span5
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5)
+		&.span6
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6)
+		&.span7
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7)
+		&.span8
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8)
+		&.span9
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9)
+		&.span10
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10)
+		&.span11
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11)
+		&.span12
+			$inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12)
+
+
+// Form field states
+// --------------------------------------------------
+
+// Mixin for form field states
+$formFieldState($textColor = #555, $borderColor = #ccc, $backgroundColor = #f5f5f5)
+	// Set the text color
+	> label,
+	.help-block,
+	.help-inline
+		color 							$textColor
+	
+	// Style inputs accordingly
+	input,
+	select
+		border-color 					$borderColor
+		color 							$textColor
+		&:focus
+			border-color 				darken($borderColor, 10%)
+			$box-shadow(0 0 6px lighten($borderColor, 20%))
+	
+	
+		// Give a small background color for input-prepend/-append
+		.input-prepend .add-on,
+		.input-append .add-on
+			background-color 			$backgroundColor
+			border-color 				$textColor
+			color 						$textColor
+
+// UTILITY CLASSES
+// ---------------
+
+// Quick floats
+.pull-right
+	float 								right
+
+.pull-left
+	float 								left
+
+
+// Toggling content
+.hide
+	display 							none !important
+	$transition(0.3s all ease-in-out)
+
+.show
+	display 							block
+	$transition(0.3s all ease-in-out)
+
+
+// Visibility
+.invisible
+	visibility 							hidden

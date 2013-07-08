@@ -1,0 +1,54 @@
+//don't pollute the global namespace
+.pp
+
+	// BODY TEXT
+	// ---------
+	p
+		margin 						($baseLineHeight/2) 0
+		font-family					$baseFontFamily
+		font-size					$baseFontSize
+		line-height					$baseLineHeight
+		small
+			font-size				$baseFontSize - 2
+			color					$grayLight
+	
+	// LINKS
+	// -----
+	
+	a
+		color 						$linkColor
+		text-decoration 			none
+	
+	a:hover
+		color 						$linkColorHover
+		text-decoration 			underline
+	
+	// HEADINGS
+	// --------
+	
+	h1, h2, h3, h4, h5, h6
+		margin 						0 0 0.5*$gridGutterWidth 0
+		font-weight 				bold
+		color 						$grayDark
+		text-rendering 				optimizelegibility // Fix the character spacing for headings
+		small
+			font-weight  			normal
+			color 					$grayLight
+	
+	
+	h1
+		font-size 					30px
+		line-height 				$baseLineHeight * 2
+		margin-top 					10px !important
+		small
+		 	font-size 				18px
+
+	// Emphasis
+	strong
+		font-weight					bold
+	
+	em
+		font-style					italic
+	
+	.muted
+		color 						$grayLight

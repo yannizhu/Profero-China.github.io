@@ -1,0 +1,10 @@
+div.password-panel
+	h1 Password Required
+	form
+		div.alert.alert-error.password-error.hide
+			strong Sorry! 
+			span wrong password
+		div.one-whole.password-wrapper
+			label(for="pp-password") Password: 
+			input.pp-password-textbox(id="pp-password", name="pp-password", placeholder="password", required, tabindex="1", type="password")
+		input.password-submit.btn.btn-large.btn-primary(role="button", tabindex="2", type="submit", value="Let me in")

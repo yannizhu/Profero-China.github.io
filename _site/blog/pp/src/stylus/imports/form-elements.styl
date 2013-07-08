@@ -1,0 +1,440 @@
+//don't pollute the global namespace
+.pp
+
+	// Forms.styl
+	// Base styles for various input types, form layouts, buttons, and states
+	// -------------------------------------------------------------
+	
+	
+	// GENERAL STYLES
+	// --------------
+	
+	// Make the form have space below it
+	form
+		margin 					0 0 $baseLineHeight
+	
+	label,
+	input,
+	button,
+	select,
+	textarea
+		$font-shorthand($baseFontSize,normal,$baseLineHeight)
+	
+	input,
+	button,
+	select,
+	textarea
+		$font-family-sans-serif() //sans-serif is easier to read on screen
+	
+	// Identify controls by their labels
+	label
+		display 				inline-block
+		margin-bottom 			5px
+		color 					$grayDark
+	
+	// Inputs, Textareas, Selects
+	input,
+	textarea,
+	select,
+	.uneditable-input
+		border 					1px solid #ccc
+		$border-radius(3px)
+		color 					$gray
+		display 				inline-block
+		font-size 				$baseFontSize
+		line-height 			$baseLineHeight
+		height 					$baseLineHeight
+		margin-bottom 			9px
+		padding 				4px
+		//width 				210px
+		// width 					100%
+	
+	// Inputs within a label
+	label input,
+	label textarea,
+	label select
+		display 				block
+
+	input[type="password"]
+		&.password-textbox
+			max-width 			90%
+			text-align 			center
+
+	.password-wrapper
+		margin 					$gridGutterWidth 0
+	
+	// Help out input buttons
+	input[type="submit"]
+		height 					auto
+		width 					auto
+	
+	// FOCUS STATE
+	// -----------
+	
+	input
+		$box-shadow(inset 0 1px 1px rgba(0,0,0,.075))
+		$transition2(border linear .2s, box-shadow linear .2s)
+	
+	input:focus
+		border-color 				rgba(82,168,236,.8)
+		$shadow = inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)
+		$box-shadow($shadow)
+		outline 					0
+		outline 					thin dotted \9 /* IE6-9 */
+	
+	// INPUT SIZES
+	// -----------
+	
+	// General classes for quick sizes
+	.input-mini
+		width 						60px
+	.input-small
+		width 						90px
+	.input-medium
+		width 						150px
+	.input-large
+		width 						210px
+	.input-xlarge
+		width 						270px
+	.input-xxlarge
+		width 						530px
+	
+	
+	// GRID SIZING FOR INPUTS
+	// ----------------------
+	
+	$inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
+	
+	
+	// DISABLED STATE
+	// --------------
+	
+	// Disabled and read-only inputs
+	input[disabled],
+	input[readonly]
+		background-color 			#f5f5f5
+		border-color 				#ddd
+		cursor 						not-allowed
+	
+	
+	// FORM FIELD FEEDBACK STATES
+	// --------------------------
+	
+	// Warning
+	.control-group.warning
+		$formFieldState($warningText, $warningText, $warningBackground)
+	
+	// Error
+	.control-group.error
+		$formFieldState($errorText, $errorText, $errorBackground)
+	
+	// Success
+	.control-group.success
+		$formFieldState($successText, $successText, $successBackground)
+	
+	
+	// HTML5 invalid states
+	// Shares styles with the .control-group.error above
+	input:focus:required:invalid
+		border-color 				#ee5f5b
+		color 						#b94a48
+		&:focus
+			border-color 			darken(#ee5f5b, 10%)
+			$box-shadow(0 0 6px lighten(#ee5f5b, 20%))
+	
+	
+	// FORM ACTIONS
+	// ------------
+	
+	.form-actions
+		background-color 			#f5f5f5
+		border-top 					1px solid #ddd
+		margin-top 					$baseLineHeight
+		margin-bottom 				$baseLineHeight
+		padding 					($baseLineHeight - 1) 20px $baseLineHeight
+	
+	// For text that needs to appear as an input but should not be an input
+	.uneditable-input
+		background-color 			$white
+		border-color 				#eee
+		$box-shadow(inset 0 1px 2px rgba(0,0,0,.025))
+		cursor: not-allowed
+		display 					block
+	
+	// Placeholder text gets special styles can't be bundled together though for some reason
+	$placeholder($grayLight)
+	
+	
+	// INPUT GROUPS
+	// ------------
+	
+	// Allow us to put symbols and text within the input field for a cleaner look
+	.input-prepend,
+	.input-append
+		margin-bottom 				5px
+		$clearfix() // Clear the float to prevent wrapping
+	
+		input,
+		.uneditable-input
+			$border-radius(0 3px 3px 0)
+			&:focus
+				position 			relative
+				z-index 			2
+	
+	
+		.uneditable-input
+			border-left-color 		#ccc
+	
+		.add-on
+			background-color 		#f5f5f5
+			border 					1px solid #ccc
+			$border-radius(3px 0 0 3px)
+			color 					$grayLight
+			display 				block
+			height 					$baseLineHeight
+			float 					left
+			font-weight 			normal
+			line-height 			$baseLineHeight
+			margin-right 			-1px
+			min-width 				16px
+			padding 				4px 5px
+			text-align 				center
+			text-shadow 			0 1px 0 $white
+			width 					auto
+	
+		.active
+			background-color 		lighten($green, 30)
+			border-color 			$green
+	
+	.input-prepend
+		.add-on
+			*margin-top 			1px /* IE6-7 */
+	
+	.input-append
+		input,
+		.uneditable-input
+			$border-radius(3px 0 0 3px)
+			float 					left
+	
+		.uneditable-input
+			border-left-color 		#eee
+			border-right-color 		#ccc
+	
+		.add-on
+			$border-radius(0 3px 3px 0)
+			margin-left 			-1px
+			margin-right 			0
+	
+		input:first-child
+			// In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
+			// inherit the sum of its ancestors' margins.
+			*margin-left 			-160px
+	
+			&+.add-on
+				*margin-left 		-21px
+	
+	
+	
+	// HORIZONTAL & VERTICAL FORMS
+	// ---------------------------
+	
+	// Common properties
+	// -----------------
+	
+	.form-inline,
+	.form-horizontal
+		input,
+		select,
+		.help-inline,
+		.uneditable-input
+			display 				inline-block
+			margin-bottom 			0
+	
+		// Re-hide hidden elements due to specifity
+		.hide
+			display 				none
+	
+	.form-inline label,
+	.form-search .input-append,
+	.form-inline .input-append,
+	.form-search .input-prepend,
+	.form-inline .input-prepend
+		display 					inline-block
+	
+	// Make the prepend and append add-on vertical-align: middle
+	.form-inline .input-prepend .add-on
+		vertical-align 				middle
+	
+	// Inline checkbox labels
+	.form-search .checkbox,
+	.form-inline .checkbox
+		margin-bottom 				0
+		vertical-align 				middle
+	
+	// Margin to space out fieldsets
+	.control-group
+		margin-bottom 				($baseLineHeight/2)
+	
+	// Legend collapses margin, so next element is responsible for spacing
+	legend + .control-group
+		margin-top 					$baseLineHeight
+		-webkit-margin-top-collapse separate
+	
+	// Horizontal-specific styles
+	// --------------------------
+	
+	.form-horizontal
+		// Increase spacing between groups
+		.control-group
+			margin-bottom 			$baseLineHeight
+			$clearfix()
+	
+		// Float the labels left
+		.control-label
+			float 					left
+			padding-top 			5px
+			text-align 				right
+			width 					140px
+	
+		// Move over all input controls and content
+		.controls
+			margin-left 			160px
+	
+		// Move over buttons in .form-actions to align with .controls
+		.form-actions
+			padding-left 			160px
+	
+	
+	// BUTTON STYLES
+	// -------------
+	
+	// Base styles
+	// --------------------------------------------------
+	
+	// Core
+	.btn
+		border 						1px solid #ccc
+		border-bottom-color 		#bbb
+		$border-radius(4px)
+		$box-shadow($shadow)
+		$buttonBackground($white, darken($white, 10%))
+		color 						$grayDark
+		cursor 						pointer
+		display 					inline-block
+		font-size 					$baseFontSize
+		line-height 				$baseLineHeight
+		margin-bottom 				0 // For input.btn
+		padding 					4px 10px 4px
+		$shadow = inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)
+		text-align 					center
+		text-shadow 				0 1px 1px rgba(255,255,255,.75)
+		vertical-align 				middle
+	
+		// Give IE7 some love
+		$reset-filter()
+		$ie7-restore-left-whitespace()
+	
+	// Hover state
+	.btn:hover
+		background-color 			darken($white, 10%)
+		background-position 		0 -15px
+		color 						$grayDark
+		text-decoration 			none
+	
+		// transition is only when going to hover, otherwise the background
+		// behind the gradient (there for IE<=9 fallback) gets mismatched
+		$transition(background-position .1s linear)
+	
+	// Focus state for keyboard and accessibility
+	.btn:focus
+		$tab-focus()
+	
+	// Active state
+	.btn.active,
+	.btn:active
+		background-color 			darken($white, 10%)
+		background-color 			darken($white, 15%) e("\9")
+		background-image 			none
+		$shadow = inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)
+		$box-shadow($shadow)
+		outline 					0
+	
+	// Disabled state
+	.btn.disabled,
+	.btn[disabled]
+		background-image 			none
+		background-color 			darken($white, 10%)
+		cursor 						default
+		$opacity(65)
+		$box-shadow(none)
+	
+	
+	// Button Sizes
+	// --------------------------------------------------
+	
+	// Large
+	.btn-large
+		$border-radius(5px)
+		font-size 					$baseFontSize + 2px
+		line-height 				normal
+		padding 					9px 14px
+		
+	.btn-large [class^="icon-"]
+		margin-top 					1px
+	
+	// Small
+	.btn-small
+		font-size 					$baseFontSize - 2px
+		line-height 				$baseLineHeight - 2px
+		padding 					5px 9px
+	
+	.btn-small [class^="icon-"]
+		margin-top 					-1px
+	
+	// Mini
+	.btn-mini
+		font-size 					$baseFontSize - 2px
+		line-height 				$baseLineHeight - 4px
+		padding 					2px 6px
+	
+	// Alternate buttons
+	// --------------------------------------------------
+	
+	// Set text color
+	// -------------------------
+	.btn-primary,
+	.btn-primary:hover
+		color 						$white
+		text-shadow 				0 -1px 0 rgba(0,0,0,.25)
+	
+	// Provide *some* extra contrast for those who can get it
+	.btn-primary.active
+		color 						rgba(255,255,255,.75)
+	
+	// Set the backgrounds
+	// -------------------------
+	.btn-primary
+		$buttonBackground($primaryButtonBackground, darken($primaryButtonBackground, 15%))
+	
+	// Cross-browser Jank
+	// --------------------------------------------------
+	
+	button.btn,
+	input[type="submit"].btn
+	
+		// Firefox 3.6 only I believe
+		&::-moz-focus-inner
+			padding 					0
+			border 						0
+	
+	
+		// IE7 has some default padding on button controls
+		*padding-top 					2px
+		*padding-bottom 				2px
+		&.large
+			*padding-top 				7px
+			*padding-bottom 			7px
+	
+		&.small
+			*padding-top 				3px
+			*padding-bottom 			3px

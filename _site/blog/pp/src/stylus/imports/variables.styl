@@ -1,0 +1,76 @@
+/*-----COLOURS-----*/
+
+$light-grey 				= #F9F9F9
+
+// Accent colors
+$blue 						= #049cdb
+$blueDark 					= #0064cd
+$green 						= #46a546
+$red 						= #9d261d
+$yellow 					= #ffc40d
+$orange 					= #f89406
+$pink 						= #c3325f
+$purple 					= #7a43b6
+
+// Grays
+$black 						= #000
+$grayDarker 				= #222
+$grayDark 					= #333
+$gray 						= #555
+$grayLight 					= #999
+$grayLighter 				= #eee
+$white 						= #fff
+
+// Form states and alerts
+$warningText 				= #c09853
+$warningBackground 			= #fcf8e3
+$warningBorder 				= darken(hsl(hue($warningBackground) - 10, saturation($warningBackground), lightness($warningBackground)), 3%)
+
+$errorText 					= #b94a48
+$errorBackground 			= #f2dede
+$errorBorder 				= darken(hsl(hue($errorBackground) - 10, saturation($errorBackground), lightness($errorBackground)), 3%)
+
+$successText 				= #468847
+$successBackground 			= #dff0d8
+$successBorder 				= darken(hsl(hue($successBackground) - 10, saturation($successBackground), lightness($successBackground)), 5%)
+
+$infoText 					= #3a87ad
+$infoBackground 			= #d9edf7
+$infoBorder 				= darken(hsl(hue($infoBackground) - 10, saturation($infoBackground), lightness($infoBackground)), 7%)
+
+$textColor 					= $grayDark
+
+// Links
+$linkColor 					= #08c
+$linkColorHover 			= darken($linkColor, 15%)
+
+// Buttons
+$primaryButtonBackground 	= $linkColor
+
+/*-----BREAKPOINTS-----*/
+
+//mobile first approach: first create "palm" styles (767px and below) then
+//append styles for lap (1023px and below) and desk (1024px and above) later
+
+$lap-and-desk 				= "(min-width: 768px)"
+$desk 						= "(min-width: 1024px)"
+
+/*-----TYPOGRAPHY-----*/
+$baseFontSize 				= 13px
+$baseLineHeight 			= 18px
+
+/*-----GRID-----*/
+
+// Default 940px grid
+$gridColumns 				= 12
+$gridColumnWidth 			= 60px
+$gridGutterWidth 			= 20px
+$gridRowWidth 				= ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1))
+
+/*-----Z-INDECES-----*/
+
+$zindexDropdown 			= 1000
+$zindexPopover 				= 1010
+$zindexTooltip 				= 1020
+$zindexModalBackdrop 		= 1030
+$zindexModal 				= 1040
