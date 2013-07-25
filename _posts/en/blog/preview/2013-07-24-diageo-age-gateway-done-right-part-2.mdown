@@ -1,0 +1,433 @@
+---
+categories: preview blog
+date: 2013-07-24 19:46:00
+layout: preview-blog-post
+excerpt: In this post we look through the basic features of the Age Gateway and how we might go about implementing, and more importantly, testing them.
+title: Diageo Age Gateway, done right - Part 2
+---
+
+_Word Count: 2,891_
+
+_Estimated Reading Time: 20 minutes_
+
+This is part of a series of blog posts about building a small complex project using test-driven development. The project we're building is the Diageo Age Gateway. For an introduction to the project, please go back and read [Part 1](http://proferotech.com/blog/diageo-age-gateway-done-right-part-1/), which lists all the requirements. So let's dig right in...
+
+First of all, let's create the actual Age Gateway HTML. This is just going to be a simple panel with a title, the required legal disclaimers, inputs for country, language, date of birth, a 'remember me' checkbox, a submit button, and footer links, according to Diageo's requirements. Of course, in Jade this isn't very much code at all:
+
+```jade
+- var todayday = 1
+- var todaymonth = "January"
+- var todayyear = 2013
+
+div.agegateway-panel
+	h1 Your Brand Here
+	p.tagline We want to be sure our products are enjoyed responsibly, so please confirm you are above the legal drinking age before you enter our site.
+	form
+		div.alert.alert-error.agegateway-country-error.hide
+			strong Sorry! 
+			span Access from this country is not permitted
+		div.one-half.country-wrapper
+			label(for="agegateway-country") Please select the country you are in:
+			select.agegateway-country(id="agegateway-country", name="agegateway-country", tabindex="1")
+				option(value="GB") United Kingdom
+				//other countries
+		div.one-half.language-wrapper
+			label(for="agegateway-language") Please select your language
+			select.agegateway-language(id="agegateway-language", name="agegateway-language", tabindex="2")
+				option(value="en") English
+				//other languages
+		div.alert.alert-error.agegateway-dob-error.hide
+			strong Sorry! 
+			span You must be at least 18 years old to enter this site.
+		label(for="day") Please select your date of birth:
+		div.one-third.day-wrapper
+			select.agegateway-day(id="agegateway-day", name="agegateway-day", tabindex="3")
+				- for (var d = 1; d<32; d++)
+					option(value="#{d}", selected=d==todayday) #{d}
+			input.agegateway-day-textbox.hide(autofocus, id="agegateway-day", min="1", max="31", name="agegateway-day", pattern="[0-9]{1,2}", placeholder="DD", required, tabindex="2", type="number")
+		div.one-third.month-wrapper
+			select.agegateway-month(id="agegateway-month", name="agegateway-month", tabindex="4")
+				- var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+				- for (var m = 0; m<months.length; m++)
+					option(value="#{m}", selected=months[m]==todaymonth) #{months[m]}
+			input.agegateway-month-textbox.hide(id="agegateway-month", min="1", max="12", name="agegateway-month", pattern="[0-9]{1,2}", placeholder="MM", required, tabindex="3", type="number")
+		div.one-third.year-wrapper
+			select.agegateway-year(id="agegateway-year", name="agegateway-year", tabindex="5")
+				- for (var y = 2013; y>1900; y--)
+					option(value="#{y}", selected=y==todayyear) #{y}
+			input.agegateway-year-textbox.hide(id="agegateway-year", min="1900", max="2013", name="agegateway-year", pattern="[0-9]{4}", placeholder="YYYY", required, tabindex="4", type="number")
+		label.checkbox.inline(for="agegateway-rememberme")
+			input.agegateway-rememberme(id="agegateway-rememberme", name="agegateway-rememberme", tabindex="6", type="checkbox")
+			| Use a 
+			a(href="cookies.html", title="View the privacy & cookies notice") cookie 
+			| to remember me. Only check this box if you are not using shared computer.
+		p.disclaimer By clicking enter, you accept the Terms &amp; Conditions and Privacy &amp; Cookies Notice. Please do not enter this site if you are not of legal purchase age for alcohol in your country of access. DIAGEO and its brands is a member of manyorganisations that promote responsible drinking.
+		input.agegateway-submit.btn.btn-large.btn-primary(role="button", tabindex="7", type="submit", value="Enter the site")
+	footer.agegateway-footer
+
+		p.disclaimer Use of this site is for personal use, in countries and territories where the consumption of alcohol beverages is lawful, ofpersons who are lawfully permitted to consume alcohol beverages. By entering this site you agree to our  
+			a(href="/", title="View the terms & conditions") Terms &amp; Conditions 
+			| and 
+			a(href="/", title="View the privacy & cookies notice") Privacy &amp; Cookies Notice 
+			| . <BRAND NAME> is committed to promoting responsible drinking &amp; 
+			a(href="/") DRINKiQ.
+
+		ul.inline.unstyled
+			li
+				a(href="/", title="View the terms & conditions") Terms &amp; Conditions
+			li
+				a(href="/", title="View the privacy & cookies notice") Privacy &amp; Cookies Notice
+			li
+				a(href="/") Drinkaware
+			li
+				a(href="/") DRINKiQ
+```
+
+There are several things to note from this code:
+
+* At the top I've put some default values for populating the inputs
+* For brevity, I've not listed all the countries and languages - please see the ```Archive``` repo for the full code
+* Jade can automatically populate the options in the lists using for loops - no more tedious copying and pasting... how cool is that?!
+* Most if not all of the non-Bootstrap class names are prefixed with ```agegateway-``` so as to protect the namespace and prevent potential conflicts when the Age Gateway is implemented across other websites
+
+I won't paste all the stylus (CSS) code here, but you can look in the repo. In my main ```age-gateway.styl``` file, I'm simply importing other files. This is good practice as it forces you to break down your styles into distinct, clean, reusable modules.
+
+```css
+@import './imports/variables.styl'
+@import './imports/mixins.styl'
+@import './imports/modals.styl'
+@import './imports/layout.styl'
+@import './imports/main-panel.styl'
+@import './imports/form-elements.styl'
+@import './imports/typography.styl'
+@import './imports/alerts.styl'
+
+.agegateway
+	@extends 					.modal-backdrop
+```
+
+In this file I've also extended Twitter Bootstrap's modal-backdrop class for the ```.age-gateway``` element to make it clear that this will be the main canvas which obscures the restricted webpage and on which the Age Gateway will be displayed. Now we have everything set up for the Gateway, let's get on with building the functionality.
+
+The first requirement is to block access to the webpage for all visitors who do not have a cookie indicating they have already verified their age. That means we're going to need:
+
+* Something to obscure the page
+* Functions to detect and verify a cookie
+* Functions to load in the Age Gateway HTML if the cookie is not detected
+* A facility to remove the thing obscuring the page if the cookie is detected.
+
+First we need to create an invokable 'Age Gateway' function that can be called in the global scope (i.e. from any JavaScript on any page throughout the website). That means we're going to attach this function to the ```window``` object. However we also need to be careful that the code can only run after the DOM has finished loading, and that all variables are privately namespaced inside the AgeGateway function and therefore won't conflict with any other JavaScript variables or functions throughout the rest of the website. Therefore, we're going to wrap everything in a self-invoking anonymous function:
+
+```coffeescript
+((win) ->
+	win.AgeGateway = () ->
+	
+		el =
+			agegateway: $(".agegateway")
+	
+		init = ->
+		
+		init
+		
+		#for testing
+		return {} =
+			el: el
+) this
+```
+
+The AgeGatway function contains an object ```el``` which will essentially contain a list of DOM elements that we'll need to interact with (for now just containing the '.agegateway' element on which everything else will be loaded). There's a return object that will expose any functions or variables that we may need to test. This is necessary as everything is wrapped in the anonymous function to protect the namespace, so unless we explicitly pass these variables and functions in the return object, they will not be available to our test suite. Of course, this return object will be commented out or removed before deploying this project. We've also given the AgeGateway function a constructor function 'init' that's called when the Age Gateway is initialised. That means we can always just call ```AgeGateway()``` on any page to run it. Saving that as ```src/coffee/àge-gateway.coffee```, all we need to do now is create a test suite to test this function. For that we should create another file ```test/age-gateway.spec.coffee```. It's best practice to keep the name of the test suite the same as that of the file or function we're testing. For Jasmine to recognise that we're testing the AgeGateway function, we just need to put this in our test suite file:
+
+```coffeescript
+describe "AgeGateway", ->
+```
+
+When you save the file, run ```grunt``` from the command line and you should see that the Jasmine unit test suite is run and that all tests pass with no errors. Well that's because we don't have any unit tests yet, so let's do that now.
+
+Looking again at the requirements, we need to check for cookies. So let's create our first test:
+
+```coffeescript
+it "should be able to confirm when the required cookie does not exist", ->
+	ag = AgeGateway()
+	expect(ag.getCookie()?).toEqual false
+```
+
+Save it now and the console will report that 1 test failed. This is GOOD! We want to first create a test that fails and then write our functionality code that makes it pass. In this case we just need to write a function that checks for cookies and returns true if there are any cookies, and false if not. We don't need to concern ourselves with the name of the cookie or its value for now. The test itself is very simple, just a description of what we're testing, then we call the Age Gateway function and state our expectation. As we haven't passed the Age Gateway and therefore have not set the cookie yet, we would expect the function that checks for the cookie to return false.
+
+Back in ```age-gateway.coffee``` we can now write the function. It looks for a cookie called 'diageo-ae-gateway' and returns the cookie value (which will evauate to false if null):
+
+```coffeescript
+getCookie = ->
+	nameEQ = "diageo-age-gateway="
+	cookieItems = document.cookie.split(";")
+	for cookieItem in cookieItems
+		while cookieItem.charAt(0)==' '
+			cookieItem = cookieItem.substring(1, cookieItem.length)
+		if cookieItem.indexOf(nameEQ) == 0
+			cookieValue = cookieItem.substring(nameEQ.length, cookieItem.length)
+			cookieValue = cookieValue.replace(/'/g,'"')
+	cookieValue
+```
+
+Save it and the test now passes! That was easy. So now we know if the cookie exists, we need to load the Age Gateway accordingly. 
+
+```coffeescript
+it "should be able to load the age gateway", ->
+	ag = AgeGateway()
+	expect($(".agegateway-panel").length).toBeGreaterThan(0)
+```
+
+In this test we're expecting the page to have an ```.agegateway-panel``` element, which will only evaluate to true if the Age Gateway HTML has been loaded onto the page. So in our AgeGateway function we'll need another function to load it in via AJAX:
+
+```coffeescript
+showAgeGateway = ->
+	$.get "age-gateway.html", (data) ->
+		$(".agegateway").append(data)
+```
+
+We'll also need some functionality to call this function depending on the cookie, which we can do in the ```init``` function which is called immediately when the AgeGateway function is initialised.
+
+```coffeescript
+init = ->
+	if not getCookie() then showAgeGateway()
+```
+
+If you save it now, the test still fails! That's because loading something via AJAX invariably requires a certain amount of time, and the test is run before the request has time to complete. Therefore in our test suite we need to introduce a delay function:
+
+```coffeescript
+delay = (ms, func) -> setTimeout func, ms
+```
+
+So now we can update our test:
+
+
+```coffeescript
+it "should be able to add the age gateway", ->
+	ag = AgeGateway()
+	delay 1000, -> expect($(".agegateway-panel").length).toBeGreaterThan(0)
+```
+
+Now the test passes! The Age Gateway will definitely be loaded if the cookie doesn't exist. What if the cookie does exist? We'll want to hide the ```.agegateway``` element that's obscuring the page.
+
+```coffeescript
+it "should be able to remove the age gateway", ->
+	ag = AgeGateway()
+	ag.hideAgeGateway()
+	expect($(".agegateway-panel").length).toBeLessThan(1)
+``
+	
+Clearly we need a ```hideAgeGateway``` function which should be run immediately (called from the ```init``` function) if the cookie is not detected.
+
+```coffeescript
+init = ->
+	if not getCookie() then showAgeGateway() else hideAgeGateway()
+	
+hideAgeGateway = ->
+	el.agegateway.remove()
+```
+
+Our test suite is running a new version of the Age Gateway each time, and in some tests we may need to test the cookie-saving functionality. Therefore we need to ensure that the cookie does not exist before every test. Jasmine has a handy feature that allows us to specify a function to run before each and every test:
+
+```coffeescript
+beforeEach ->
+	ag = AgeGateway()
+	ag.deleteCookie()
+```
+
+Before we move on to the other requirements, we'll also need code which confirms that cookies are supported and load in a 'no cookies' error when necessary, and also a function to delete the cookie. We won't go into that here as it's similar to what we've already done, so you should check out the code in the github repository. Nevertheless, it should start to become clear that unit testing like this forces a methodological approach to writing the code, ensuring that we're always separating out the functionality into small, testable chunks.
+
+The Age Gateway is now checking for the cookie and loading in the form when required. So what about the next requirement? Allow users to select their country, language, and D.O.B. This just needs input validation; that's easy for country and language but for dates we need to consider:
+
+* Different months have different numbers of days
+* Leap years have different numbers of days
+
+First of all, we need to register the necessary DOM elements after the Age Gateway is loaded, and also set any event listeners. Of course, we start by writing the tests:
+
+```coffeescript
+it "should attach DOM elements once the gateway has loaded in", ->
+	ag = AgeGateway()
+	expect(ag.el.countryInput).toEqual(undefined)
+	spyOn(ag, "attachDOMElements")
+	delay 1000, ->
+		expect(ag.attachDOMElements()).toHaveBeenCalled()
+		expect(ag.el.countryInput).toBe(defined)
+		
+it "should register when the country is changed", ->
+	ag = AgeGateway()
+	delay 1000, -> 
+		ag.el.countryInput.value('test1')
+		c = ag.el.countryInput.val()
+		ag.el.countryInput.value('test2')
+		expect(ag.selectedValues.country).not.toEqual(c)
+```
+
+In these 2 tests we're doing a few interesting things. In the first, we're asserting that the DOM element 'countryInput' is not immediately definied when the AgeGateway function is called. We're then spying on the 'attachDOMElement function', which we would expect to have been called after 1 second (after the AJAX request has completed) and then for the 'countryInput' element to be defined and to actually refer to a DOM element. In the next test we're waiting for the Age Gateway to be loaded in, then manually setting the value of the 'countryInput' element, storing its value, changing its value, and then comparing the new value with the old one in order to verify that the input's value has indeed changed. We can do similar tests for all of the other inputs.
+
+The main function of the Gateway is to verify D.O.B. against the legal drinking age requirement for the selected country. So we'll need to maintain a list of such ages for each country. Below are a series of tests around these requirements. I won't post the code being tested, but hopefully from these tests you should be able to ascertain what code would be required. Notice that in these tests we're testing multiple cases in order to verify the functionality:
+
+```coffeescript
+it "should accurately determine if a year is a leap year", ->
+	ag = AgeGateway()
+	expect(ag.isLeapYear(2012)).toEqual(true)
+	expect(ag.isLeapYear(2013)).toEqual(false)
+
+it "should accurately determine the number of days in each month, including leap years", ->
+	ag = AgeGateway()
+	#All mnths, not a leap year
+	expect(ag.numberOfDays(0,false)).toEqual(31)
+	expect(ag.numberOfDays(1,false)).toEqual(28)
+	expect(ag.numberOfDays(2,false)).toEqual(31)
+	expect(ag.numberOfDays(3,false)).toEqual(30)
+	expect(ag.numberOfDays(4,false)).toEqual(31)
+	expect(ag.numberOfDays(5,false)).toEqual(30)
+	expect(ag.numberOfDays(6,false)).toEqual(31)
+	expect(ag.numberOfDays(7,false)).toEqual(31)
+	expect(ag.numberOfDays(8,false)).toEqual(30)
+	expect(ag.numberOfDays(9,false)).toEqual(31)
+	expect(ag.numberOfDays(10,false)).toEqual(30)
+	expect(ag.numberOfDays(11,false)).toEqual(31)
+	#February, in a leap year
+	expect(ag.numberOfDays(1,true)).toEqual(29)
+
+it "should update the days list when a leap year is selected", ->
+	ag = AgeGateway()
+	delay 1000, -> 
+		ag.el.monthInput.value("1")
+		ag.el.yearInput.val("2011")
+		days = ag.el.dayInput.find("option").length
+		ag.el.yearInput.val("2012")
+		expect(ag.el.dayInput.find("option").length).not.toEqual(days)
+
+it "should update the days list when the month is changed", ->
+	ag = AgeGateway()
+	delay 1000, -> 
+		ag.el.monthInput.value("1")
+		days = ag.el.dayInput.find("option").length
+		ag.el.monthInput.value("2")
+		expect(ag.el.dayInput.find("option").length).not.toEqual(days)
+
+it "should determine the correct legal age limit for each country", ->
+	ag = AgeGateway()
+	expect(ag.getLegalAge("GB")).toEqual(18)
+	expect(ag.getLegalAge("US")).toEqual(21)
+	expect(ag.getLegalAge("IN")).toEqual(25)
+	expect(ag.getLegalAge("ET")).toEqual(0)
+	expect(ag.getLegalAge("JP")).toEqual(20)
+	expect(ag.getLegalAge("CA")).toEqual(19)
+	expect(ag.getLegalAge("PY")).toEqual(20)
+	expect(ag.getLegalAge("KZ")).toEqual(0)
+
+it "should verify that selected values comprise a legal drinking age", ->
+	ag = AgeGateway()
+	#assuming LDA = 18
+	#today
+	ag.selectedValues.day = new Date().getDate()
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear()
+	expect(ag.checkAge(18)).toEqual(false)
+	#25th of this month
+	ag.selectedValues.day = 25
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear()
+	expect(ag.checkAge(18)).toEqual(false)
+	#next year
+	ag.selectedValues.day = new Date().getDate()
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear() + 1
+	expect(ag.checkAge(18)).toEqual(false)
+	#28th June 2012
+	ag.selectedValues.day = 28
+	ag.selectedValues.month = 5
+	ag.selectedValues.year = new Date().getFullYear() - 1
+	expect(ag.checkAge(18)).toEqual(false)
+	#exactly 18 years ago today
+	ag.selectedValues.day = new Date().getDate()
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear() - 18
+	expect(ag.checkAge(18)).toEqual(true)
+	#exactly 18 years ago - 1 day
+	#(probably will fail if you're testing on the last day of the month)
+	ag.selectedValues.day = new Date().getDate() + 1
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear() - 18
+	expect(ag.checkAge(18)).toEqual(false)
+	#exactly 18 years ago + 1 day
+	ag.selectedValues.day = new Date().getDate() - 1
+	ag.selectedValues.month = new Date().getMonth()
+	ag.selectedValues.year = new Date().getFullYear() - 18
+	expect(ag.checkAge(18)).toEqual(true)
+	#outbreak of world war 2
+	ag.selectedValues.day = 1
+	ag.selectedValues.month = 8
+	ag.selectedValues.year = 1939
+	expect(ag.checkAge(18)).toEqual(true)
+	#assuming LDA = 21
+	ag.selectedValues.day = 25
+	ag.selectedValues.month = 11
+	ag.selectedValues.year = 1966
+	expect(ag.checkAge(21)).toEqual(true)
+	#another random date
+	ag.selectedValues.day = 29
+	ag.selectedValues.month = 5
+	ag.selectedValues.year = new Date().getFullYear() - 21
+	expect(ag.checkAge(21)).toEqual(true)
+```
+
+Finally we'll also need to save a cookie when the user passes the Age Gateway, and the cookie should have an explicit expiry date if the user has checked the 'remember me' checkbox.
+
+```coffeescript
+it "should be able to set a cookie with any value", ->
+	ag = AgeGateway()
+	ag.setCookie("test")
+	expect(jQuery.parseJSON(ag.getCookie())).toEqual "test"
+	ag.setCookie("123456789")
+	expect(jQuery.parseJSON(ag.getCookie())).toEqual "123456789"
+
+getCookieExpiry = ->
+	nameEQ = "diageo-age-gateway="
+	cookieItems = document.cookie.split(";")
+	for cookieItem in cookieItems
+		while cookieItem.charAt(0)==' '
+			cookieItem = cookieItem.substring(1, cookieItem.length)
+		if cookieItem.indexOf(nameEQ) == 0
+			cookieExpiry = cookieItem.substring(";expires=".length, cookieItem.length)
+			cookieExpiry = cookieExpiry.replace(/'/g,'"')
+	cookieExpiry
+
+it "should set a session cookie when the form is submitted and the remember me checkbox is not checked", ->
+	ag = AgeGateway()
+	delay 1000, ->
+		ag.selectedValues.country = "GB"
+		ag.el.dayInput.val(1)
+		ag.el.monthInput.val(0)
+		ag.el.yearInput.val(1980)
+		ag.selectedValues.rememberme = false
+		#these functions are called by event listeners on the inputs
+		#they will save the input values to the selectedValues object
+		ag.changeDay()
+		ag.changeMonth()
+		ag.changeYear()
+		#this ensures that all the input is valid and the user may pass the age gateway
+		ag.validateForm()
+		delay 100, ->
+			expect(ag.getCookie()).not.toBe(false)
+			expect(getCookieExpiry()).toBe(undefined)
+
+it "should set a cookie with an explicit expiry date only when the form is submitted with the remember me checkbox checked", ->
+	ag = AgeGateway()
+	delay 1000, ->
+		ag.selectedValues.country = "GB"
+		ag.el.dayInput.val(1)
+		ag.el.monthInput.val(0)
+		ag.el.yearInput.val(1980)
+		ag.selectedValues.rememberme = true
+		ag.changeDay()
+		ag.changeMonth()
+		ag.changeYear()
+		ag.validateCountry()
+		delay 100, ->
+			expect(ag.getCookie()).not.toBe(false)
+			expect(getCookie()).not.toBe(undefined)
+```
+
+That's it - we have the verified functionality for the Age Gateway already! With a bit more simple front-end code we can build a demo page that implements this Age Gateway code so that it's ready for testing in the browser! You can check out the demo code in the ```Archive/diageo-age-gateway``` repository sub-folder, but we'll likely go over it later when we come to Testing in Part 4.
+
+In part 3 we'll go into the more complex features and how we might enhance our existing code to accommodate the advanced features. Please let me know if you have any comments, questions, or suggestions on anything in this post.

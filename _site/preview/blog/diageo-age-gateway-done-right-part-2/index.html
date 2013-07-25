@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="page page-blog-post">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+		<!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+		<title>Diageo Age Gateway, done right - Part 2 &ndash; Proferotech Blog &ndash; Technology Experts in Digital Marketing Solutions</title>
+
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/blog/pp/pp/css/pp.min.css">
+			
+		<link rel="shortcut icon" href="/icon.png">
+		<link rel="apple-touch-icon-precomposed" href="/icon.png">
+		<meta name="apple-mobile-web-app-title" content="Profero Tech &ndash; Technology Experts in Digital Marketing Solutions">
+		<meta name="description" content="Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta name="msapplication-TileColor" content="#f6d431">
+		<meta name="msapplication-TileImage" content="/icon.png">
+			
+		<meta itemprop="name" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta itemprop="description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta itemprop="url" content="http://proferotech.com">
+		<meta itemprop="image" content="http://proferotech.com/images/logo.png">
+			
+		<meta property="og:title" content="ProferoTech &ndash; Technology experts in digital marketing solutions">
+		<meta property="og:description" content="ProferoTech: Technology experts in digital marketing solutions. We build websites, apps, and data storage, and provide analysis, testing, and consulting services on the application of technology for digital marketing projects. We're based in Beijing but work for a variety of brands across the globe. Contact tech@profero.com to start a project with us.">
+		<meta property="og:url" content="http://proferotech.com">
+		<meta property="og:image" content="http://proferotech.com/images/logo.png">
+
+	</head>
+	<body>
+		
+		<div class="wrapper" role="main">
+			
+			<div class="nav-wrapper">
+				<div class="navbar">
+					
+					<a class="home-button" href="/preview/blog/" title="Proferotech Blog"><i class="icon-left"></i></a>
+					
+				</div>
+			</div>
+			
+			<section class="blog" id="blog">
+				
+				<h1>Diageo Age Gateway, done right - Part 2</h1>
+				<p class="date-posted">July 25, 2013</p>
+				
+				<div class="blog-post">
+
+<p><em>Word Count: 2,891</em></p>
+
+<p><em>Estimated Reading Time: 20 minutes</em></p>
+
+<p>This is part of a series of blog posts about building a small complex project using test-driven development. The project we&#39;re building is the Diageo Age Gateway. For an introduction to the project, please go back and read <a href="http://proferotech.com/blog/diageo-age-gateway-done-right-part-1/">Part 1</a>, which lists all the requirements. So let&#39;s dig right in...</p>
+
+<p>First of all, let&#39;s create the actual Age Gateway HTML. This is just going to be a simple panel with a title, the required legal disclaimers, inputs for country, language, date of birth, a &#39;remember me&#39; checkbox, a submit button, and footer links, according to Diageo&#39;s requirements. Of course, in Jade this isn&#39;t very much code at all:</p>
+<div class="highlight"><pre><code class="jade language-jade" data-lang="jade"><span class="p">-</span> <span class="k">var</span> <span class="n">todayday</span> <span class="k">=</span> <span class="mi">1</span>
+<span class="p">-</span> <span class="k">var</span> <span class="n">todaymonth</span> <span class="k">=</span> <span class="s">&quot;January&quot;</span>
+<span class="p">-</span> <span class="k">var</span> <span class="n">todayyear</span> <span class="k">=</span> <span class="mi">2013</span>
+
+<span class="nt">div</span><span class="nc">.agegateway-panel</span>
+    <span class="nt">h1</span> Your Brand Here
+    <span class="nt">p</span><span class="nc">.tagline</span> We want to be sure our products are enjoyed responsibly, so please confirm you are above the legal drinking age before you enter our site.
+    <span class="nt">form</span>
+        <span class="nt">div</span><span class="nc">.alert.alert-error.agegateway-country-error.hide</span>
+            <span class="nt">strong</span> Sorry! 
+            <span class="nt">span</span> Access from this country is not permitted
+        <span class="nt">div</span><span class="nc">.one-half.country-wrapper</span>
+            <span class="nt">label</span>(<span class="na">for=</span><span class="s">&quot;agegateway-country&quot;</span>) Please select the country you are in:
+            <span class="nt">select</span><span class="nc">.agegateway-country</span>(<span class="na">id=</span><span class="s">&quot;agegateway-country&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-country&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;1&quot;</span>)
+                <span class="nt">option</span>(<span class="na">value=</span><span class="s">&quot;GB&quot;</span>) United Kingdom
+                <span class="c">//other countries</span>
+        <span class="nt">div</span><span class="nc">.one-half.language-wrapper</span>
+            <span class="nt">label</span>(<span class="na">for=</span><span class="s">&quot;agegateway-language&quot;</span>) Please select your language
+            <span class="nt">select</span><span class="nc">.agegateway-language</span>(<span class="na">id=</span><span class="s">&quot;agegateway-language&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-language&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;2&quot;</span>)
+                <span class="nt">option</span>(<span class="na">value=</span><span class="s">&quot;en&quot;</span>) English
+                <span class="c">//other languages</span>
+        <span class="nt">div</span><span class="nc">.alert.alert-error.agegateway-dob-error.hide</span>
+            <span class="nt">strong</span> Sorry! 
+            <span class="nt">span</span> You must be at least 18 years old to enter this site.
+        <span class="nt">label</span>(<span class="na">for=</span><span class="s">&quot;day&quot;</span>) Please select your date of birth:
+        <span class="nt">div</span><span class="nc">.one-third.day-wrapper</span>
+            <span class="nt">select</span><span class="nc">.agegateway-day</span>(<span class="na">id=</span><span class="s">&quot;agegateway-day&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-day&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;3&quot;</span>)
+                <span class="p">-</span> <span class="k">for</span> <span class="o">(</span><span class="k">var</span> <span class="n">d</span> <span class="k">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">d</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">;</span> <span class="n">d</span><span class="o">++)</span>
+                    <span class="nt">option</span>(<span class="na">value=</span><span class="s">&quot;#{d}&quot;</span><span class="err">,</span> <span class="na">selected=</span><span class="nv">d</span><span class="err">==</span><span class="na">todayday</span>) <span class="si">#{</span><span class="n">d</span><span class="si">}</span>
+            <span class="nt">input</span><span class="nc">.agegateway-day-textbox.hide</span>(<span class="na">autofocus</span><span class="err">,</span> <span class="na">id=</span><span class="s">&quot;agegateway-day&quot;</span><span class="err">,</span> <span class="na">min=</span><span class="s">&quot;1&quot;</span><span class="err">,</span> <span class="na">max=</span><span class="s">&quot;31&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-day&quot;</span><span class="err">,</span> <span class="na">pattern=</span><span class="s">&quot;[0-9]{1,2}&quot;</span><span class="err">,</span> <span class="na">placeholder=</span><span class="s">&quot;DD&quot;</span><span class="err">,</span> <span class="na">required</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;2&quot;</span><span class="err">,</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span>)
+        <span class="nt">div</span><span class="nc">.one-third.month-wrapper</span>
+            <span class="nt">select</span><span class="nc">.agegateway-month</span>(<span class="na">id=</span><span class="s">&quot;agegateway-month&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-month&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;4&quot;</span>)
+                <span class="p">-</span> <span class="k">var</span> <span class="n">months</span> <span class="k">=</span> <span class="o">[</span><span class="err">&#39;</span><span class="kt">January</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">February</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">March</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">April</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">May</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">June</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">July</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">August</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">September</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">October</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">November</span><span class="err">&#39;</span>, <span class="err">&#39;</span><span class="kt">December</span><span class="err">&#39;</span><span class="o">]</span>
+                <span class="p">-</span> <span class="k">for</span> <span class="o">(</span><span class="k">var</span> <span class="n">m</span> <span class="k">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">m</span><span class="o">&lt;</span><span class="n">months</span><span class="o">.</span><span class="n">length</span><span class="o">;</span> <span class="n">m</span><span class="o">++)</span>
+                    <span class="nt">option</span>(<span class="na">value=</span><span class="s">&quot;#{m}&quot;</span><span class="err">,</span> <span class="na">selected=</span><span class="nv">months</span><span class="err">[</span><span class="na">m</span><span class="err">]==</span><span class="na">todaymonth</span>) <span class="si">#{</span><span class="n">months</span><span class="o">[</span><span class="kt">m</span><span class="o">]</span><span class="si">}</span>
+            <span class="nt">input</span><span class="nc">.agegateway-month-textbox.hide</span>(<span class="na">id=</span><span class="s">&quot;agegateway-month&quot;</span><span class="err">,</span> <span class="na">min=</span><span class="s">&quot;1&quot;</span><span class="err">,</span> <span class="na">max=</span><span class="s">&quot;12&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-month&quot;</span><span class="err">,</span> <span class="na">pattern=</span><span class="s">&quot;[0-9]{1,2}&quot;</span><span class="err">,</span> <span class="na">placeholder=</span><span class="s">&quot;MM&quot;</span><span class="err">,</span> <span class="na">required</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;3&quot;</span><span class="err">,</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span>)
+        <span class="nt">div</span><span class="nc">.one-third.year-wrapper</span>
+            <span class="nt">select</span><span class="nc">.agegateway-year</span>(<span class="na">id=</span><span class="s">&quot;agegateway-year&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-year&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;5&quot;</span>)
+                <span class="p">-</span> <span class="k">for</span> <span class="o">(</span><span class="k">var</span> <span class="n">y</span> <span class="k">=</span> <span class="mi">2013</span><span class="o">;</span> <span class="n">y</span><span class="o">&gt;</span><span class="mi">1900</span><span class="o">;</span> <span class="n">y</span><span class="o">--)</span>
+                    <span class="nt">option</span>(<span class="na">value=</span><span class="s">&quot;#{y}&quot;</span><span class="err">,</span> <span class="na">selected=</span><span class="nv">y</span><span class="err">==</span><span class="na">todayyear</span>) <span class="si">#{</span><span class="n">y</span><span class="si">}</span>
+            <span class="nt">input</span><span class="nc">.agegateway-year-textbox.hide</span>(<span class="na">id=</span><span class="s">&quot;agegateway-year&quot;</span><span class="err">,</span> <span class="na">min=</span><span class="s">&quot;1900&quot;</span><span class="err">,</span> <span class="na">max=</span><span class="s">&quot;2013&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-year&quot;</span><span class="err">,</span> <span class="na">pattern=</span><span class="s">&quot;[0-9]{4}&quot;</span><span class="err">,</span> <span class="na">placeholder=</span><span class="s">&quot;YYYY&quot;</span><span class="err">,</span> <span class="na">required</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;4&quot;</span><span class="err">,</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span>)
+        <span class="nt">label</span><span class="nc">.checkbox.inline</span>(<span class="na">for=</span><span class="s">&quot;agegateway-rememberme&quot;</span>)
+            <span class="nt">input</span><span class="nc">.agegateway-rememberme</span>(<span class="na">id=</span><span class="s">&quot;agegateway-rememberme&quot;</span><span class="err">,</span> <span class="na">name=</span><span class="s">&quot;agegateway-rememberme&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;6&quot;</span><span class="err">,</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span>)
+            | Use a 
+            <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;cookies.html&quot;</span><span class="err">,</span> <span class="na">title=</span><span class="s">&quot;View the privacy &amp; cookies notice&quot;</span>) cookie 
+            | to remember me. Only check this box if you are not using shared computer.
+        <span class="nt">p</span><span class="nc">.disclaimer</span> By clicking enter, you accept the Terms &amp;amp; Conditions and Privacy &amp;amp; Cookies Notice. Please do not enter this site if you are not of legal purchase age for alcohol in your country of access. DIAGEO and its brands is a member of manyorganisations that promote responsible drinking.
+        <span class="nt">input</span><span class="nc">.agegateway-submit.btn.btn-large.btn-primary</span>(<span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="err">,</span> <span class="na">tabindex=</span><span class="s">&quot;7&quot;</span><span class="err">,</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="err">,</span> <span class="na">value=</span><span class="s">&quot;Enter the site&quot;</span>)
+    <span class="nt">footer</span><span class="nc">.agegateway-footer</span>
+
+        <span class="nt">p</span><span class="nc">.disclaimer</span> Use of this site is for personal use, in countries and territories where the consumption of alcohol beverages is lawful, ofpersons who are lawfully permitted to consume alcohol beverages. By entering this site you agree to our  
+            <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="err">,</span> <span class="na">title=</span><span class="s">&quot;View the terms &amp; conditions&quot;</span>) Terms &amp;amp; Conditions 
+            | and 
+            <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="err">,</span> <span class="na">title=</span><span class="s">&quot;View the privacy &amp; cookies notice&quot;</span>) Privacy &amp;amp; Cookies Notice 
+            | . &lt;BRAND NAME&gt; is committed to promoting responsible drinking &amp;amp; 
+            <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span>) DRINKiQ.
+
+        <span class="nt">ul</span><span class="nc">.inline.unstyled</span>
+            <span class="nt">li</span>
+                <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="err">,</span> <span class="na">title=</span><span class="s">&quot;View the terms &amp; conditions&quot;</span>) Terms &amp;amp; Conditions
+            <span class="nt">li</span>
+                <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="err">,</span> <span class="na">title=</span><span class="s">&quot;View the privacy &amp; cookies notice&quot;</span>) Privacy &amp;amp; Cookies Notice
+            <span class="nt">li</span>
+                <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span>) Drinkaware
+            <span class="nt">li</span>
+                <span class="nt">a</span>(<span class="na">href=</span><span class="s">&quot;/&quot;</span>) DRINKiQ
+</code></pre></div>
+<p>There are several things to note from this code:</p>
+
+<ul>
+<li>At the top I&#39;ve put some default values for populating the inputs</li>
+<li>For brevity, I&#39;ve not listed all the countries and languages - please see the <code>Archive</code> repo for the full code</li>
+<li>Jade can automatically populate the options in the lists using for loops - no more tedious copying and pasting... how cool is that?!</li>
+<li>Most if not all of the non-Bootstrap class names are prefixed with <code>agegateway-</code> so as to protect the namespace and prevent potential conflicts when the Age Gateway is implemented across other websites</li>
+</ul>
+
+<p>I won&#39;t paste all the stylus (CSS) code here, but you can look in the repo. In my main <code>age-gateway.styl</code> file, I&#39;m simply importing other files. This is good practice as it forces you to break down your styles into distinct, clean, reusable modules.</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="k">@import</span> <span class="s1">&#39;./imports/variables.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/mixins.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/modals.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/layout.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/main-panel.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/form-elements.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/typography.styl&#39;</span>
+<span class="k">@import</span> <span class="s1">&#39;./imports/alerts.styl&#39;</span>
+
+<span class="nc">.agegateway</span>
+    <span class="k">@extends</span>                    <span class="nc">.modal-backdrop</span>
+</code></pre></div>
+<p>In this file I&#39;ve also extended Twitter Bootstrap&#39;s modal-backdrop class for the <code>.age-gateway</code> element to make it clear that this will be the main canvas which obscures the restricted webpage and on which the Age Gateway will be displayed. Now we have everything set up for the Gateway, let&#39;s get on with building the functionality.</p>
+
+<p>The first requirement is to block access to the webpage for all visitors who do not have a cookie indicating they have already verified their age. That means we&#39;re going to need:</p>
+
+<ul>
+<li>Something to obscure the page</li>
+<li>Functions to detect and verify a cookie</li>
+<li>Functions to load in the Age Gateway HTML if the cookie is not detected</li>
+<li>A facility to remove the thing obscuring the page if the cookie is detected.</li>
+</ul>
+
+<p>First we need to create an invokable &#39;Age Gateway&#39; function that can be called in the global scope (i.e. from any JavaScript on any page throughout the website). That means we&#39;re going to attach this function to the <code>window</code> object. However we also need to be careful that the code can only run after the DOM has finished loading, and that all variables are privately namespaced inside the AgeGateway function and therefore won&#39;t conflict with any other JavaScript variables or functions throughout the rest of the website. Therefore, we&#39;re going to wrap everything in a self-invoking anonymous function:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="p">(</span><span class="nf">(win) -&gt;</span>
+    <span class="nv">win.AgeGateway = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+
+        <span class="nv">el =</span>
+            <span class="nv">agegateway: </span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;.agegateway&quot;</span><span class="p">)</span>
+
+        <span class="nv">init = </span><span class="nf">-&gt;</span>
+
+        <span class="nx">init</span>
+
+        <span class="c1">#for testing</span>
+        <span class="k">return</span> <span class="p">{}</span> <span class="o">=</span>
+            <span class="nv">el: </span><span class="nx">el</span>
+<span class="p">)</span> <span class="k">this</span>
+</code></pre></div>
+<p>The AgeGatway function contains an object <code>el</code> which will essentially contain a list of DOM elements that we&#39;ll need to interact with (for now just containing the &#39;.agegateway&#39; element on which everything else will be loaded). There&#39;s a return object that will expose any functions or variables that we may need to test. This is necessary as everything is wrapped in the anonymous function to protect the namespace, so unless we explicitly pass these variables and functions in the return object, they will not be available to our test suite. Of course, this return object will be commented out or removed before deploying this project. We&#39;ve also given the AgeGateway function a constructor function &#39;init&#39; that&#39;s called when the Age Gateway is initialised. That means we can always just call <code>AgeGateway()</code> on any page to run it. Saving that as <code>src/coffee/àge-gateway.coffee</code>, all we need to do now is create a test suite to test this function. For that we should create another file <code>test/age-gateway.spec.coffee</code>. It&#39;s best practice to keep the name of the test suite the same as that of the file or function we&#39;re testing. For Jasmine to recognise that we&#39;re testing the AgeGateway function, we just need to put this in our test suite file:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">describe</span> <span class="s">&quot;AgeGateway&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</code></pre></div>
+<p>When you save the file, run <code>grunt</code> from the command line and you should see that the Jasmine unit test suite is run and that all tests pass with no errors. Well that&#39;s because we don&#39;t have any unit tests yet, so let&#39;s do that now.</p>
+
+<p>Looking again at the requirements, we need to check for cookies. So let&#39;s create our first test:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should be able to confirm when the required cookie does not exist&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getCookie</span><span class="p">()</span><span class="o">?</span><span class="p">).</span><span class="nx">toEqual</span> <span class="kc">false</span>
+</code></pre></div>
+<p>Save it now and the console will report that 1 test failed. This is GOOD! We want to first create a test that fails and then write our functionality code that makes it pass. In this case we just need to write a function that checks for cookies and returns true if there are any cookies, and false if not. We don&#39;t need to concern ourselves with the name of the cookie or its value for now. The test itself is very simple, just a description of what we&#39;re testing, then we call the Age Gateway function and state our expectation. As we haven&#39;t passed the Age Gateway and therefore have not set the cookie yet, we would expect the function that checks for the cookie to return false.</p>
+
+<p>Back in <code>age-gateway.coffee</code> we can now write the function. It looks for a cookie called &#39;diageo-ae-gateway&#39; and returns the cookie value (which will evauate to false if null):</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nv">getCookie = </span><span class="nf">-&gt;</span>
+    <span class="nv">nameEQ = </span><span class="s">&quot;diageo-age-gateway=&quot;</span>
+    <span class="nv">cookieItems = </span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">cookieItem</span> <span class="k">in</span> <span class="nx">cookieItems</span>
+        <span class="k">while</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="s">&#39; &#39;</span>
+            <span class="nv">cookieItem = </span><span class="nx">cookieItem</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">nameEQ</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="nv">cookieValue = </span><span class="nx">cookieItem</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">nameEQ</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+            <span class="nv">cookieValue = </span><span class="nx">cookieValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;/g</span><span class="p">,</span><span class="s">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="nx">cookieValue</span>
+</code></pre></div>
+<p>Save it and the test now passes! That was easy. So now we know if the cookie exists, we need to load the Age Gateway accordingly. </p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should be able to load the age gateway&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;.agegateway-panel&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>In this test we&#39;re expecting the page to have an <code>.agegateway-panel</code> element, which will only evaluate to true if the Age Gateway HTML has been loaded onto the page. So in our AgeGateway function we&#39;ll need another function to load it in via AJAX:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nv">showAgeGateway = </span><span class="nf">-&gt;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">get</span> <span class="s">&quot;age-gateway.html&quot;</span><span class="p">,</span> <span class="nf">(data) -&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s">&quot;.agegateway&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</code></pre></div>
+<p>We&#39;ll also need some functionality to call this function depending on the cookie, which we can do in the <code>init</code> function which is called immediately when the AgeGateway function is initialised.</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nv">init = </span><span class="nf">-&gt;</span>
+    <span class="k">if</span> <span class="o">not</span> <span class="nx">getCookie</span><span class="p">()</span> <span class="k">then</span> <span class="nx">showAgeGateway</span><span class="p">()</span>
+</code></pre></div>
+<p>If you save it now, the test still fails! That&#39;s because loading something via AJAX invariably requires a certain amount of time, and the test is run before the request has time to complete. Therefore in our test suite we need to introduce a delay function:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nv">delay = </span><span class="nf">(ms, func) -&gt;</span> <span class="nx">setTimeout</span> <span class="nx">func</span><span class="p">,</span> <span class="nx">ms</span>
+</code></pre></div>
+<p>So now we can update our test:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should be able to add the age gateway&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span> <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;.agegateway-panel&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>Now the test passes! The Age Gateway will definitely be loaded if the cookie doesn&#39;t exist. What if the cookie does exist? We&#39;ll want to hide the <code>.agegateway</code> element that&#39;s obscuring the page.</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should be able to remove the age gateway&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">ag</span><span class="p">.</span><span class="nx">hideAgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;.agegateway-panel&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">``</span>
+
+<span class="nx">Clearly</span> <span class="nx">we</span> <span class="nx">need</span> <span class="nx">a</span> <span class="o">```</span><span class="nx">hideAgeGateway</span><span class="o">```</span> <span class="nx">function</span> <span class="nx">which</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">run</span> <span class="nx">immediately</span> <span class="p">(</span><span class="nx">called</span> <span class="nx">from</span> <span class="nx">the</span> <span class="o">```</span><span class="nx">init</span><span class="o">```</span> <span class="nx">function</span><span class="p">)</span> <span class="k">if</span> <span class="nx">the</span> <span class="nx">cookie</span> <span class="o">is</span> <span class="o">not</span> <span class="nx">detected</span><span class="p">.</span>
+
+<span class="o">```</span><span class="nx">coffeescript</span>
+<span class="nv">init = </span><span class="nf">-&gt;</span>
+    <span class="k">if</span> <span class="o">not</span> <span class="nx">getCookie</span><span class="p">()</span> <span class="k">then</span> <span class="nx">showAgeGateway</span><span class="p">()</span> <span class="k">else</span> <span class="nx">hideAgeGateway</span><span class="p">()</span>
+
+<span class="nv">hideAgeGateway = </span><span class="nf">-&gt;</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">agegateway</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+</code></pre></div>
+<p>Our test suite is running a new version of the Age Gateway each time, and in some tests we may need to test the cookie-saving functionality. Therefore we need to ensure that the cookie does not exist before every test. Jasmine has a handy feature that allows us to specify a function to run before each and every test:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">beforeEach</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">ag</span><span class="p">.</span><span class="nx">deleteCookie</span><span class="p">()</span>
+</code></pre></div>
+<p>Before we move on to the other requirements, we&#39;ll also need code which confirms that cookies are supported and load in a &#39;no cookies&#39; error when necessary, and also a function to delete the cookie. We won&#39;t go into that here as it&#39;s similar to what we&#39;ve already done, so you should check out the code in the github repository. Nevertheless, it should start to become clear that unit testing like this forces a methodological approach to writing the code, ensuring that we&#39;re always separating out the functionality into small, testable chunks.</p>
+
+<p>The Age Gateway is now checking for the cookie and loading in the form when required. So what about the next requirement? Allow users to select their country, language, and D.O.B. This just needs input validation; that&#39;s easy for country and language but for dates we need to consider:</p>
+
+<ul>
+<li>Different months have different numbers of days</li>
+<li>Leap years have different numbers of days</li>
+</ul>
+
+<p>First of all, we need to register the necessary DOM elements after the Age Gateway is loaded, and also set any event listeners. Of course, we start by writing the tests:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should attach DOM elements once the gateway has loaded in&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">countryInput</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
+    <span class="nx">spyOn</span><span class="p">(</span><span class="nx">ag</span><span class="p">,</span> <span class="s">&quot;attachDOMElements&quot;</span><span class="p">)</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">attachDOMElements</span><span class="p">()).</span><span class="nx">toHaveBeenCalled</span><span class="p">()</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">countryInput</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">defined</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should register when the country is changed&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span> 
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">countryInput</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s">&#39;test1&#39;</span><span class="p">)</span>
+        <span class="nv">c = </span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">countryInput</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">countryInput</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s">&#39;test2&#39;</span><span class="p">)</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">selectedValues</span><span class="p">.</span><span class="nx">country</span><span class="p">).</span><span class="o">not</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+</code></pre></div>
+<p>In these 2 tests we&#39;re doing a few interesting things. In the first, we&#39;re asserting that the DOM element &#39;countryInput&#39; is not immediately definied when the AgeGateway function is called. We&#39;re then spying on the &#39;attachDOMElement function&#39;, which we would expect to have been called after 1 second (after the AJAX request has completed) and then for the &#39;countryInput&#39; element to be defined and to actually refer to a DOM element. In the next test we&#39;re waiting for the Age Gateway to be loaded in, then manually setting the value of the &#39;countryInput&#39; element, storing its value, changing its value, and then comparing the new value with the old one in order to verify that the input&#39;s value has indeed changed. We can do similar tests for all of the other inputs.</p>
+
+<p>The main function of the Gateway is to verify D.O.B. against the legal drinking age requirement for the selected country. So we&#39;ll need to maintain a list of such ages for each country. Below are a series of tests around these requirements. I won&#39;t post the code being tested, but hopefully from these tests you should be able to ascertain what code would be required. Notice that in these tests we&#39;re testing multiple cases in order to verify the functionality:</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should accurately determine if a year is a leap year&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">isLeapYear</span><span class="p">(</span><span class="mi">2012</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">isLeapYear</span><span class="p">(</span><span class="mi">2013</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should accurately determine the number of days in each month, including leap years&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="c1">#All mnths, not a leap year</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="kc">false</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+    <span class="c1">#February, in a leap year</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">numberOfDays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="kc">true</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">29</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should update the days list when a leap year is selected&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span> 
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">monthInput</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">yearInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="s">&quot;2011&quot;</span><span class="p">)</span>
+        <span class="nv">days = </span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&quot;option&quot;</span><span class="p">).</span><span class="nx">length</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">yearInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="s">&quot;2012&quot;</span><span class="p">)</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&quot;option&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="o">not</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">days</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should update the days list when the month is changed&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span> 
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">monthInput</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="nv">days = </span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&quot;option&quot;</span><span class="p">).</span><span class="nx">length</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">monthInput</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">)</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&quot;option&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="o">not</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">days</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should determine the correct legal age limit for each country&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;GB&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;US&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;IN&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;ET&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;JP&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;CA&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;PY&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getLegalAge</span><span class="p">(</span><span class="s">&quot;KZ&quot;</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should verify that selected values comprise a legal drinking age&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="c1">#assuming LDA = 18</span>
+    <span class="c1">#today</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="c1">#25th of this month</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="mi">25</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="c1">#next year</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="c1">#28th June 2012</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="mi">28</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="mi">5</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="c1">#exactly 18 years ago today</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">18</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="c1">#exactly 18 years ago - 1 day</span>
+    <span class="c1">#(probably will fail if you&#39;re testing on the last day of the month)</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">18</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="c1">#exactly 18 years ago + 1 day</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">18</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="c1">#outbreak of world war 2</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="mi">1</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="mi">8</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="mi">1939</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">18</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="c1">#assuming LDA = 21</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="mi">25</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="mi">11</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="mi">1966</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">21</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="c1">#another random date</span>
+    <span class="nv">ag.selectedValues.day = </span><span class="mi">29</span>
+    <span class="nv">ag.selectedValues.month = </span><span class="mi">5</span>
+    <span class="nv">ag.selectedValues.year = </span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">21</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">checkAge</span><span class="p">(</span><span class="mi">21</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+<p>Finally we&#39;ll also need to save a cookie when the user passes the Age Gateway, and the cookie should have an explicit expiry date if the user has checked the &#39;remember me&#39; checkbox.</p>
+<div class="highlight"><pre><code class="coffeescript language-coffeescript" data-lang="coffeescript"><span class="nx">it</span> <span class="s">&quot;should be able to set a cookie with any value&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">ag</span><span class="p">.</span><span class="nx">setCookie</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">parseJSON</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getCookie</span><span class="p">())).</span><span class="nx">toEqual</span> <span class="s">&quot;test&quot;</span>
+    <span class="nx">ag</span><span class="p">.</span><span class="nx">setCookie</span><span class="p">(</span><span class="s">&quot;123456789&quot;</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">parseJSON</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getCookie</span><span class="p">())).</span><span class="nx">toEqual</span> <span class="s">&quot;123456789&quot;</span>
+
+<span class="nv">getCookieExpiry = </span><span class="nf">-&gt;</span>
+    <span class="nv">nameEQ = </span><span class="s">&quot;diageo-age-gateway=&quot;</span>
+    <span class="nv">cookieItems = </span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">cookieItem</span> <span class="k">in</span> <span class="nx">cookieItems</span>
+        <span class="k">while</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="s">&#39; &#39;</span>
+            <span class="nv">cookieItem = </span><span class="nx">cookieItem</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">nameEQ</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="nv">cookieExpiry = </span><span class="nx">cookieItem</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="s">&quot;;expires=&quot;</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">cookieItem</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+            <span class="nv">cookieExpiry = </span><span class="nx">cookieExpiry</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;/g</span><span class="p">,</span><span class="s">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="nx">cookieExpiry</span>
+
+<span class="nx">it</span> <span class="s">&quot;should set a session cookie when the form is submitted and the remember me checkbox is not checked&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span>
+        <span class="nv">ag.selectedValues.country = </span><span class="s">&quot;GB&quot;</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">monthInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">yearInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">1980</span><span class="p">)</span>
+        <span class="nv">ag.selectedValues.rememberme = </span><span class="kc">false</span>
+        <span class="c1">#these functions are called by event listeners on the inputs</span>
+        <span class="c1">#they will save the input values to the selectedValues object</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeDay</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeMonth</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeYear</span><span class="p">()</span>
+        <span class="c1">#this ensures that all the input is valid and the user may pass the age gateway</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">validateForm</span><span class="p">()</span>
+        <span class="nx">delay</span> <span class="mi">100</span><span class="p">,</span> <span class="nf">-&gt;</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getCookie</span><span class="p">()).</span><span class="o">not</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">getCookieExpiry</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
+
+<span class="nx">it</span> <span class="s">&quot;should set a cookie with an explicit expiry date only when the form is submitted with the remember me checkbox checked&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nv">ag = </span><span class="nx">AgeGateway</span><span class="p">()</span>
+    <span class="nx">delay</span> <span class="mi">1000</span><span class="p">,</span> <span class="nf">-&gt;</span>
+        <span class="nv">ag.selectedValues.country = </span><span class="s">&quot;GB&quot;</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">dayInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">monthInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">yearInput</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="mi">1980</span><span class="p">)</span>
+        <span class="nv">ag.selectedValues.rememberme = </span><span class="kc">true</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeDay</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeMonth</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">changeYear</span><span class="p">()</span>
+        <span class="nx">ag</span><span class="p">.</span><span class="nx">validateCountry</span><span class="p">()</span>
+        <span class="nx">delay</span> <span class="mi">100</span><span class="p">,</span> <span class="nf">-&gt;</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">ag</span><span class="p">.</span><span class="nx">getCookie</span><span class="p">()).</span><span class="o">not</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="nx">getCookie</span><span class="p">()).</span><span class="o">not</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
+</code></pre></div>
+<p>That&#39;s it - we have the verified functionality for the Age Gateway already! With a bit more simple front-end code we can build a demo page that implements this Age Gateway code so that it&#39;s ready for testing in the browser! You can check out the demo code in the <code>Archive/diageo-age-gateway</code> repository sub-folder, but we&#39;ll likely go over it later when we come to Testing in Part 4.</p>
+
+<p>In part 3 we&#39;ll go into the more complex features and how we might enhance our existing code to accommodate the advanced features. Please let me know if you have any comments, questions, or suggestions on anything in this post.</p>
+
+
+				</div>
+				
+			</section>
+		
+		</div>
+		
+		<footer class="page-footer" role="contentinfo">
+			<p>&copy; 2013 Profero &ndash; <a href="http://www.profero.com" title="visit our parent company website">www.profero.com</a></p>
+		</footer>
+		
+		<div class="pp"></div>
+		<noscript>
+			<div class="password-panel">
+				<h1>JavaScript</h1>
+				<p>Sorry, you'll need to enable JavaScript to access this blog.</p>
+			</div>
+		</noscript>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="/blog/pp/pp/javascript/pp.min.js"></script>
+		<script>
+			pp = PasswordProtect();
+		</script>
+
+		<!--
+		<script>
+			   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			   ga('create', 'UA-15576216-2', 'proferotech.com');
+			   ga('send', 'pageview');
+		</script>
+		-->
+
+	</body>
+</html>

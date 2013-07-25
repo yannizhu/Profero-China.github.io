@@ -13,7 +13,7 @@ _Estimated Reading Time: 15 minutes_
 This series of articles is going to talk through the workflow to create the ultimate Age Gateway solution, according to Diageo's requirements, from planning through to deployment.
 
 * Part 1: **Planning**
-* Part 2: Basic Features
+* [Part 2: Basic Features](http://proferotech.com/preview/blog/diageo-age-gateway-done-right-part-2/)
 * Part 3: Advanced Features
 * Part 4: Browser Testing
 * Part 5: Deployment, Packaging, and Summary
