@@ -13,6 +13,18 @@
 	}
 }
 
+.whatwedo {
+	h1 {
+		@include transition($slow-transition);
+	}
+
+	.services {
+		.service-wrapper {
+			@include transition($slow-transition);
+		}
+	}
+}
+
 .whyus {
 	h1 {
 		@include transition($slow-transition);

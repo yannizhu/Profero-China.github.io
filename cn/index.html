@@ -23,8 +23,6 @@ layout: default-chinese
 								<div class="button-container">
 									<div class="buttons">
 										
-										<a class="button nextproject" href="#work-carousel" data-slide="next">see another project <i class="icon-right"></i></a>
-										
 			{% if post.link %}
 										
 										<a href="{{ post.link }}" class="button button-primary">访问 {{ post.link }}</a>
@@ -32,6 +30,9 @@ layout: default-chinese
 			{% endif %}
 									</div>
 								</div>
+								
+								<a class="carousel-control left" href="#work-carousel" data-slide="prev"><i class="icon-arrow-left"></i></a>
+								<a class="carousel-control right" href="#work-carousel" data-slide="next"><i class="icon-arrow-right"></i></a>
 							
 							</div>
 							<div class="work-item-body">
@@ -50,8 +51,8 @@ layout: default-chinese
 			{% endfor %}
 												
 											</ul>
-											<a class="carousel-control left" href="#{{ post.imagecarousel }}" data-slide="prev"><i class="icon-left"></i></a>
-											<a class="carousel-control right" href="#{{ post.imagecarousel }}" data-slide="next"><i class="icon-right"></i></a>
+											<!-- <a class="carousel-control left" href="#{{ post.imagecarousel }}" data-slide="prev"><i class="icon-left"></i></a>
+											<a class="carousel-control right" href="#{{ post.imagecarousel }}" data-slide="next"><i class="icon-right"></i></a> -->
 											
 										</div>
 									

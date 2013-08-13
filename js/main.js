@@ -1275,13 +1275,16 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 			navigationLink:				$('nav a[href*=#]'),
 			backtotopButton:			$('.backtotop'),
 			pageHeader:					$('.page-header'),
+			whatwedoSection:			$('#whatwedo'),
 			whyusSection:				$('#whyus'),
 			workSection:				$('#work'),
 			clientsSection:				$('#clients'),
 			testimonialsSection:		$('#testimonials'),
 			contactSection:				$('#contact'),
-			otherReasons:				$(".reason-wrapper:not(:nth-child(3)) .reason"),
-			bigReason:					$(".reason-wrapper:nth-child(3) .reason"),
+			otherServices:				$('.service-wrapper:not(:nth-child(5)) .service'),
+			bigService:					$('.service-wrapper:nth-child(5) .service'),
+			otherReasons:				$('.reason-wrapper:not(:nth-child(5)) .reason'),
+			bigReason:					$('.reason-wrapper:nth-child(5) .reason'),
 			workCarousel:				$('#work-carousel'),
 			workItems:					$('.work-item'),
 			workItemImagesCarousels:	function() {
@@ -1590,6 +1593,10 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 			else
 				el.pageHeader.height(498);
 
+			//make all the 'what we do' services equal height
+			//(one of them is longer/taller than the others)
+			el.otherServices.height(el.bigService.height());
+
 			//make all the 'why us' reasons equal height
 			//(one of them is longer/taller than the others)
 			el.otherReasons.height(el.bigReason.height());
@@ -1621,6 +1628,7 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
 			var el = this.el,
 				headerLoaded = false,
+				whatwedoLoaded = false,
 				whyusLoaded = false,
 				workLoaded = false,
 				clientsLoaded = false,
@@ -1635,6 +1643,18 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 						arrayOfThings.push($(this));
 					});
 					arrayOfThings.push($("nav"));
+					ProferoTech.fadeInItems(arrayOfThings);
+				}
+			}, { offset: $(window).height()*0.7 });
+
+			el.whatwedoSection.waypoint(function(direction) {
+				if(direction == "down" && !whatwedoLoaded){
+					arrayOfThings = [];
+					arrayOfThings.push($(".whatwedo h1"));
+					$(".whatwedo .services").children().each(function() {
+						arrayOfThings.push($(this));
+					});
+					arrayOfThings.push();
 					ProferoTech.fadeInItems(arrayOfThings);
 				}
 			}, { offset: $(window).height()*0.7 });

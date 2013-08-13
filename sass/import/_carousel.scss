@@ -95,7 +95,7 @@
 .carousel-control {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 5px;
   width: $gutter*2;
   height: $gutter*2;
   margin-top: -$gutter;
@@ -109,15 +109,22 @@
   background:transparent;
   text-decoration: none;
   @include border-radius($gutter);
+
+  @include breakpoint(lap) {
+  	left: 10px;
+  }
 }
 .carousel-control.right {
   left: auto;
-  right: 10px;
+  right: 5px;
+  @include breakpoint(lap) {
+  	right: 10px;
+  }
 }
 .carousel-control:active,
 .carousel-control:hover,
 .carousel-control:focus {
-  background: rgba($black,0.5);
+  // background: rgba($black,0.5);
   color: #ffffff;
   text-decoration: none;
 }

@@ -1,0 +1,114 @@
+.whatwedo {
+	margin-bottom: 			$gutter/2;
+}
+
+.services {
+	@extend 				%grid--full;
+}
+
+.service-wrapper {
+	@extend 				%grid__item;
+	@extend 				%one-whole;
+	@extend 				%lap--one-half;
+	@extend 				%desk--one-half;
+
+
+	&:nth-child(6n+1) {
+		&:hover .service {
+			border: 			1px solid $colour1;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour1;
+		}
+	}
+	&:nth-child(6n+2) {
+		&:hover .service {
+			border: 			1px solid $colour2;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour2;
+		}
+	}
+	&:nth-child(6n+3) {
+		&:hover .service {
+			border: 			1px solid $colour3;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour3;
+		}
+	}
+	&:nth-child(6n+4) {
+		&:hover .service {
+			border: 			1px solid $colour4;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour4;
+		}
+	}
+	&:nth-child(6n+5) {
+		&:hover .service {
+			border: 			1px solid $colour5;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour5;
+		}
+	}
+	&:nth-child(6n+6) {
+		&:hover .service {
+			border: 			1px solid $colour6;
+			transition: 		$transition;
+		}
+		i {
+			color: 				$colour6;
+		}
+	}
+
+	&:hover {
+		i {
+			opacity: 		1;
+			transition: 	$transition;
+		}
+	}
+
+}
+
+.service {
+	border: 				1px solid $reallylightgrey;
+	margin: 				$gutter/2;
+	overflow: 				hidden;
+	padding: 				$gutter;
+	text-align: 			center;
+
+	@media print {
+		background: 		$white !important;
+		color: 				$black !important;
+		padding: 			0;
+	}
+
+	i {
+		display: 			block;
+		font-size: 			3em;
+		margin-bottom: 		$gutter;
+		opacity: 			0.4;
+		transition: 		$transition;
+	}
+
+	h3 {
+		font-size: 			1.5em;
+		margin: 			0;
+
+		@include breakpoint(lap) {
+			font-size: 		1.6em;
+		}
+
+		@include breakpoint(desk) {
+			font-size: 		2em;
+		}
+	}
+
+}
