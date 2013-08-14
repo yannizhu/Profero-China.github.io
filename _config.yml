@@ -2,5 +2,5 @@ name: Proferotech
 markdown: redcarpet
 pygments: true
 paginate: 1000
-exclude: ['sass', 'node_modules', '.gitignore', 'config.rb', 'gruntfile.js', 'gzip.rb', 'package.json', 'README.md', 'design', '.sass-cache', 'js/lib', 'proferotech-copy.xlsx']
+exclude: ['sass', 'node_modules', '.gitignore', 'casestudies', 'config.rb', 'gruntfile.js', 'gzip.rb', 'package.json', 'README.md', 'design', '.sass-cache', 'js/lib', 'proferotech-copy.xlsx']
 permalink: /:categories/:title
