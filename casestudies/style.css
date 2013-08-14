@@ -2142,16 +2142,19 @@ footer.entry-meta {
  */
 
 .archive-header {
-	background-color: #e8e5ce;
+	background-color: #f9f9f9;
+	margin: 20px;
+	text-align: center;
 }
 
 .archive-title,
 .archive-meta {
-	font: 300 italic 30px "Source Sans Pro", Helvetica, sans-serif;
+	/*font: 300 normal 30px "Source Sans Pro", Helvetica, sans-serif;*/
 	margin: 0 auto;
 	max-width: 1040px;
 	padding: 30px 0;
 	width: 100%;
+	color:#9b59b6;
 }
 
 .archive-meta {
@@ -2216,6 +2219,10 @@ footer.entry-meta {
 	width: auto;
 }
 
+.error h1 {
+	margin: 0 0 33px;
+}
+
 .error404 .page-title:before {
 	color: #e8e5ce;
 	content: "\f423";
@@ -2228,7 +2235,8 @@ footer.entry-meta {
 }
 
 .error404 .page-wrapper {
-	background-color: #e8e5ce;
+	background-color: #34495e;
+	color: #FFFFFF;
 }
 
 .error404 .page-header,
@@ -2239,6 +2247,16 @@ footer.entry-meta {
 	width: 100%;
 }
 
+.centred {
+	text-align: center;
+}
+
+.error404 input {
+	border: 2px solid #2c3e50;
+	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 2px 1px rgba(0,0,0,0.3);
+	box-shadow: 0 2px 1px rgba(0,0,0,0.3);
+}
 
 /**
  * 5.12 Comments

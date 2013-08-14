@@ -45,7 +45,7 @@
 		</div>
 		<header id="masthead" class="site-header" role="banner">
 			<div class="header-area">
-				<h1><?php bloginfo( 'name' ); ?></h1>
+				<h1>If-spirations</h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
 			</div>
 		</header><!-- #masthead -->

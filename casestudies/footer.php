@@ -18,6 +18,15 @@
 			
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
+	
+	<div id="letsgetstarted" class="reveal-modal">
+		<h1>Let's get started!</h1>
+		<h2>send us an email and let's talk about what we can do for your brand</h2>
+		<div class="button-group">
+			<a href="mailto:tech@profero.com" class="button emailus"><i class="icon-envelope"></i> tech@profero.com</a>
+			<a href="#" class="button close close-reveal-modal">close &#215;</a>
+		</div>
+	</div>
 
 	<?php wp_footer(); ?>
 </body>
