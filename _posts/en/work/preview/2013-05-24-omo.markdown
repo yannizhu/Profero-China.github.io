@@ -2,28 +2,19 @@
 categories: preview work
 date: 2013-04-24 00:04:02
 imagecarousel: work-images-carousel4
-imagequantity: 6
+imagequantity: 5
 language: english
 tagline: Native applications and regular campaign sites
 title: OMO
 ---
 
-#### what is the opportunity
-OMO is China’s leading brand of detergent, and is owned by Unilever.
-
 #### what did we do?
-We regularly create apps for young children to learn while playing games and for families to play together. Such apps have featured events calendars, weather information, recipes, and more.
-
-In addition, we created an online platform for consumers to freely ask questions about any aspect of laundry.
+OMO is China’s leading brand of detergent, and is owned by Unilever. We regularly create apps for young children to learn while playing games and for families to play together. Such apps have featured events calendars, weather information, recipes, and more. In addition, we created an online platform for consumers to freely ask questions about any aspect of laundry.
 
 As a bonus charity feature, the apps have a counter facility which users contribute to by playing the games. Points earned go towards buying equipment for disadvantaged children.
 
-#### how we did it
-
-All the minisites and applications are built using:
-* HTML
-* JavaScript
-* CSS
+#### how did we do it?
+* All of the minisites and applications are built using HTML, CSS, & JavaScript
 
 #### our results
 Through successful consumer engagement for OMO, we have been contracted to work for other Unilever brands. By leveraging social media to support our work for OMO, we were awarded the '*Golden Mouse*' Gold award for social media in 2013.

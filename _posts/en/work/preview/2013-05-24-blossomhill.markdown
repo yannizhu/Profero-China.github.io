@@ -16,7 +16,8 @@ We implemented features to allow consumers to share content as much as possible,
 We also implemented Google analytics tracking to provide further insight into consumer behaviour and demographics on top of the usage data that Facebook itself provides.
 
 #### how did we do it?
-We accomplished a rich and animated user interface through the use of HTML5, CSS, and JavaScript with the .NET framework on the back end storing the data and integrating with Facebook.
+* rich and animated user interface using HTML5, CSS, and JavaScript
+* .NET framework on the back end for storing consumer data and integrating with Facebook
 
 #### our results
 * 30,000 monthly active users

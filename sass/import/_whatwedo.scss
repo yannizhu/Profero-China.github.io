@@ -9,67 +9,85 @@
 .service-wrapper {
 	@extend 				%grid__item;
 	@extend 				%one-whole;
-	@extend 				%lap--one-half;
-	@extend 				%desk--one-half;
+	@extend 				%lap--one-third;
+	@extend 				%desk--one-quarter;
 
 
 	&:nth-child(6n+1) {
 		&:hover .service {
-			border: 			1px solid $colour1;
-			transition: 		$transition;
+			border: 		1px solid $colour1;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour1;
+			color: 			$colour1;
+		}
+		p {
+			background: 	$colour1;
 		}
 	}
 	&:nth-child(6n+2) {
 		&:hover .service {
-			border: 			1px solid $colour2;
-			transition: 		$transition;
+			border: 		1px solid $colour2;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour2;
+			color: 			$colour2;
+		}
+		p {
+			background: 	$colour2;
 		}
 	}
 	&:nth-child(6n+3) {
 		&:hover .service {
-			border: 			1px solid $colour3;
-			transition: 		$transition;
+			border: 		1px solid $colour3;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour3;
+			color: 			$colour3;
+		}
+		p {
+			background: 	$colour3;
 		}
 	}
 	&:nth-child(6n+4) {
 		&:hover .service {
-			border: 			1px solid $colour4;
-			transition: 		$transition;
+			border: 		1px solid $colour4;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour4;
+			color: 			$colour4;
+		}
+		p {
+			background: 	$colour4;
 		}
 	}
 	&:nth-child(6n+5) {
 		&:hover .service {
-			border: 			1px solid $colour5;
-			transition: 		$transition;
+			border: 		1px solid $colour5;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour5;
+			color: 			$colour5;
+		}
+		p {
+			background: 	$colour5;
 		}
 	}
 	&:nth-child(6n+6) {
 		&:hover .service {
-			border: 			1px solid $colour6;
-			transition: 		$transition;
+			border: 		1px solid $colour6;
+			transition: 	$transition;
 		}
 		i {
-			color: 				$colour6;
+			color: 			$colour6;
+		}
+		p {
+			background: 	$colour6;
 		}
 	}
 
 	&:hover {
-		i {
+		p {
 			opacity: 		1;
 			transition: 	$transition;
 		}
@@ -77,11 +95,20 @@
 
 }
 
+.offset-desk {
+	@extend 				%push--desk--one-quarter;
+}
+
+.offset-lap {
+	@extend 				%push--lap--one-third;
+}
+
 .service {
-	border: 				1px solid $reallylightgrey;
+	border: 				1px solid $lightergrey;
 	margin: 				$gutter/2;
 	overflow: 				hidden;
 	padding: 				$gutter;
+	position: 				relative;
 	text-align: 			center;
 
 	@media print {
@@ -94,7 +121,6 @@
 		display: 			block;
 		font-size: 			3em;
 		margin-bottom: 		$gutter;
-		opacity: 			0.4;
 		transition: 		$transition;
 	}
 
@@ -109,6 +135,20 @@
 		@include breakpoint(desk) {
 			font-size: 		2em;
 		}
+	}
+
+	p {
+		bottom: 			0;
+		color: 				$white;
+		font-size: 			125%;
+		left: 				0;
+		margin: 			0;
+		opacity: 			0;
+		padding: 			$gutter;
+		position: 			absolute;
+		right: 				0;
+		top: 				0;
+		transition: 		$transition;
 	}
 
 }

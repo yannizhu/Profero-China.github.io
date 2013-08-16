@@ -14,5 +14,8 @@ Catalent prides itself on innovation and so the global website had to reflect th
 
 #### how did we do it?
 * Built using HTML, CSS, and a lot of JavaScript
-* It was developed for an Apache server, using PHP and Mysql
+* PHP and Mysql on the back end
 * EZ Publish is used as the Content Management System for all versions and locales
+
+#### our results
+* need to put some stats here
