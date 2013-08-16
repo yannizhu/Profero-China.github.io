@@ -205,6 +205,15 @@
 .work-item-text {
 	text-align: 				center;
 
+	ul {
+		list-style: 			circle inside;
+		padding: 				0 10px;
+
+		@include breakpoint(lap) {
+			list-style: 		circle outside;
+		}
+	}
+
 	li {
 		line-height: 			1.4;
 		margin: 				$gutter/2 0;
