@@ -86,6 +86,8 @@
 		}
 	}
 
+	&:active,
+	&:focus,
 	&:hover {
 		p {
 			opacity: 		1;
@@ -100,7 +102,7 @@
 }
 
 .offset-lap {
-	@extend 				%push--lap--one-third;
+	@extend 				%push--lap--one-sixth;
 }
 
 .service {
@@ -144,11 +146,15 @@
 		left: 				0;
 		margin: 			0;
 		opacity: 			0;
-		padding: 			$gutter;
+		padding: 			$gutter/2;
 		position: 			absolute;
 		right: 				0;
 		top: 				0;
 		transition: 		$transition;
+
+		@include breakpoint(desk) {
+			padding: 		$gutter;
+		}
 	}
 
 }
